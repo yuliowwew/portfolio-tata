@@ -1300,10 +1300,8 @@ document.addEventListener('keydown', function(e) {
     if (p.videoGallery && p.videoGallery.length) {
       h += '<div class="modal-section-label">Videos</div>';
       h += '<div class="modal-video-gallery">';
-      var firstRatio = p.videoGallery[0].ratio || '16/9';
-      var firstRatioClass = firstRatio === '9/16' ? 'ratio-9-16' : 'ratio-16-9';
-      h += '<div class="modal-video-main '+firstRatioClass+'" id="videoMain_'+key+'">';
-      h += '<video src="'+p.videoGallery[0].url+'" poster="'+(p.videoGallery[0].poster||'')+'" controls playsinline id="mainVid_'+key+'"></video>';
+      h += '<div class="modal-video-main ratio-16-9" id="videoMain_'+key+'">';
+      h += '<video src="'+(p.video||p.videoGallery[0].url)+'" controls playsinline id="mainVid_'+key+'"></video>';
       h += '</div>';
       h += '<div class="modal-video-thumbs" id="thumbs_'+key+'">';
       p.videoGallery.forEach(function(v, i){
