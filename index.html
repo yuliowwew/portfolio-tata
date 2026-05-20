@@ -793,7 +793,7 @@ footer{background:var(--black);border-top:var(--dark-border);}
 .modal-video-main{width:100%;border:2px solid var(--black);overflow:hidden;position:relative;background:#000;transition:aspect-ratio .3s;}
 .modal-video-main.ratio-16-9{aspect-ratio:16/9;}
 .modal-video-main.ratio-9-16{aspect-ratio:9/16;max-width:420px;margin:0 auto;}
-.modal-video-main video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.modal-video-main video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;}
 .modal-video-thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:0.5rem;}
 .modal-video-thumb{
   aspect-ratio:1;border:2px solid transparent;
@@ -1005,7 +1005,7 @@ footer{background:var(--black);border-top:var(--dark-border);}
     <div class="p-item" data-project="static-posts" style="cursor:pointer;background-image:url('https://res.cloudinary.com/dwhsnfsoa/image/upload/q_auto/f_auto/v1779301545/drama/dec76e238407689.69152eb2b9a06_dqdxqx.jpg');background-size:cover;background-position:center;"><div class="p-placeholder" style="background:rgba(0,0,0,0.45);"></div><div class="p-info"><div class="p-cat">Content Creation</div><div class="p-title">Drama SP</div></div></div>
     <div class="p-item" data-project="website" style="cursor:pointer;"><div class="p-placeholder"><div class="p-placeholder-box"><span class="p-placeholder-label">project image</span></div></div><div class="p-info"><div class="p-cat">Development</div><div class="p-title">Website Project</div></div></div>
     <div class="p-item" data-project="brand-identity" style="cursor:pointer;background-image:url('https://i.pinimg.com/originals/40/ed/e7/40ede7c8bd1527ed82574cf70c369a90.jpg');background-size:cover;background-position:center;"><div class="p-placeholder" style="background:rgba(0,0,0,0.35);"></div><div class="p-info"><div class="p-cat">Digital Art</div><div class="p-title">Digital Art</div></div></div>
-    <div class="p-item" data-project="flavia-madeira" style="cursor:pointer;background-image:url('https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/flavia%20madeira/IMG_9976.jpg');background-size:cover;background-position:center;"><div class="p-placeholder" style="background:rgba(0,0,0,0.45);"></div><div class="p-info"><div class="p-cat">Social Media</div><div class="p-title">Flavia Madeira</div></div></div>
+    <div class="p-item" data-project="flavia-madeira" style="cursor:pointer;background-image:url('https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/flaviamadeira/IMG_9976.jpg');background-size:cover;background-position:center;"><div class="p-placeholder" style="background:rgba(0,0,0,0.45);"></div><div class="p-info"><div class="p-cat">Social Media</div><div class="p-title">Flavia Madeira</div></div></div>
     <div class="p-item" data-project="ecosystem" style="cursor:pointer;"><div class="p-placeholder"><div class="p-placeholder-box"><span class="p-placeholder-label">featured project</span></div></div><div class="p-info"><div class="p-cat">Full Ecosystem</div><div class="p-title">Strategy + Design + Copy</div></div></div>
   </div>
 </section>
@@ -1275,14 +1275,14 @@ document.addEventListener('keydown', function(e) {
       desc: 'Flavia Madeira is a fashion jewelry brand driven by visual language, where image and movement are central to the brand\'s expression. I worked on the creation and development of social media content, exploring narrative, rhythm, and experimentation across visual, audiovisual, and textual formats, with a focus on strengthening the brand\'s voice and digital positioning. The brand operates with themed collections that carry strong concepts and narratives. The content challenge was to build a voice that translated this authorial depth—selling meaning before selling the product, in a tone that resonates with an audience that values significance and refinement.',
       tags: ['Social Media', 'Content Creation', 'Creative Direction', 'Copywriting', 'Visual Narrative'],
       images: [
-        'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/flavia%20madeira/IMG_9976.jpg',
-        'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/flavia%20madeira/IMG_9977.jpg',
-        'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/flavia%20madeira/IMG_9978.jpg'
+        'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/flaviamadeira/IMG_9976.jpg',
+        'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/flaviamadeira/IMG_9977.jpg',
+        'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/flaviamadeira/IMG_9978.jpg'
       ],
       imageRow: [],
-      video: 'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/flavia%20madeira/escadinha.mp4',
+      video: 'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/flaviamadeira/escadinha.mp4',
       videoGallery: [
-        { url: 'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/flavia%20madeira/escadinha.mp4', poster: '', label: 'Escadinha', ratio: '9/16' }
+        { url: 'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/flaviamadeira/escadinha.mp4', poster: '', label: 'Escadinha', ratio: '16/9' }
       ],
       results: [
         { num: 'Narrative', label: 'Content' },
@@ -1324,21 +1324,24 @@ document.addEventListener('keydown', function(e) {
       h += '<div class="modal-video-main ratio-16-9" id="videoMain_'+key+'">';
       h += '<video src="'+(p.video||p.videoGallery[0].url)+'" controls playsinline id="mainVid_'+key+'"></video>';
       h += '</div>';
-      h += '<div class="modal-video-thumbs" id="thumbs_'+key+'">';
-      p.videoGallery.forEach(function(v, i){
-        var activeClass = i === 0 ? ' active' : '';
-        var ratio = v.ratio || '16/9';
-        var colors = ['#7EE8A2','#FF2D78','#FFEC00','#FF2D78','#7EE8A2','#FF4D00','#FF2D78','#FFEC00'];
-        var textColors = ['#111111','#111111','#111111','#111111','#111111','#111111','#111111','#111111'];
-        var bg = colors[i % colors.length];
-        var fg = textColors[i % textColors.length];
-        var onclickFn = 'switchVideo(\''+key+'\',\''+v.url+'\',\''+ratio+'\',\''+v.label+'\',this)';
-        h += '<div class="modal-video-thumb" onclick="'+onclickFn+'" style="background:'+bg+';">';
-        h += '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;font-size:1.4rem;color:'+fg+';opacity:0.8;">▶</div>';
-        if (v.label) h += '<div class="modal-video-thumb-label" style="pointer-events:none;color:'+fg+';">'+v.label+'</div>';
+      if (p.videoGallery.length > 1) {
+        h += '<div class="modal-video-thumbs" id="thumbs_'+key+'">';
+        p.videoGallery.forEach(function(v, i){
+          var activeClass = i === 0 ? ' active' : '';
+          var ratio = v.ratio || '16/9';
+          var colors = ['#7EE8A2','#FF2D78','#FFEC00','#FF2D78','#7EE8A2','#FF4D00','#FF2D78','#FFEC00'];
+          var textColors = ['#111111','#111111','#111111','#111111','#111111','#111111','#111111','#111111'];
+          var bg = colors[i % colors.length];
+          var fg = textColors[i % textColors.length];
+          var onclickFn = 'switchVideo(\''+key+'\',\''+v.url+'\',\''+ratio+'\',\''+v.label+'\',this)';
+          h += '<div class="modal-video-thumb" onclick="'+onclickFn+'" style="background:'+bg+';">';
+          h += '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;font-size:1.4rem;color:'+fg+';opacity:0.8;">▶</div>';
+          if (v.label) h += '<div class="modal-video-thumb-label" style="pointer-events:none;color:'+fg+';">'+v.label+'</div>';
+          h += '</div>';
+        });
         h += '</div>';
-      });
-      h += '</div></div>';
+      }
+      h += '</div>';
     } else if (p.video) {
       var isYT = p.video.indexOf('youtube') > -1 || p.video.indexOf('youtu.be') > -1;
       if (isYT) {
