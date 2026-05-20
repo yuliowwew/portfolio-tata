@@ -1280,6 +1280,7 @@ document.querySelectorAll('.filter-btn').forEach(btn=>{
     overlay.classList.add('open');
     overlay.scrollTop = 0;
     document.body.style.overflow = 'hidden';
+    setTimeout(bindThumbs, 50);
     // history.pushState disabled in preview
   }
 
