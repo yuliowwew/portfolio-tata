@@ -817,12 +817,13 @@ footer{background:var(--black);border-top:var(--dark-border);}
   font-size:1.2rem;color:rgba(255,255,255,0.5);
   background:rgba(0,0,0,0.5);
   transition:color .15s,background .15s;
+  pointer-events:none;
 }
 .modal-video-thumb:hover .modal-thumb-play,
 .modal-video-thumb.active .modal-thumb-play{
   color:var(--magenta);background:rgba(0,0,0,0.7);
 }
-.modal-video-thumb-label{z-index:2;}
+.modal-video-thumb-label{z-index:2;pointer-events:none;}
 
 </style>
 </head>
