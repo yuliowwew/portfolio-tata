@@ -1135,6 +1135,25 @@ document.querySelectorAll('.filter-btn').forEach(btn=>{
 
 
 <script>
+function switchVideo(key, src, ratio, thumbEl) {
+  var mainVid = document.getElementById('mainVid_' + key);
+  var mainContainer = document.getElementById('videoMain_' + key);
+  if (mainVid) {
+    mainVid.pause();
+    mainVid.src = src;
+    mainVid.load();
+  }
+  if (mainContainer) {
+    mainContainer.classList.remove('ratio-16-9', 'ratio-9-16');
+    mainContainer.classList.add(ratio === '9/16' ? 'ratio-9-16' : 'ratio-16-9');
+    mainContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+  var thumbs = document.querySelectorAll('.modal-video-thumb');
+  for (var i = 0; i < thumbs.length; i++) thumbs[i].classList.remove('active');
+  thumbEl.classList.add('active');
+}
+</script>
+<script>
 (function() {
   var PROJECTS = {
     'static-posts': {
@@ -1239,8 +1258,10 @@ document.querySelectorAll('.filter-btn').forEach(btn=>{
       h += '<div class="modal-video-thumbs" id="thumbs_'+key+'">';
       p.videoGallery.forEach(function(v, i){
         var activeClass = i === 0 ? ' active' : '';
-        var posterStyle = v.poster ? 'background-image:url('+v.poster+');background-size:cover;background-position:center;' : '';
-        h += '<div class="modal-video-thumb'+activeClass+'" data-src="'+v.url+'" data-poster="'+(v.poster||'')+'" data-key="'+key+'" data-idx="'+i+'" data-ratio="'+(v.ratio||'16/9')+'" style="'+posterStyle+'">';
+        var ratio = v.ratio || '16/9';
+        var ratioClass = ratio === '9/16' ? 'ratio-9-16' : 'ratio-16-9';
+        var onclickFn = 'switchVideo(\''+key+'\',\''+v.url+'\',\''+ratio+'\',this)';
+        h += '<div class="modal-video-thumb'+activeClass+'" onclick="'+onclickFn+'">';
         h += '<div class="modal-thumb-play">▶</div>';
         h += '<div class="modal-video-thumb-label">'+v.label+'</div>';
         h += '</div>';
@@ -1280,7 +1301,6 @@ document.querySelectorAll('.filter-btn').forEach(btn=>{
     overlay.classList.add('open');
     overlay.scrollTop = 0;
     document.body.style.overflow = 'hidden';
-    setTimeout(bindThumbs, 50);
     // history.pushState disabled in preview
   }
 
