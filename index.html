@@ -787,6 +787,28 @@ footer{background:var(--black);border-top:var(--dark-border);}
   .modal-result:last-child{border-bottom:none;}
 }
 
+
+/* VIDEO GALLERY */
+.modal-video-gallery{display:flex;flex-direction:column;gap:1rem;margin-bottom:2.5rem;}
+.modal-video-main{width:100%;border:2px solid var(--black);overflow:hidden;position:relative;aspect-ratio:9/16;background:#000;}
+.modal-video-main video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;}
+.modal-video-thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:0.5rem;}
+.modal-video-thumb{
+  aspect-ratio:9/16;border:2px solid transparent;
+  background:#111;overflow:hidden;position:relative;
+  cursor:pointer;transition:border-color .15s;
+}
+.modal-video-thumb.active{border-color:var(--magenta);}
+.modal-video-thumb:hover{border-color:rgba(212,33,92,0.5);}
+.modal-video-thumb video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;}
+.modal-video-thumb-label{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:0.3rem 0.4rem;
+  background:rgba(0,0,0,0.7);
+  font-family:var(--tech);font-size:0.55rem;letter-spacing:0.06em;
+  color:rgba(255,255,255,0.6);text-align:center;
+}
+
 </style>
 </head>
 <body>
@@ -924,7 +946,7 @@ footer{background:var(--black);border-top:var(--dark-border);}
     </div>
   </div>
   <div class="portfolio-grid">
-    <div class="p-item" data-project="static-posts" style="cursor:pointer;"><div class="p-placeholder"><div class="p-placeholder-box"><span class="p-placeholder-label">project image</span></div></div><div class="p-info"><div class="p-cat">Social Media Design</div><div class="p-title">Static Posts</div></div></div>
+    <div class="p-item" data-project="static-posts" style="cursor:pointer;background-image:url('https://res.cloudinary.com/dwhsnfsoa/image/upload/q_auto/f_auto/v1779301545/drama/dec76e238407689.69152eb2b9a06_dqdxqx.jpg');background-size:cover;background-position:center;"><div class="p-placeholder" style="background:rgba(0,0,0,0.45);"></div><div class="p-info"><div class="p-cat">Content Creation</div><div class="p-title">Drama SP</div></div></div>
     <div class="p-item" data-project="website" style="cursor:pointer;"><div class="p-placeholder"><div class="p-placeholder-box"><span class="p-placeholder-label">project image</span></div></div><div class="p-info"><div class="p-cat">Development</div><div class="p-title">Website Project</div></div></div>
     <div class="p-item" data-project="brand-identity" style="cursor:pointer;"><div class="p-placeholder"><div class="p-placeholder-box"><span class="p-placeholder-label">project image</span></div></div><div class="p-info"><div class="p-cat">Digital Art</div><div class="p-title">Brand Identity</div></div></div>
     <div class="p-item" data-project="reels" style="cursor:pointer;"><div class="p-placeholder"><div class="p-placeholder-box"><span class="p-placeholder-label">project image</span></div></div><div class="p-info"><div class="p-cat">Short-Form Video</div><div class="p-title">Reels & TikTok</div></div></div>
@@ -1100,11 +1122,29 @@ document.querySelectorAll('.filter-btn').forEach(btn=>{
 (function() {
   var PROJECTS = {
     'static-posts': {
-      cat: 'Social Media Design', title: 'Static Posts',
-      desc: 'Add your project description here.',
-      tags: ['Social Media', 'Design', 'Canva', 'Figma'],
-      images: ['',''], imageRow: ['',''], video: '',
-      results: [{num:'+120%',label:'Engagement'},{num:'3 mo',label:'Timeline'},{num:'5.0',label:'Rating'}],
+      cat: 'Content Creation',
+      title: 'Drama — Content Creation',
+      desc: 'DRAMA SP is a Brazilian bikini brand defined by a provocative, irreverent and unapologetically bold tone of voice. I led content creation and creative direction for brand campaigns and activations, including anniversary campaigns, pre-launch hype content and behind-the-scenes, translating DRAMA SP\'s identity into consistent visual and audiovisual narratives.',
+      tags: ['Content Creation', 'Video Direction', 'Social Media', 'Copywriting', 'Brand Voice'],
+      images: [
+        'https://res.cloudinary.com/dwhsnfsoa/image/upload/q_auto/f_auto/v1779301545/drama/dec76e238407689.69152eb2b9a06_dqdxqx.jpg',
+        'https://res.cloudinary.com/dwhsnfsoa/image/upload/q_auto/f_auto/v1779301545/drama/729e7a238407689.6914329ed9eb9_hnypmi.jpg'
+      ],
+      imageRow: [],
+      video: 'https://res.cloudinary.com/dwhsnfsoa/video/upload/q_auto/f_auto/v1779301548/drama/carnadrama_zjtrhu.mp4',
+      videoGallery: [
+        { url: 'https://res.cloudinary.com/dwhsnfsoa/video/upload/q_auto/f_auto/v1779301548/drama/carnadrama_zjtrhu.mp4', label: 'Carna Drama' },
+        { url: 'https://res.cloudinary.com/dwhsnfsoa/video/upload/q_auto/f_auto/v1779301547/drama/Atenc%CC%A7a%CC%83o_Misses_desse_Brasil_ESTA%CC%83O_PREPARADAS_nosso_aquecimento_esta%CC%81_com_forc%CC%A7a_total_com_ewfdja.mp4', label: 'Misses Brazil' },
+        { url: 'https://res.cloudinary.com/dwhsnfsoa/video/upload/q_auto/f_auto/v1779301545/drama/TDX_PRONTX_PRO_FDS_aqui_juntamos_4_regras_pro_Carnaval-_1%C2%BA_Arriba2%C2%BA_Abajo3%C2%BA_Al_Centro_4%C2%BA_Ade_ofduvx.mp4', label: 'Carnival Rules' },
+        { url: 'https://res.cloudinary.com/dwhsnfsoa/video/upload/q_auto/f_auto/v1779301548/drama/READY_GO_SS25_sexta-feira._Vai_ser_fora_da_curva_ta%CC%81_preparada..._ss25_race_vera%CC%83o_b_whsd45.mp4', label: 'Ready Go SS25' },
+        { url: 'https://res.cloudinary.com/dwhsnfsoa/video/upload/q_auto/f_auto/v1779301545/drama/sem_legenda_para_mais_informac%CC%A7o%CC%83es_DM_video_thayxna_ykbe6d.mp4', label: 'DM Video' },
+        { url: 'https://res.cloudinary.com/dwhsnfsoa/video/upload/q_auto/f_auto/v1779301545/drama/Oi_vem_pro_meu_niver_Falta_so%CC%81_1_dia_para_voce%CC%82_comemorar_conosco_5_anos_de_pura_dramaturgia_pyuefv.mp4', label: 'Anniversary' }
+      ],
+      results: [
+        { num: '+250K', label: 'Interactions' },
+        { num: 'R$30K', label: 'Sales in 1 month' },
+        { num: '6', label: 'Videos produced' }
+      ],
       externalLink: ''
     },
     'website': {
@@ -1156,13 +1196,35 @@ document.querySelectorAll('.filter-btn').forEach(btn=>{
       h += '<div class="modal-tags">'+p.tags.map(function(t){return '<span class="modal-tag">'+t+'</span>';}).join('')+'</div>';
     }
     h += '<div class="modal-media">';
-    if (p.images) p.images.forEach(function(s){ h += img(s, p.title); });
-    if (p.imageRow && p.imageRow.length) {
-      h += '<div class="modal-img-row">';
-      p.imageRow.forEach(function(s){ h += img(s, p.title); });
-      h += '</div>';
+
+    // images
+    if (p.images && p.images.length) {
+      if (p.images.length === 2) {
+        h += '<div class="modal-img-row">';
+        p.images.forEach(function(s){ h += img(s, p.title); });
+        h += '</div>';
+      } else {
+        p.images.forEach(function(s){ h += img(s, p.title); });
+      }
     }
-    if (p.video) {
+
+    // video gallery
+    if (p.videoGallery && p.videoGallery.length) {
+      h += '<div class="modal-section-label">Videos</div>';
+      h += '<div class="modal-video-gallery">';
+      h += '<div class="modal-video-main" id="videoMain_'+key+'">';
+      h += '<video src="'+p.videoGallery[0].url+'" controls playsinline autoplay muted id="mainVid_'+key+'"></video>';
+      h += '</div>';
+      h += '<div class="modal-video-thumbs" id="thumbs_'+key+'">';
+      p.videoGallery.forEach(function(v, i){
+        var activeClass = i === 0 ? ' active' : '';
+        h += '<div class="modal-video-thumb'+activeClass+'" data-src="'+v.url+'" data-key="'+key+'" data-idx="'+i+'">';
+        h += '<video src="'+v.url+'" muted playsinline preload="metadata"></video>';
+        h += '<div class="modal-video-thumb-label">'+v.label+'</div>';
+        h += '</div>';
+      });
+      h += '</div></div>';
+    } else if (p.video) {
       var isYT = p.video.indexOf('youtube') > -1 || p.video.indexOf('youtu.be') > -1;
       if (isYT) {
         h += '<div class="modal-video-wrap"><iframe src="'+p.video+'" allowfullscreen></iframe></div>';
@@ -1172,6 +1234,7 @@ document.querySelectorAll('.filter-btn').forEach(btn=>{
     } else {
       h += '<div class="modal-video-wrap"><div class="modal-video-placeholder"><span class="play-icon">▶</span><span>add video URL in PROJECTS</span></div></div>';
     }
+
     h += '</div>';
     if (p.results && p.results.length) {
       h += '<div class="modal-section-label">Results</div><div class="modal-results">';
