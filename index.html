@@ -1219,15 +1219,14 @@ document.addEventListener('keydown', function(e) {
       imageRow: [],
       video: 'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/drama/dramavideo4.mp4',
       videoGallery: [
-        { url: 'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/drama/dramavideo4.mp4', poster: '', label: 'Carna Drama', ratio: '16/9' },
-        { url: 'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/drama/dramavideo1.mp4', poster: '', label: 'Video 2', ratio: '16/9' },
-        { url: 'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/drama/dramavideo3.mp4', poster: '', label: 'Video 3', ratio: '16/9' },
-        { url: 'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/drama/dramavideo6.mp4', poster: '', label: 'Video 4', ratio: '9/16' },
-        { url: 'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/drama/dramavideo7.mp4', poster: '', label: 'Video 5', ratio: '9/16' },
-        { url: 'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/drama/dramavideo8.mp4', poster: '', label: 'Video 6', ratio: '9/16' },
-        { url: 'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/drama/dramavideo10.mp4', poster: '', label: 'Video 7', ratio: '9/16' },
-        { url: 'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/drama/dramavideo11.mp4', poster: '', label: 'Video 8', ratio: '9/16' },
-        { url: 'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/drama/dramavideo12.mp4', poster: '', label: 'Video 9', ratio: '9/16' }
+        { url: 'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/drama/dramavideo1.mp4', poster: '', label: '', ratio: '16/9' },
+        { url: 'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/drama/dramavideo3.mp4', poster: '', label: '', ratio: '16/9' },
+        { url: 'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/drama/dramavideo6.mp4', poster: '', label: '', ratio: '9/16' },
+        { url: 'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/drama/dramavideo7.mp4', poster: '', label: '', ratio: '9/16' },
+        { url: 'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/drama/dramavideo8.mp4', poster: '', label: '', ratio: '9/16' },
+        { url: 'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/drama/dramavideo10.mp4', poster: '', label: '', ratio: '9/16' },
+        { url: 'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/drama/dramavideo11.mp4', poster: '', label: '', ratio: '9/16' },
+        { url: 'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/drama/dramavideo12.mp4', poster: '', label: '', ratio: '9/16' }
       ],
       results: [
         { num: '+250K', label: 'Interactions' },
@@ -1312,8 +1311,9 @@ document.addEventListener('keydown', function(e) {
         var ratio = v.ratio || '16/9';
         var onclickFn = 'switchVideo(\''+key+'\',\''+v.url+'\',\''+ratio+'\',\''+v.label+'\',this)';
         h += '<div class="modal-video-thumb" onclick="'+onclickFn+'">';
-        h += '<div class="modal-thumb-play">▶</div>';
-        h += '<div class="modal-video-thumb-label">'+v.label+'</div>';
+        h += '<video src="'+v.url+'#t=0.5" preload="metadata" muted playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;"></video>';
+        h += '<div class="modal-thumb-play" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.35);pointer-events:none;">▶</div>';
+        if (v.label) h += '<div class="modal-video-thumb-label" style="pointer-events:none;">'+v.label+'</div>';
         h += '</div>';
       });
       h += '</div></div>';
