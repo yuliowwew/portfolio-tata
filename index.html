@@ -1004,7 +1004,7 @@ footer{background:var(--black);border-top:var(--dark-border);}
   <div class="portfolio-grid">
     <div class="p-item" data-project="static-posts" style="cursor:pointer;background-image:url('https://res.cloudinary.com/dwhsnfsoa/image/upload/q_auto/f_auto/v1779301545/drama/dec76e238407689.69152eb2b9a06_dqdxqx.jpg');background-size:cover;background-position:center;"><div class="p-placeholder" style="background:rgba(0,0,0,0.45);"></div><div class="p-info"><div class="p-cat">Content Creation</div><div class="p-title">Drama SP</div></div></div>
     <div class="p-item" data-project="website" style="cursor:pointer;"><div class="p-placeholder"><div class="p-placeholder-box"><span class="p-placeholder-label">project image</span></div></div><div class="p-info"><div class="p-cat">Development</div><div class="p-title">Website Project</div></div></div>
-    <div class="p-item" data-project="brand-identity" style="cursor:pointer;"><div class="p-placeholder"><div class="p-placeholder-box"><span class="p-placeholder-label">project image</span></div></div><div class="p-info"><div class="p-cat">Digital Art</div><div class="p-title">Brand Identity</div></div></div>
+    <div class="p-item" data-project="brand-identity" style="cursor:pointer;background-image:url('https://i.pinimg.com/736x/40/ed/e7/40ede7c8bd1527ed82574cf70c369a90.jpg');background-size:cover;background-position:center;"><div class="p-placeholder" style="background:rgba(0,0,0,0.35);"></div><div class="p-info"><div class="p-cat">Digital Art</div><div class="p-title">Digital Art</div></div></div>
     <div class="p-item" data-project="reels" style="cursor:pointer;"><div class="p-placeholder"><div class="p-placeholder-box"><span class="p-placeholder-label">project image</span></div></div><div class="p-info"><div class="p-cat">Short-Form Video</div><div class="p-title">Reels & TikTok</div></div></div>
     <div class="p-item" data-project="ecosystem" style="cursor:pointer;"><div class="p-placeholder"><div class="p-placeholder-box"><span class="p-placeholder-label">featured project</span></div></div><div class="p-info"><div class="p-cat">Full Ecosystem</div><div class="p-title">Strategy + Design + Copy</div></div></div>
   </div>
@@ -1244,11 +1244,29 @@ document.addEventListener('keydown', function(e) {
       externalLink: ''
     },
     'brand-identity': {
-      cat: 'Digital Art', title: 'Brand Identity',
-      desc: 'Walk through the brand identity project.',
-      tags: ['Branding','Illustrator','Figma','Digital Art'],
-      images: ['',''], imageRow: ['',''], video: '',
-      results: [{num:'12+',label:'Assets'},{num:'100%',label:'Approval'},{num:'5.0',label:'Rating'}],
+      cat: 'Digital Art',
+      title: 'Digital Art',
+      desc: 'A selection of digital illustrations and 2D animation work spanning retro, psychedelic and naif aesthetics. From frame-by-frame rotoscopy animation to editorial illustration and character design.',
+      tags: ['Digital Art', 'Illustration', '2D Animation', 'Rotoscopy', 'Character Design'],
+      images: [
+        'https://i.pinimg.com/736x/40/ed/e7/40ede7c8bd1527ed82574cf70c369a90.jpg',
+        'https://i.pinimg.com/736x/45/d6/92/45d6926a9666a3076574d6e6d154bec6.jpg',
+        'https://i.pinimg.com/736x/6d/e3/fc/6de3fc118ecde35dfaaa91931f7802b8.jpg'
+      ],
+      imageCaptions: [
+        'Weirdcore Strawberry Art | Retro Indie Illustration',
+        'Digital Art / Illustration / Friends Draw / Naif',
+        'A colorful and psychedelic lofi illustration about feeling lost and searching for yourself. Retro vintage art style with a melancholic vibe. Pop Art Illustration | Vintage 70s Vibe'
+      ],
+      imageRow: [],
+      video: 'https://www.youtube.com/embed/wD1mQ-oMnNM?si=aFSC2hgXFLDw3I8g',
+      videoCaption: '2D Animation (rotoscopy) for Vanguart, directed and produced by Andrei Moyssiadis.',
+      videoGallery: null,
+      results: [
+        { num: '3', label: 'Illustrations' },
+        { num: '1', label: '2D Animation' },
+        { num: '5.0', label: 'Rating' }
+      ],
       externalLink: ''
     },
     'reels': {
@@ -1287,13 +1305,12 @@ document.addEventListener('keydown', function(e) {
 
     // images
     if (p.images && p.images.length) {
-      if (p.images.length === 2) {
-        h += '<div class="modal-img-row">';
-        p.images.forEach(function(s){ h += img(s, p.title); });
-        h += '</div>';
-      } else {
-        p.images.forEach(function(s){ h += img(s, p.title); });
-      }
+      p.images.forEach(function(s, idx) {
+        h += img(s, p.title);
+        if (p.imageCaptions && p.imageCaptions[idx]) {
+          h += '<div style="font-family:var(--tech);font-size:0.68rem;letter-spacing:0.06em;color:rgba(26,26,26,0.45);padding:0.5rem 0 1rem;line-height:1.5;">'+p.imageCaptions[idx]+'</div>';
+        }
+      });
     }
 
     // video gallery
@@ -1324,6 +1341,9 @@ document.addEventListener('keydown', function(e) {
         h += '<div class="modal-video-wrap"><iframe src="'+p.video+'" allowfullscreen></iframe></div>';
       } else {
         h += '<div class="modal-video-wrap"><video src="'+p.video+'" controls playsinline></video></div>';
+      }
+      if (p.videoCaption) {
+        h += '<div style="font-family:var(--tech);font-size:0.68rem;letter-spacing:0.06em;color:rgba(26,26,26,0.45);padding:0.5rem 0 1rem;line-height:1.5;">'+p.videoCaption+'</div>';
       }
     } else {
       h += '<div class="modal-video-wrap"><div class="modal-video-placeholder"><span class="play-icon">▶</span><span>add video URL in PROJECTS</span></div></div>';
