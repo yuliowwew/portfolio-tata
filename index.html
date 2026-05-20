@@ -825,6 +825,46 @@ footer{background:var(--black);border-top:var(--dark-border);}
 }
 .modal-video-thumb-label{z-index:2;pointer-events:none;}
 
+
+/* VIDEO LIGHTBOX */
+.vid-lightbox{
+  position:fixed;inset:0;z-index:99999;
+  background:rgba(0,0,0,0.95);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;
+  transition:opacity .3s ease;
+}
+.vid-lightbox.open{opacity:1;pointer-events:all;}
+.vid-lightbox-inner{
+  position:relative;
+  width:90vw;max-width:900px;
+}
+.vid-lightbox-inner.ratio-16-9{aspect-ratio:16/9;}
+.vid-lightbox-inner.ratio-9-16{
+  aspect-ratio:9/16;
+  width:auto;height:88vh;max-height:88vh;
+}
+.vid-lightbox-inner video{
+  width:100%;height:100%;
+  display:block;background:#000;
+}
+.vid-lightbox-close{
+  position:absolute;top:-44px;right:0;
+  font-family:var(--hv);font-weight:900;
+  font-size:1.2rem;color:white;
+  background:transparent;border:none;
+  cursor:pointer;opacity:0.7;
+  transition:opacity .15s;
+  padding:8px;
+}
+.vid-lightbox-close:hover{opacity:1;}
+.vid-lightbox-label{
+  position:absolute;bottom:-32px;left:0;
+  font-family:var(--tech);font-size:0.68rem;
+  letter-spacing:0.12em;text-transform:uppercase;
+  color:rgba(255,255,255,0.4);
+}
+
 </style>
 </head>
 <body>
@@ -1135,23 +1175,34 @@ document.querySelectorAll('.filter-btn').forEach(btn=>{
 
 
 <script>
-function switchVideo(key, src, ratio, thumbEl) {
-  var mainVid = document.getElementById('mainVid_' + key);
-  var mainContainer = document.getElementById('videoMain_' + key);
-  if (mainVid) {
-    mainVid.pause();
-    mainVid.src = src;
-    mainVid.load();
-  }
-  if (mainContainer) {
-    mainContainer.classList.remove('ratio-16-9', 'ratio-9-16');
-    mainContainer.classList.add(ratio === '9/16' ? 'ratio-9-16' : 'ratio-16-9');
-    mainContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  }
+function switchVideo(key, src, ratio, label, thumbEl) {
+  // open lightbox instead of replacing main video
+  var lb = document.getElementById('vidLightbox');
+  var lbInner = document.getElementById('vidLightboxInner');
+  var lbVid = document.getElementById('vidLightboxVideo');
+  var lbLabel = document.getElementById('vidLightboxLabel');
+  lbInner.classList.remove('ratio-16-9','ratio-9-16');
+  lbInner.classList.add(ratio === '9/16' ? 'ratio-9-16' : 'ratio-16-9');
+  lbVid.src = src;
+  lbVid.load();
+  lbLabel.textContent = label || '';
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
   var thumbs = document.querySelectorAll('.modal-video-thumb');
   for (var i = 0; i < thumbs.length; i++) thumbs[i].classList.remove('active');
-  thumbEl.classList.add('active');
+  if (thumbEl) thumbEl.classList.add('active');
 }
+function closeLightbox() {
+  var lb = document.getElementById('vidLightbox');
+  var lbVid = document.getElementById('vidLightboxVideo');
+  lb.classList.remove('open');
+  lbVid.pause();
+  lbVid.src = '';
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+});
 </script>
 <script>
 (function() {
@@ -1259,9 +1310,8 @@ function switchVideo(key, src, ratio, thumbEl) {
       p.videoGallery.forEach(function(v, i){
         var activeClass = i === 0 ? ' active' : '';
         var ratio = v.ratio || '16/9';
-        var ratioClass = ratio === '9/16' ? 'ratio-9-16' : 'ratio-16-9';
-        var onclickFn = 'switchVideo(\''+key+'\',\''+v.url+'\',\''+ratio+'\',this)';
-        h += '<div class="modal-video-thumb'+activeClass+'" onclick="'+onclickFn+'">';
+        var onclickFn = 'switchVideo(\''+key+'\',\''+v.url+'\',\''+ratio+'\',\''+v.label+'\',this)';
+        h += '<div class="modal-video-thumb" onclick="'+onclickFn+'">';
         h += '<div class="modal-thumb-play">▶</div>';
         h += '<div class="modal-video-thumb-label">'+v.label+'</div>';
         h += '</div>';
@@ -1347,5 +1397,15 @@ function switchVideo(key, src, ratio, thumbEl) {
   }
 })();
 </script>
+
+<!-- VIDEO LIGHTBOX -->
+<div class="vid-lightbox" id="vidLightbox" onclick="if(event.target===this)closeLightbox()">
+  <div class="vid-lightbox-inner ratio-16-9" id="vidLightboxInner">
+    <button class="vid-lightbox-close" onclick="closeLightbox()">✕</button>
+    <video id="vidLightboxVideo" controls playsinline></video>
+    <div class="vid-lightbox-label" id="vidLightboxLabel"></div>
+  </div>
+</div>
+
 </body>
 </html>
