@@ -1004,7 +1004,7 @@ footer{background:var(--black);border-top:var(--dark-border);}
   <div class="portfolio-grid">
     <div class="p-item" data-project="static-posts" style="cursor:pointer;background-image:url('https://res.cloudinary.com/dwhsnfsoa/image/upload/q_auto/f_auto/v1779301545/drama/dec76e238407689.69152eb2b9a06_dqdxqx.jpg');background-size:cover;background-position:center;"><div class="p-placeholder" style="background:rgba(0,0,0,0.45);"></div><div class="p-info"><div class="p-cat">Content Creation</div><div class="p-title">Drama SP</div></div></div>
     <div class="p-item" data-project="website" style="cursor:pointer;"><div class="p-placeholder"><div class="p-placeholder-box"><span class="p-placeholder-label">project image</span></div></div><div class="p-info"><div class="p-cat">Development</div><div class="p-title">Website Project</div></div></div>
-    <div class="p-item" data-project="brand-identity" style="cursor:pointer;background-image:url('https://i.pinimg.com/736x/40/ed/e7/40ede7c8bd1527ed82574cf70c369a90.jpg');background-size:cover;background-position:center;"><div class="p-placeholder" style="background:rgba(0,0,0,0.35);"></div><div class="p-info"><div class="p-cat">Digital Art</div><div class="p-title">Digital Art</div></div></div>
+    <div class="p-item" data-project="brand-identity" style="cursor:pointer;background-image:url('https://i.pinimg.com/originals/40/ed/e7/40ede7c8bd1527ed82574cf70c369a90.jpg');background-size:cover;background-position:center;"><div class="p-placeholder" style="background:rgba(0,0,0,0.35);"></div><div class="p-info"><div class="p-cat">Digital Art</div><div class="p-title">Digital Art</div></div></div>
     <div class="p-item" data-project="reels" style="cursor:pointer;"><div class="p-placeholder"><div class="p-placeholder-box"><span class="p-placeholder-label">project image</span></div></div><div class="p-info"><div class="p-cat">Short-Form Video</div><div class="p-title">Reels & TikTok</div></div></div>
     <div class="p-item" data-project="ecosystem" style="cursor:pointer;"><div class="p-placeholder"><div class="p-placeholder-box"><span class="p-placeholder-label">featured project</span></div></div><div class="p-info"><div class="p-cat">Full Ecosystem</div><div class="p-title">Strategy + Design + Copy</div></div></div>
   </div>
@@ -1249,9 +1249,9 @@ document.addEventListener('keydown', function(e) {
       desc: 'A selection of digital illustrations and 2D animation work spanning retro, psychedelic and naif aesthetics. From frame-by-frame rotoscopy animation to editorial illustration and character design.',
       tags: ['Digital Art', 'Illustration', '2D Animation', 'Rotoscopy', 'Character Design'],
       images: [
-        'https://i.pinimg.com/736x/40/ed/e7/40ede7c8bd1527ed82574cf70c369a90.jpg',
-        'https://i.pinimg.com/736x/45/d6/92/45d6926a9666a3076574d6e6d154bec6.jpg',
-        'https://i.pinimg.com/736x/6d/e3/fc/6de3fc118ecde35dfaaa91931f7802b8.jpg'
+        'https://i.pinimg.com/originals/40/ed/e7/40ede7c8bd1527ed82574cf70c369a90.jpg',
+        'https://i.pinimg.com/originals/45/d6/92/45d6926a9666a3076574d6e6d154bec6.jpg',
+        'https://i.pinimg.com/originals/6d/e3/fc/6de3fc118ecde35dfaaa91931f7802b8.jpg'
       ],
       imageCaptions: [
         'Weirdcore Strawberry Art | Retro Indie Illustration',
@@ -1303,17 +1303,7 @@ document.addEventListener('keydown', function(e) {
     }
     h += '<div class="modal-media">';
 
-    // images
-    if (p.images && p.images.length) {
-      p.images.forEach(function(s, idx) {
-        h += img(s, p.title);
-        if (p.imageCaptions && p.imageCaptions[idx]) {
-          h += '<div style="font-family:var(--tech);font-size:0.68rem;letter-spacing:0.06em;color:rgba(26,26,26,0.45);padding:0.5rem 0 1rem;line-height:1.5;">'+p.imageCaptions[idx]+'</div>';
-        }
-      });
-    }
-
-    // video gallery
+    // video gallery first
     if (p.videoGallery && p.videoGallery.length) {
       h += '<div class="modal-section-label">Videos</div>';
       h += '<div class="modal-video-gallery">';
@@ -1347,6 +1337,16 @@ document.addEventListener('keydown', function(e) {
       }
     } else {
       h += '<div class="modal-video-wrap"><div class="modal-video-placeholder"><span class="play-icon">▶</span><span>add video URL in PROJECTS</span></div></div>';
+    }
+
+    // images after video
+    if (p.images && p.images.length) {
+      p.images.forEach(function(s, idx) {
+        h += img(s, p.title);
+        if (p.imageCaptions && p.imageCaptions[idx]) {
+          h += '<div style="font-family:var(--tech);font-size:0.68rem;letter-spacing:0.06em;color:rgba(26,26,26,0.45);padding:0.5rem 0 1rem;line-height:1.5;">'+p.imageCaptions[idx]+'</div>';
+        }
+      });
     }
 
     h += '</div>';
