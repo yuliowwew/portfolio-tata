@@ -1231,7 +1231,7 @@ document.addEventListener('keydown', function(e) {
       results: [
         { num: '+250K', label: 'Interactions' },
         { num: 'R$30K', label: 'Sales in 1 month' },
-        { num: '8', label: 'Videos produced' }
+        { num: '200+', label: 'Content pieces' }
       ],
       externalLink: ''
     },
@@ -1309,11 +1309,14 @@ document.addEventListener('keydown', function(e) {
       p.videoGallery.forEach(function(v, i){
         var activeClass = i === 0 ? ' active' : '';
         var ratio = v.ratio || '16/9';
+        var colors = ['#7EE8A2','#FF2D78','#FFEC00','#FF2D78','#7EE8A2','#FF4D00','#FF2D78','#FFEC00'];
+        var textColors = ['#111111','#111111','#111111','#111111','#111111','#111111','#111111','#111111'];
+        var bg = colors[i % colors.length];
+        var fg = textColors[i % textColors.length];
         var onclickFn = 'switchVideo(\''+key+'\',\''+v.url+'\',\''+ratio+'\',\''+v.label+'\',this)';
-        h += '<div class="modal-video-thumb" onclick="'+onclickFn+'">';
-        h += '<video src="'+v.url+'#t=0.5" preload="metadata" muted playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;"></video>';
-        h += '<div class="modal-thumb-play" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.35);pointer-events:none;">▶</div>';
-        if (v.label) h += '<div class="modal-video-thumb-label" style="pointer-events:none;">'+v.label+'</div>';
+        h += '<div class="modal-video-thumb" onclick="'+onclickFn+'" style="background:'+bg+';">';
+        h += '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;font-size:1.4rem;color:'+fg+';opacity:0.8;">▶</div>';
+        if (v.label) h += '<div class="modal-video-thumb-label" style="pointer-events:none;color:'+fg+';">'+v.label+'</div>';
         h += '</div>';
       });
       h += '</div></div>';
