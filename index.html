@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -520,16 +521,31 @@ section{isolation:auto;}
   box-shadow:none;
 }
 
-.brands-grid{gap:1rem;border-top:0;}
+.brands-grid{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:1rem;
+  border-top:0;
+}
 .brand-cell{
-  border:0;
+  border: var(--border);
   border-radius:999px;
   background:var(--white);
   min-height:96px;
+  padding:1rem 1.5rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .brand-name{color:var(--black);}
-.brand-cell:hover{background:var(--magenta);}
-.brand-cell:hover .brand-name{color:var(--white);}
+.brand-cell:hover{
+  border-color: var(--magenta);
+  transform: translateY(-4px);
+}
+.brand-cell img{
+  max-width: 90%;
+  max-height: 60px;
+  object-fit: contain;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
 
 .testi-grid{gap:1rem;}
 .testi-card{
@@ -1006,7 +1022,7 @@ footer{background:var(--black);border-top:var(--dark-border);}
     <div class="p-item" data-project="website" style="cursor:pointer;"><div class="p-placeholder"><div class="p-placeholder-box"><span class="p-placeholder-label">project image</span></div></div><div class="p-info"><div class="p-cat">Development</div><div class="p-title">Website Project</div></div></div>
     <div class="p-item" data-project="brand-identity" style="cursor:pointer;background-image:url('https://i.pinimg.com/originals/40/ed/e7/40ede7c8bd1527ed82574cf70c369a90.jpg');background-size:cover;background-position:center;"><div class="p-placeholder" style="background:rgba(0,0,0,0.35);"></div><div class="p-info"><div class="p-cat">Digital Art</div><div class="p-title">Digital Art</div></div></div>
     <div class="p-item" data-project="flavia-madeira" style="cursor:pointer;background-image:url('https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/flaviamadeira/IMG_9976.jpg');background-size:cover;background-position:center;"><div class="p-placeholder" style="background:rgba(0,0,0,0.45);"></div><div class="p-info"><div class="p-cat">Social Media</div><div class="p-title">Flavia Madeira</div></div></div>
-    <div class="p-item" data-project="ecosystem" style="cursor:pointer;"><div class="p-placeholder"><div class="p-placeholder-box"><span class="p-placeholder-label">featured project</span></div></div><div class="p-info"><div class="p-cat">Full Ecosystem</div><div class="p-title">Strategy + Design + Copy</div></div></div>
+    <div class="p-item" data-project="id-content-strategy" style="cursor:pointer;background-color:#000000;display:flex;align-items:center;justify-content:center;background-image:url('brands/id.png');background-size:45%;background-repeat:no-repeat;background-position:center 45%;"><div class="p-placeholder" style="background:rgba(0,0,0,0.55);"></div><div class="p-info"><div class="p-cat">Content Strategy</div><div class="p-title">ID — Content Strategy</div></div></div>
   </div>
 </section>
 
@@ -1050,16 +1066,24 @@ footer{background:var(--black);border-top:var(--dark-border);}
     <h2 class="brands-heading reveal">Brands I've<br><em>worked with</em></h2>
   </div>
   <div class="brands-grid">
-    <div class="brand-cell"><span class="brand-name">Brand Name</span></div>
-    <div class="brand-cell"><span class="brand-name">Brand Name</span></div>
-    <div class="brand-cell"><span class="brand-name">Brand Name</span></div>
-    <div class="brand-cell"><span class="brand-name">Brand Name</span></div>
-    <div class="brand-cell"><span class="brand-name">Brand Name</span></div>
-    <div class="brand-cell"><span class="brand-name">Brand Name</span></div>
-    <div class="brand-cell"><span class="brand-name">Brand Name</span></div>
-    <div class="brand-cell"><span class="brand-name">Brand Name</span></div>
-    <div class="brand-cell"><span class="brand-name">Brand Name</span></div>
-    <div class="brand-cell"><span class="brand-name">Brand Name</span></div>
+    <div class="brand-cell reveal" title="Flower Bar" style="background: #FFFFFF;">
+      <img src="brands/FLOWER%20BAR.png" alt="Flower Bar" style="height: 31px; width: auto; object-fit: contain;">
+    </div>
+    <div class="brand-cell reveal" title="Drama SP" style="background: #FFF7ED;">
+      <img src="brands/drama.png" alt="Drama SP" style="height: 45px; width: auto; object-fit: contain;">
+    </div>
+    <div class="brand-cell reveal" title="Elastica" style="background: #000000;">
+      <img src="brands/elastica.jpeg" alt="Elastica" style="height: 52px; width: auto; object-fit: contain;">
+    </div>
+    <div class="brand-cell reveal" title="Flavia Madeira" style="background: #000000;">
+      <img src="brands/fm.png" alt="Flavia Madeira" style="height: 18px; width: auto; object-fit: contain;">
+    </div>
+    <div class="brand-cell reveal" title="Vanguart" style="background: #FFFFFF;">
+      <img src="brands/vanguart.jpg" alt="Vanguart" style="height: 42px; width: auto; object-fit: contain;">
+    </div>
+    <div class="brand-cell reveal" title="ID" style="background: #000000;">
+      <img src="brands/id.png" alt="ID" style="height: 18px; width: auto; object-fit: contain;">
+    </div>
   </div>
 </section>
 
@@ -1291,17 +1315,25 @@ document.addEventListener('keydown', function(e) {
       ],
       externalLink: ''
     },
-    'ecosystem': {
-      cat: 'Full Ecosystem', title: 'Strategy + Design + Copy',
-      desc: 'Your featured project — the one that shows the full scope.',
-      tags: ['Strategy','Design','Copy','Development','SMM'],
-      images: ['',''], imageRow: ['',''], video: '',
-      results: [{num:'x3',label:'Audience'},{num:'+65%',label:'Revenue'},{num:'12 mo',label:'Duration'}],
+    'id-content-strategy': {
+      cat: 'Content Strategy',
+      title: 'ID — Content Strategy',
+      desc: '<strong>Interdependência</strong> is an environmental communication project conceived by filmmaker Caio Ferraz (director of the acclaimed documentary <em>Entre Rios</em>). Using water as a lens, ID reveals how everything is interconnected — from the climate to our daily lives — and explains why understanding its cycles is essential in the face of climate change.<br><br><strong>The Challenge:</strong><br>Transforming a highly complex and scientific socio-environmental topic into an engaging, high-growth channel capable of building a community and driving conversions, starting almost entirely from scratch (initial base of only ~200 followers).<br><br><strong>The Strategy:</strong><br>I developed the comprehensive content strategy and led creation directly, focusing on copywriting, scripting, and video editing. Building on this foundation, I structured the content to translate complex scientific and ecological topics into highly accessible, engaging formats — prioritizing clarity, audience resonance, and viral reach potential.',
+      tags: ['Content Strategy', 'Video Scripting', 'Video Editing', 'Creative Direction', 'Growth Marketing'],
+      images: ['brands/id.png'],
+      imageCaptions: ['Interdependência — Scaling socio-environmental content with cinematic strategy.'],
+      imageRow: [],
+      video: null,
+      results: [
+        { num: '+28K', label: 'Followers Gained' },
+        { num: '+358K', label: 'Total Interactions' },
+        { num: '1.6M', label: 'Organic Reach' }
+      ],
       externalLink: ''
     }
   };
 
-  var ORDER = ['static-posts','website','brand-identity','flavia-madeira','ecosystem'];
+  var ORDER = ['static-posts','website','brand-identity','flavia-madeira','id-content-strategy'];
   var currentIdx = 0;
 
   function img(src, title) {
@@ -1352,7 +1384,7 @@ document.addEventListener('keydown', function(e) {
       if (p.videoCaption) {
         h += '<div style="font-family:var(--tech);font-size:0.68rem;letter-spacing:0.06em;color:rgba(26,26,26,0.45);padding:0.5rem 0 1rem;line-height:1.5;">'+p.videoCaption+'</div>';
       }
-    } else {
+    } else if (p.video === undefined) {
       h += '<div class="modal-video-wrap"><div class="modal-video-placeholder"><span class="play-icon">▶</span><span>add video URL in PROJECTS</span></div></div>';
     }
 
