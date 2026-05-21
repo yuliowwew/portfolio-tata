@@ -1358,6 +1358,16 @@ footer{background:var(--black);border-top:var(--dark-border);}
   90% { transform:translate(-4%, 4%); }
 }
 
+/* BRIEFING CARD */
+.briefing-card{display:flex;flex-direction:column;gap:1.5rem;flex:1;padding-top:1.5rem;}
+.briefing-section{display:flex;flex-direction:column;gap:0.65rem;}
+.briefing-label{font-family:var(--tech);font-weight:700;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.25);}
+.briefing-options{display:flex;flex-wrap:wrap;gap:0.4rem;}
+.briefing-btn{font-family:var(--hv);font-weight:600;font-size:0.72rem;padding:0.35rem 0.8rem;background:transparent;color:rgba(255,255,255,0.4);border:1px solid rgba(255,255,255,0.12);cursor:pointer;transition:all .15s;border-radius:999px;}
+.briefing-btn:hover{border-color:rgba(255,255,255,0.3);color:rgba(255,255,255,0.8);}
+.briefing-btn.active{background:var(--magenta);color:var(--white);border-color:var(--magenta);}
+.contact-right{justify-content:flex-start;gap:0;}
+
 </style>
 </head>
 <body>
@@ -1637,20 +1647,41 @@ footer{background:var(--black);border-top:var(--dark-border);}
 
 <!-- CONTACT -->
 <section id="contact">
-  <div class="ast ast-1">*</div>
-  <div class="ast ast-2">*</div>
+  <div class="ast ast-2" style="opacity:0.45;">*</div>
   <div class="contact-inner">
     <div class="contact-left">
-      <h2 class="contact-heading reveal"><span>LET'S</span><span>BUILD</span><em>TOGETHER.</em></h2>
+      <h2 class="contact-heading reveal"><span>LET'S</span><span>MAKE</span><em>SOMETHING REAL.</em></h2>
       <div class="contact-links">
-        <a class="contact-link reveal" href="mailto:your@email.com"><span class="contact-link-label">Email</span>your@email.com →</a>
-        <a class="contact-link reveal" href="https://wa.me/55XXXXXXXXXXX" target="_blank"><span class="contact-link-label">WhatsApp</span>+55 (XX) XXXXX-XXXX →</a>
-        <a class="contact-link reveal" href="https://linkedin.com/in/yourprofile" target="_blank"><span class="contact-link-label">LinkedIn</span>linkedin.com/in/tata →</a>
+        <a class="contact-link reveal" href="mailto:thayxna@gmail.com"><span class="contact-link-label">Email</span>thayxna@gmail.com →</a>
+        <a class="contact-link reveal" href="https://wa.me/5511978364606" target="_blank"><span class="contact-link-label">WhatsApp</span>+55 11 97836-4606 →</a>
+        <a class="contact-link reveal" href="#" target="_blank"><span class="contact-link-label">LinkedIn</span>coming soon →</a>
       </div>
     </div>
     <div class="contact-right">
-      <div class="contact-ready">// ready to start?</div>
-      <button class="contact-cta reveal">Schedule a call →</button>
+      <div class="contact-ready">// what do you need?</div>
+      <div class="briefing-card reveal">
+        <div class="briefing-section">
+          <div class="briefing-label">Service</div>
+          <div class="briefing-options" id="briefing-service">
+            <button class="briefing-btn" onclick="toggleBriefing(this)">Brand Ecosystem</button>
+            <button class="briefing-btn" onclick="toggleBriefing(this)">Content Engine</button>
+            <button class="briefing-btn" onclick="toggleBriefing(this)">Ad Creative</button>
+            <button class="briefing-btn" onclick="toggleBriefing(this)">Visual Identity</button>
+            <button class="briefing-btn" onclick="toggleBriefing(this)">Social Media</button>
+            <button class="briefing-btn" onclick="toggleBriefing(this)">Copywriting</button>
+            <button class="briefing-btn" onclick="toggleBriefing(this)">Something else</button>
+          </div>
+        </div>
+        <div class="briefing-section">
+          <div class="briefing-label">Timeline</div>
+          <div class="briefing-options">
+            <button class="briefing-btn" onclick="toggleBriefing(this)">ASAP</button>
+            <button class="briefing-btn" onclick="toggleBriefing(this)">This month</button>
+            <button class="briefing-btn" onclick="toggleBriefing(this)">No rush</button>
+          </div>
+        </div>
+        <a class="contact-cta" id="briefing-cta" href="mailto:thayxna@gmail.com" style="display:block;text-align:center;text-decoration:none;margin-top:auto;">Send →</a>
+      </div>
     </div>
   </div>
 </section>
@@ -1677,6 +1708,18 @@ const obs=new IntersectionObserver(entries=>{
 },{threshold:0.08,rootMargin:'0px 0px -60px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
+function toggleBriefing(btn) {
+  const group = btn.closest('.briefing-options');
+  group.querySelectorAll('.briefing-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  // update mailto with selections
+  const selections = [];
+  document.querySelectorAll('.briefing-btn.active').forEach(b => selections.push(b.textContent));
+  const cta = document.getElementById('briefing-cta');
+  if (cta && selections.length) {
+    cta.href = 'mailto:thayxna@gmail.com?subject=Project Inquiry&body=Service: ' + selections.join(' | ');
+  }
+}
 </script>
 
 <!-- PROJECT MODAL -->
