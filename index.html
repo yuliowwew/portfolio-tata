@@ -65,9 +65,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 #breath{background:var(--magenta);padding:8rem 2.5rem;border-bottom:var(--border);position:relative;overflow:hidden;}
 .breath-text{font-family:var(--hv);font-weight:900;font-size:clamp(3rem,8vw,7.5rem);letter-spacing:-0.04em;line-height:0.9;text-transform:uppercase;color:var(--white);position:relative;z-index:2;}
 .breath-text span{color:rgba(255,255,255,0.25);}
-.breath-sub{font-family:var(--ui);font-weight:500;font-size:0.78rem;letter-spacing:0.02em;color:rgba(255,255,255,0.5);margin-top:2rem;max-width:480px;line-height:1.7;position:relative;z-index:2;}
-#breath .ast-1{font-size:28rem;bottom:-8rem;right:-4rem;color:rgba(255,255,255,0.08);transform:rotate(5deg);}
-#breath .ast-2{font-size:4rem;top:2rem;left:2rem;color:rgba(255,255,255,0.2);transform:rotate(-20deg);}
+.breath-sub{font-family:var(--hv);font-weight:400;font-size:clamp(0.95rem,1.4vw,1.15rem);letter-spacing:-0.01em;color:rgba(255,255,255,0.65);margin-top:3rem;max-width:560px;line-height:1;position:relative;z-index:2;display:flex;flex-direction:column;gap:0.9rem;}
+.breath-sub span{display:block;} .breath-sub span:last-child{color:var(--white);font-weight:700;}
+
+#breath .ast-2{font-size:5rem;top:2rem;right:2.5rem;left:auto;color:rgba(255,255,255,0.25);transform:rotate(-20deg);}
 
 /* SERVICES */
 #services{background:var(--white);border-bottom:var(--border);position:relative;overflow:hidden;}
@@ -1459,10 +1460,14 @@ footer{background:var(--black);border-top:var(--dark-border);}
 
 <!-- BREATH -->
 <section id="breath">
-  <div class="ast ast-1">*</div>
-  <div class="ast ast-2">*</div>
+  <div class="ast ast-2" style="opacity:0.5;">*</div>
   <div class="breath-text reveal">THE WHOLE<br>IS GREATER<br><span>THAN THE SUM.</span></div>
-  <p class="breath-sub reveal">Strategy without design is invisible. Design without copy is mute. Copy without strategy is noise. Development without vision is a template.</p>
+  <div class="breath-sub reveal">
+    <span>Cresci consumindo cultura brasileira e internet ao mesmo tempo.</span>
+    <span>Aprendi que estética sem estratégia não vai a lugar nenhum.</span>
+    <span>E que estratégia sem alma não move ninguém.</span>
+    <span>Por isso faço tudo junto — e com intenção.</span>
+  </div>
 </section>
 
 <!-- SERVICES -->
