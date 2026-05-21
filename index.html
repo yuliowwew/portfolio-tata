@@ -63,10 +63,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 
 /* BREATH */
 #breath{background:var(--magenta);padding:8rem 2.5rem;border-bottom:var(--border);position:relative;overflow:hidden;}
-.breath-text{font-family:var(--hv);font-weight:900;font-size:clamp(3rem,8vw,7.5rem);letter-spacing:-0.04em;line-height:0.9;text-transform:uppercase;color:var(--white);position:relative;z-index:2;}
+.breath-text{font-family:var(--hv);font-weight:900;font-size:clamp(3rem,8vw,7.5rem);letter-spacing:-0.04em;line-height:0.9;text-transform:uppercase;color:var(--white);position:relative;z-index:2;text-align:left;}
 .breath-text span{color:rgba(255,255,255,0.25);}
-.breath-sub{font-family:var(--hv);font-weight:400;font-size:clamp(0.95rem,1.4vw,1.15rem);letter-spacing:-0.01em;color:rgba(255,255,255,0.65);margin-top:3rem;max-width:560px;line-height:1;position:relative;z-index:2;display:flex;flex-direction:column;gap:0.9rem;}
-.breath-sub span{display:block;} .breath-sub span:last-child{color:var(--white);font-weight:700;}
+.breath-sub{font-family:var(--hv);font-weight:400;font-size:clamp(1.25rem,2vw,1.75rem);letter-spacing:-0.01em;color:rgba(255,255,255,0.65);margin-top:2rem;max-width:560px;line-height:1.5;position:relative;z-index:2;display:block;text-align:left;}
+.breath-sub span{display:inline;} .breath-sub span:last-child{color:var(--white);font-weight:700;}
 
 #breath .ast-2{font-size:5rem;top:2rem;right:2.5rem;left:auto;color:rgba(255,255,255,0.25);transform:rotate(-20deg);}
 
@@ -198,7 +198,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .contact-left{padding:6rem 3rem;border-right:2px solid rgba(255,255,255,0.08);display:flex;flex-direction:column;justify-content:space-between;position:relative;z-index:2;}
 .contact-heading{--contact-light-offset:-0.035em;font-family:var(--hv);font-weight:900;font-size:clamp(3rem,8vw,8rem);letter-spacing:-0.05em;line-height:0.88;text-transform:uppercase;color:var(--white);margin-bottom:3rem;}
 .contact-heading span,.contact-heading em{display:block;}
-.contact-heading em{font-weight:300;font-style:normal;color:var(--magenta);transform:translateX(var(--contact-light-offset));}
+.contact-heading em{font-weight:300;font-style:normal;color:var(--magenta);transform:none;}
 .contact-links{display:flex;flex-direction:column;gap:0;}
 .contact-link{display:flex;align-items:center;gap:1.5rem;font-family:var(--hv);font-weight:600;font-size:0.9rem;color:rgba(255,255,255,0.6);text-decoration:none;padding:1rem 0;border-bottom:1px solid rgba(255,255,255,0.08);transition:color .2s,padding-left .3s;}
 .contact-link:hover{color:var(--white);padding-left:0.75rem;}
@@ -1022,7 +1022,7 @@ section{isolation:auto;}
   color:var(--black);
   padding: clamp(3rem, 8vw, 5rem) var(--container-pad);
 }
-.contact-heading{--contact-light-offset:-.055em;font-size:clamp(3.8rem,9vw,9.5rem);}
+.contact-heading{--contact-light-offset:0;font-size:clamp(3.8rem,9vw,9.5rem);}
 .contact-heading span:nth-child(2){color:var(--white);}
 .contact-heading em{
   color:var(--magenta);
@@ -1364,10 +1364,10 @@ footer{background:var(--black);border-top:var(--dark-border);}
 /* BRIEFING CARD */
 .briefing-card{display:flex;flex-direction:column;gap:1.5rem;flex:1;padding-top:1.5rem;}
 .briefing-section{display:flex;flex-direction:column;gap:0.65rem;}
-.briefing-label{font-family:var(--tech);font-weight:700;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.25);}
+.briefing-label{font-family:var(--tech);font-weight:700;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(0,0,0,0.45);}
 .briefing-options{display:flex;flex-wrap:wrap;gap:0.4rem;}
-.briefing-btn{font-family:var(--hv);font-weight:600;font-size:0.72rem;padding:0.35rem 0.8rem;background:transparent;color:rgba(255,255,255,0.4);border:1px solid rgba(255,255,255,0.12);cursor:pointer;transition:all .15s;border-radius:999px;}
-.briefing-btn:hover{border-color:rgba(255,255,255,0.3);color:rgba(255,255,255,0.8);}
+.briefing-btn{font-family:var(--hv);font-weight:600;font-size:0.72rem;padding:0.4rem 0.9rem;background:transparent;color:rgba(0,0,0,0.75);border:1.5px solid rgba(0,0,0,0.3);cursor:pointer;transition:all .15s;border-radius:999px;}
+.briefing-btn:hover{border-color:rgba(0,0,0,0.6);color:rgba(0,0,0,1);background:rgba(0,0,0,0.05);}
 .briefing-btn.active{background:var(--magenta);color:var(--white);border-color:var(--magenta);}
 .contact-right{justify-content:flex-start;gap:0;}
 
