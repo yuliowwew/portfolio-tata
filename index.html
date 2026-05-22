@@ -2213,13 +2213,8 @@ function initLanguage() {
   if (savedLang) {
     window.setLanguage(savedLang);
   } else {
-    // Detect browser language
-    var userLang = navigator.language || navigator.userLanguage;
-    if (userLang && userLang.toLowerCase().indexOf('pt') > -1) {
-      window.setLanguage('pt');
-    } else {
-      window.setLanguage('en');
-    }
+    // Default to English for all users on first visit
+    window.setLanguage('en');
   }
 }
 
