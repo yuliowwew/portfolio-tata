@@ -150,7 +150,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 
 /* BRANDS */
 #brands{background:var(--white);border-bottom:var(--border);position:relative;overflow:hidden;}
-.brands-header{padding:5rem var(--container-pad) 3rem;border-bottom:var(--border);}
+.brands-header{padding:0;border-bottom:0;}
 .brands-heading{font-family:var(--hv);font-weight:900;font-size:clamp(2rem,4vw,3.5rem);letter-spacing:-0.04em;text-transform:uppercase;}
 .brands-heading em{font-weight:300;font-style:normal;color:rgba(26,26,26,0.25);}
 .brands-grid{display:grid;grid-template-columns:repeat(5,1fr);position:relative;z-index:2;}
@@ -595,7 +595,7 @@ section{isolation:auto;}
 #services,#portfolio,#process,#tools,#brands,#testimonials{
   padding: var(--section-pad) var(--container-pad);
 }
-.services-header,.portfolio-header,.process-header,.tools-header,.brands-header,.testi-header{
+.services-header,.portfolio-header,.process-header,.tools-header,.testi-header{
   margin-bottom: 1rem;
   border: 0;
   padding: clamp(2.5rem, 7vw, 4.5rem) 0 clamp(1.5rem, 4vw, 2.5rem);
@@ -1354,6 +1354,44 @@ footer{background:var(--black);border-top:var(--dark-border);}
   90% { transform:translate(-4%, 4%); }
 }
 
+
+/* POSITIONING SECTION */
+.positioning-statement{
+  font-family:var(--hv);font-weight:900;
+  font-size:clamp(1.2rem,2.5vw,2rem);
+  letter-spacing:-0.02em;line-height:1.2;
+  color:var(--white);
+  margin-bottom:1.5rem;
+}
+.positioning-stats{
+  display:flex;align-items:center;gap:0;
+  margin-bottom:1.5rem;
+  border-top:1px solid rgba(244,240,232,0.1);
+  border-bottom:1px solid rgba(244,240,232,0.1);
+  padding:1.25rem 0;
+}
+.pstat{flex:1;padding:0 2rem;}
+.pstat:first-child{padding-left:0;}
+.pstat-num{font-family:var(--hv);font-weight:900;font-size:clamp(2rem,4vw,3.5rem);letter-spacing:-0.05em;line-height:1;color:var(--magenta);}
+.pstat-label{font-family:var(--tech);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(244,240,232,0.35);margin-top:0.4rem;}
+.pstat-div{width:1px;height:40px;background:rgba(244,240,232,0.1);}
+.positioning-logos{
+  display:flex;flex-wrap:wrap;gap:0.6rem;align-items:center;
+}
+.logo-cell{
+  height:48px;
+  padding:0 1.25rem;
+  border-radius:999px;
+  overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,0.08);
+  opacity:0.65;
+  transition:opacity .2s, background .2s;
+  flex-shrink:0;
+}
+.logo-cell:hover{opacity:1;background:rgba(255,255,255,0.14);}
+.logo-cell img{max-height:24px;max-width:80px;width:auto;height:auto;object-fit:contain;display:block;}
+
 /* BRIEFING CARD */
 .briefing-card{display:flex;flex-direction:column;gap:1.5rem;flex:1;padding-top:1.5rem;}
 .briefing-section{display:flex;flex-direction:column;gap:0.65rem;}
@@ -1391,6 +1429,7 @@ footer{background:var(--black);border-top:var(--dark-border);}
     <span>Digital Art</span><span class="dot">*</span>
     <span>Content Creation</span><span class="dot">*</span>
     <span>Copywriting</span><span class="dot">*</span>
+    <span>Video Editing</span><span class="dot">*</span>
     <span>Social Media Strategy</span><span class="dot">*</span>
     <span>Social Media Design</span><span class="dot">*</span>
     <span>Web Experiences</span><span class="dot">*</span>
@@ -1417,6 +1456,7 @@ footer{background:var(--black);border-top:var(--dark-border);}
       <span class="skill-pill">Digital Art</span>
       <span class="skill-pill">Content Creation</span>
       <span class="skill-pill">Content Strategy</span>
+      <span class="skill-pill">Video Editing</span>
       <span class="skill-pill">Copywriting</span>
     </div>
     <div class="hero-cta-wrap reveal">
@@ -1561,76 +1601,30 @@ footer{background:var(--black);border-top:var(--dark-border);}
   </div>
 </section>
 
-<!-- BRANDS -->
+<!-- POSITIONING -->
 <section id="brands">
-  <div class="ast ast-1">*</div>
   <div class="brands-header">
-    <div class="section-tag reveal">// Clients</div>
-    <h2 class="brands-heading reveal">Brands I've <em>worked with</em></h2>
+    <h2 class="positioning-statement reveal">Good products get ignored every day.<br>Bad storytelling is usually why.</h2>
   </div>
-  <div class="brands-grid">
-    <div class="brand-cell reveal" title="Flower Bar" style="background: #FFFFFF; overflow: hidden;">
-      <img src="https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/brands/FLOWER BAR.png" alt="Flower Bar" style="width: 90%; height: auto; object-fit: contain; transform: scale(2); transform-origin: center;">
-    </div>
-    <div class="brand-cell reveal" title="Drama SP" style="background: #FFF7ED;">
-      <img src="https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/brands/drama.png" alt="Drama SP" style="max-width: 75%; max-height: 56px; width: auto; height: auto; object-fit: contain;">
-    </div>
-    <div class="brand-cell reveal" title="Elastica" style="background: #000000; overflow: hidden;">
-      <img src="https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/brands/elastica.jpeg" alt="Elastica" style="width: 85%; height: auto; object-fit: contain; transform: scale(2); transform-origin: center;">
-    </div>
-    <div class="brand-cell reveal" title="Flavia Madeira" style="background: #000000;">
-      <img src="https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/brands/fm.png" alt="Flavia Madeira" style="max-width: 75%; max-height: 56px; width: auto; height: auto; object-fit: contain;">
-    </div>
-    <div class="brand-cell reveal" title="Vanguart" style="background: #FFFFFF;">
-      <img src="https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/brands/vanguart.jpg" alt="Vanguart" style="max-width: 75%; max-height: 56px; width: auto; height: auto; object-fit: contain;">
-    </div>
-    <div class="brand-cell reveal" title="ID" style="background: #000000; overflow: hidden;">
-      <img src="https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/brands/id.png" alt="ID" style="width: 90%; height: auto; object-fit: contain; transform: scale(2); transform-origin: center;">
-    </div>
-    <div class="brand-cell reveal" title="Nau" style="background: #FFFFFF;">
-      <img src="https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/brands/nau.png" alt="Nau" style="max-width: 75%; max-height: 56px; width: auto; height: auto; object-fit: contain;">
-    </div>
+  <div class="positioning-stats reveal">
+    <div class="pstat"><div class="pstat-num">9M+</div><div class="pstat-label">Views generated</div></div>
+    <div class="pstat-div"></div>
+    <div class="pstat"><div class="pstat-num">10+</div><div class="pstat-label">Brands worked with</div></div>
+    <div class="pstat-div"></div>
+    <div class="pstat"><div class="pstat-num">5</div><div class="pstat-label">Years in the field</div></div>
+  </div>
+  <div class="positioning-logos reveal">
+    <div class="logo-cell" style="background:#FFFFFF;overflow:hidden;"><img src="https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/brands/FLOWER BAR.png" alt="Flower Bar" style="max-height:22px;max-width:70px;width:auto;height:auto;object-fit:contain;display:block;"></div>
+    <div class="logo-cell" style="background:#FFF7ED;"><img src="https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/brands/drama.png" alt="Drama SP" style="max-height:22px;max-width:70px;width:auto;height:auto;object-fit:contain;display:block;"></div>
+    <div class="logo-cell" style="background:#000000;overflow:hidden;"><img src="https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/brands/elastica.jpeg" alt="Elastica" style="max-height:22px;max-width:70px;width:auto;height:auto;object-fit:contain;display:block;"></div>
+    <div class="logo-cell" style="background:#000000;"><img src="https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/brands/fm.png" alt="Flavia Madeira" style="max-height:22px;max-width:70px;width:auto;height:auto;object-fit:contain;display:block;"></div>
+    <div class="logo-cell" style="background:#FFFFFF;"><img src="https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/brands/vanguart.jpg" alt="Vanguart" style="max-height:22px;max-width:70px;width:auto;height:auto;object-fit:contain;display:block;"></div>
+    <div class="logo-cell" style="background:#000000;overflow:hidden;"><img src="https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/brands/id.png" alt="ID" style="max-height:22px;max-width:70px;width:auto;height:auto;object-fit:contain;display:block;"></div>
+    <div class="logo-cell" style="background:#FFFFFF;"><img src="https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/brands/nau.png" alt="Nau" style="max-height:22px;max-width:70px;width:auto;height:auto;object-fit:contain;display:block;"></div>
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section id="testimonials">
-  <div class="ast ast-1">*</div>
-  <div class="ast ast-2">*</div>
-  <div class="testi-header">
-    <div class="section-tag reveal">// Testimonials</div>
-    <h2 class="testi-heading reveal">What they <em>say</em></h2>
-  </div>
-  <div class="testi-grid">
-    <div class="testi-card reveal">
-      <div class="stars">★★★★★</div>
-      <div class="testi-role">Social Media Manager — Luxury Brand</div>
-      <p class="testi-text">"Add your best testimonial here. A real quote from a client that speaks to your results, your process and what makes working with you different."</p>
-      <div class="testi-author">Client Name</div>
-      <div class="testi-period">Jan 2024 – Mar 2025</div>
-      <div class="testi-stats">
-        <div class="tstat"><div class="tstat-num">$5,2k</div><div class="tstat-label">Value</div></div>
-        <div class="tstat-div"></div>
-        <div class="tstat"><div class="tstat-num">872h</div><div class="tstat-label">Hours</div></div>
-        <div class="tstat-div"></div>
-        <div class="tstat"><div class="tstat-num">5.0</div><div class="tstat-label">Rating</div></div>
-      </div>
-    </div>
-    <div class="testi-right">
-      <div class="chat-bubble reveal">
-        <div class="chat-sender">Client Name</div>
-        <div class="chat-msg">"Add a real direct message from a happy client here."</div>
-      </div>
-      <div class="testi-card-alt reveal">
-        <div class="stars">★★★★★</div>
-        <div class="testi-role">Project — Category</div>
-        <p class="testi-text">"Another testimonial — short and punchy works great here."</p>
-        <div class="testi-author">Client Name</div>
-        <div class="testi-period">Dec 2024 – Feb 2025</div>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <!-- CONTACT -->
 <section id="contact">
@@ -1772,7 +1766,7 @@ document.addEventListener('keydown', function(e) {
       cat: 'Content Creation',
       title: 'Drama — Content Creation',
       desc: 'DRAMA SP is a Brazilian bikini brand defined by a provocative, irreverent and unapologetically bold tone of voice. I led content creation and creative direction for brand campaigns and activations, including anniversary campaigns, pre-launch hype content and behind-the-scenes, translating DRAMA SP\'s identity into consistent visual and audiovisual narratives.',
-      tags: ['Content Creation', 'Video Direction', 'Social Media', 'Copywriting', 'Brand Voice'],
+      tags: ['Content Creation', 'Video Editing', 'Making of', 'Video Direction', 'Social Media', 'Copywriting', 'Brand Voice'],
       images: [
         'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/drama/dramavideo2.jpg',
         'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/drama/dramavideo5.jpg'
@@ -1836,11 +1830,7 @@ document.addEventListener('keydown', function(e) {
       video: 'https://www.youtube.com/embed/wD1mQ-oMnNM?si=aFSC2hgXFLDw3I8g',
       videoCaption: '2D Animation (rotoscopy) for Vanguart, directed and produced by Andrei Moyssiadis.',
       videoGallery: null,
-      results: [
-        { num: '3', label: 'Illustrations' },
-        { num: '1', label: '2D Animation' },
-        { num: '5.0', label: 'Rating' }
-      ],
+      results: [],
       externalLink: ''
     },
     'flavia-madeira': {
