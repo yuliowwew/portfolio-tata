@@ -195,7 +195,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 /* CONTACT */
 #contact{background:var(--black);position:relative;overflow:hidden;border-bottom:2px solid rgba(255,255,255,0.08);}
 .contact-inner{display:block;}
-.contact-left{padding:6rem 0;border-right:2px solid rgba(255,255,255,0.08);display:flex;flex-direction:column;justify-content:space-between;position:relative;z-index:2;}
+.contact-left{padding:0 0 3rem 0;border-right:2px solid rgba(255,255,255,0.08);display:flex;flex-direction:column;justify-content:space-between;position:relative;z-index:2;}
 .contact-heading{--contact-light-offset:-0.035em;font-family:var(--hv);font-weight:900;font-size:clamp(3rem,8vw,8rem);letter-spacing:-0.05em;line-height:0.88;text-transform:uppercase;color:var(--white);margin-bottom:3rem;}
 .contact-heading span,.contact-heading em{display:block;}
 .contact-heading em{font-weight:300;font-style:normal;color:var(--magenta);transform:none;}
@@ -596,7 +596,7 @@ section{isolation:auto;}
   padding: var(--section-pad) var(--container-pad);
 }
 #brands{
-  padding: var(--section-pad) 0 calc(var(--section-pad) * 2);
+  padding: var(--section-pad) 0;
 }
 .services-header,.portfolio-header,.process-header,.tools-header,.testi-header{
   margin-bottom: 1rem;
@@ -1004,13 +1004,13 @@ section{isolation:auto;}
 .chat-sender,.chat-msg{color:var(--black);}
 .stars{color:var(--sun);}
 
-#contact{border-bottom:var(--dark-border);padding-top:calc(var(--section-pad) * 2);}
+#contact{border-bottom:var(--dark-border);padding-top:var(--section-pad);}
 .contact-inner{gap:1rem;padding:0 var(--container-pad);}
 .contact-left{
   border:0;
   border-radius:0;
   background:transparent;
-  padding: clamp(3rem, 6vw, 5rem) 0;
+  padding: 0 0 clamp(2rem, 4vw, 3rem) 0;
 }
 .contact-right{
   border-radius:2rem;
@@ -1075,7 +1075,7 @@ footer{background:var(--black);border-top:var(--dark-border);}
   .nav-links a{font-size:.62rem;}
   .ticker{margin-top:6.8rem;}
   #about,#services,#portfolio,#process,#tools,#testimonials{padding: var(--section-pad) var(--container-pad);}
-  #brands{padding: var(--section-pad) 0 calc(var(--section-pad) * 2);}
+  #brands{padding: var(--section-pad) 0;}
   #contact{padding: var(--section-pad) 0;}
   .about-left,.about-right,#breath,.service-row,.p-item,.process-step,.tool-group,.testi-card,.testi-card-alt,.chat-bubble,.contact-left,.contact-right{border-radius:1.25rem;}
   .about-left,.about-right{padding: clamp(2.5rem, 6vw, 3rem) clamp(1.25rem,5vw,2rem) clamp(1.8rem, 5vw, 2.2rem);}
