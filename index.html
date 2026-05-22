@@ -4,48 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tatá Guimarães</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%20100%20100%27%3E%3Ctext%20x=%2750%25%27%20y=%2750%25%27%20dominant-baseline=%27central%27%20text-anchor=%27middle%27%20font-size=%2788%27%20fill=%27%23D4215C%27%3E%E2%98%85%3C/text%3E%3C/svg%3E">
-<script>
-  (function() {
-    try {
-      const canvas = document.createElement('canvas');
-      canvas.width = 32;
-      canvas.height = 32;
-      const ctx = canvas.getContext('2d');
-      ctx.clearRect(0, 0, 32, 32);
-      const cx = 16, cy = 16, spikes = 5, outer = 15, inner = 6.5;
-      let rot = Math.PI / 2 * 3;
-      let x = cx, y = cy;
-      let step = Math.PI / spikes;
-      ctx.beginPath();
-      ctx.moveTo(cx, cy - outer);
-      for (let i = 0; i < spikes; i++) {
-        x = cx + Math.cos(rot) * outer;
-        y = cy + Math.sin(rot) * outer;
-        ctx.lineTo(x, y);
-        rot += step;
-        x = cx + Math.cos(rot) * inner;
-        y = cy + Math.sin(rot) * inner;
-        ctx.lineTo(x, y);
-        rot += step;
-      }
-      ctx.lineTo(cx, cy - outer);
-      ctx.closePath();
-      ctx.fillStyle = '#D4215C';
-      ctx.fill();
-      let link = document.querySelector("link[rel*='icon']");
-      if (!link) {
-        link = document.createElement('link');
-        link.rel = 'icon';
-        document.head.appendChild(link);
-      }
-      link.type = 'image/png';
-      link.href = canvas.toDataURL('image/png');
-    } catch(e) {
-      console.error('Favicon canvas failed:', e);
-    }
-  })();
-</script>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="shortcut icon" href="favicon.ico">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
