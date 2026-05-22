@@ -28,6 +28,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .nav-cta{font-family:var(--hv);font-weight:700;font-size:0.72rem;letter-spacing:0.04em;padding:0.5rem 1.25rem;background:var(--magenta);color:var(--white);border:none;transition:background .2s;}
 .nav-cta:hover{background:var(--black);}
 
+/* LANGUAGE SWITCHER */
+.lang-switch{display:inline-flex;align-items:center;gap:0.15rem;font-family:var(--tech);font-size:0.72rem;font-weight:700;}
+.lang-btn{background:transparent;border:none;color:var(--white);opacity:0.4;cursor:pointer;padding:0.2rem 0.4rem;font-weight:800;font-family:var(--hv);font-size:0.68rem;transition:all .15s;}
+.lang-btn:hover{opacity:0.85;color:var(--acid);}
+.lang-btn.active{opacity:1;color:var(--acid);}
+.lang-divider{color:var(--white);opacity:0.25;font-family:var(--hv);font-size:0.68rem;font-weight:800;}
+
 /* ASTERISK */
 .ast{position:absolute;color:var(--magenta);font-weight:900;line-height:1;pointer-events:none;user-select:none;z-index:3;}
 
@@ -1417,31 +1424,38 @@ footer{background:var(--black);border-top:var(--dark-border);}
 <nav>
   <a class="nav-logo" href="#about">TG</a>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#portfolio">Work</a></li>
-    <li><a href="#process">Process</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#about" data-i18n="nav.about">About</a></li>
+    <li><a href="#services" data-i18n="nav.services">Services</a></li>
+    <li><a href="#portfolio" data-i18n="nav.work">Work</a></li>
+    <li><a href="#process" data-i18n="nav.process">Process</a></li>
+    <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
   </ul>
-  <button class="nav-cta">Let's work →</button>
+  <div style="display:flex;align-items:center;gap:1.5rem;">
+    <div class="lang-switch">
+      <button class="lang-btn" onclick="setLanguage('en')" data-lang-opt="en">EN</button>
+      <span class="lang-divider">/</span>
+      <button class="lang-btn" onclick="setLanguage('pt')" data-lang-opt="pt">PT</button>
+    </div>
+    <button class="nav-cta" data-i18n="nav.cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Let's work →</button>
+  </div>
 </nav>
 
 <!-- TICKER -->
 <div class="ticker">
   <div class="ticker-track">
-    <span>Social Media Strategy</span><span class="dot">*</span>
-    <span>Social Media Design</span><span class="dot">*</span>
-    <span>Web Experiences</span><span class="dot">*</span>
-    <span>Digital Art</span><span class="dot">*</span>
-    <span>Content Creation</span><span class="dot">*</span>
-    <span>Copywriting</span><span class="dot">*</span>
-    <span>Video Editing</span><span class="dot">*</span>
-    <span>Social Media Strategy</span><span class="dot">*</span>
-    <span>Social Media Design</span><span class="dot">*</span>
-    <span>Web Experiences</span><span class="dot">*</span>
-    <span>Digital Art</span><span class="dot">*</span>
-    <span>Content Creation</span><span class="dot">*</span>
-    <span>Copywriting</span><span class="dot">*</span>
+    <span data-i18n="ticker.strategy">Social Media Strategy</span><span class="dot">*</span>
+    <span data-i18n="ticker.design">Social Media Design</span><span class="dot">*</span>
+    <span data-i18n="ticker.web">Web Experiences</span><span class="dot">*</span>
+    <span data-i18n="ticker.art">Digital Art</span><span class="dot">*</span>
+    <span data-i18n="ticker.creation">Content Creation</span><span class="dot">*</span>
+    <span data-i18n="ticker.copy">Copywriting</span><span class="dot">*</span>
+    <span data-i18n="ticker.video">Video Editing</span><span class="dot">*</span>
+    <span data-i18n="ticker.strategy">Social Media Strategy</span><span class="dot">*</span>
+    <span data-i18n="ticker.design">Social Media Design</span><span class="dot">*</span>
+    <span data-i18n="ticker.web">Web Experiences</span><span class="dot">*</span>
+    <span data-i18n="ticker.art">Digital Art</span><span class="dot">*</span>
+    <span data-i18n="ticker.creation">Content Creation</span><span class="dot">*</span>
+    <span data-i18n="ticker.copy">Copywriting</span><span class="dot">*</span>
   </div>
 </div>
 
@@ -1451,23 +1465,14 @@ footer{background:var(--black);border-top:var(--dark-border);}
   <div class="ast ast-2">*</div>
   <div class="about-left">
     <div>
-      <div class="section-tag reveal">// About me</div>
-      <h2 class="about-heading reveal">HELLO, <em>I'm Tatá.</em></h2>
-      <p class="about-bio reveal">Full-spectrum creative based in Brazil. Strategy, copy, design, development. I do it all, and I do it with intention.</p>
+      <div class="section-tag reveal" data-i18n="about.tag">// About me</div>
+      <h2 class="about-heading reveal" data-i18n="about.heading">HELLO, <em>I'm Tatá.</em></h2>
+      <p class="about-bio reveal" data-i18n="about.bio">Full-spectrum creative based in Brazil. Strategy, copy, design, development. I do it all, and I do it with intention.</p>
     </div>
-    <div class="skills-wrap reveal">
-      <span class="skill-pill">Social Media Strategy</span>
-      <span class="skill-pill">Social Media Design</span>
-      <span class="skill-pill">Web Experiences</span>
-      <span class="skill-pill">Digital Art</span>
-      <span class="skill-pill">Content Creation</span>
-      <span class="skill-pill">Content Strategy</span>
-      <span class="skill-pill">Video Editing</span>
-      <span class="skill-pill">Copywriting</span>
-    </div>
+
     <div class="hero-cta-wrap reveal">
-      <a href="#portfolio" class="hero-cta">Explore my work ↓</a>
-      <a href="#contact" class="hero-cta-secondary">Let's talk →</a>
+      <a href="#portfolio" class="hero-cta" data-i18n="about.explore">Explore my work ↓</a>
+      <a href="#contact" class="hero-cta-secondary" data-i18n="about.talk">Let's talk →</a>
     </div>
   </div>
   <div class="about-right">
@@ -1494,67 +1499,101 @@ footer{background:var(--black);border-top:var(--dark-border);}
     <div class="video-stats-hover">
       <div class="stat">
         <div class="stat-num">5</div>
-        <div class="stat-label">Years Exp.</div>
+        <div class="stat-label" data-i18n="stats.years">Years Exp.</div>
       </div>
       <div class="stat-div"></div>
       <div class="stat">
         <div class="stat-num">∞</div>
-        <div class="stat-label">Ideas</div>
-      </div>
-      <div class="stat-div"></div>
-      <div class="stat">
-        <div class="stat-num">100M+</div>
-        <div class="stat-label">Views</div>
+        <div class="stat-label" data-i18n="stats.ideas">Ideas</div>
       </div>
     </div>
   </div>
 </section>
 
-
-
 <!-- SERVICES -->
 <section id="services">
   <div class="ast ast-1">*</div>
   <div class="services-header">
-    <div class="section-tag reveal">// Services</div>
-    <h2 class="services-heading reveal">What I <em>solve</em></h2>
+    <div class="section-tag reveal" data-i18n="services.tag">// Services</div>
+    <h2 class="services-heading reveal" data-i18n="services.heading">What I <em>solve</em></h2>
   </div>
   <div class="services-list">
     <div class="service-row reveal">
       <div class="service-num">01</div>
-      <div><div class="service-title">Brand Ecosystem</div><div class="service-problem">"I have no online presence."</div></div>
-      <div class="service-desc">Website + visual identity + content strategy built from scratch, with one cohesive vision across every touchpoint.</div>
-      <div class="service-tags"><span class="service-tag">Web Exp</span><span class="service-tag">Design</span><span class="service-tag">Strategy</span></div>
+      <div>
+        <div class="service-title" data-i18n="services.s1.title">Brand Ecosystem</div>
+        <div class="service-problem" data-i18n="services.s1.problem">"I have no online presence."</div>
+      </div>
+      <div class="service-desc" data-i18n="services.s1.desc">Website + visual identity + content strategy built from scratch, with one cohesive vision across every touchpoint.</div>
+      <div class="service-tags">
+        <span class="service-tag" data-i18n="services.tags.web">Web Exp</span>
+        <span class="service-tag" data-i18n="services.tags.design">Design</span>
+        <span class="service-tag" data-i18n="services.tags.strategy">Strategy</span>
+      </div>
     </div>
     <div class="service-row reveal">
       <div class="service-num">02</div>
-      <div><div class="service-title">Content Engine</div><div class="service-problem">"My content doesn't engage."</div></div>
-      <div class="service-desc">Strategy, copy and design integrated — content that speaks to the right people at the right moment and converts.</div>
-      <div class="service-tags"><span class="service-tag">Strategy</span><span class="service-tag">Copy</span><span class="service-tag">Design</span></div>
+      <div>
+        <div class="service-title" data-i18n="services.s2.title">Content Engine</div>
+        <div class="service-problem" data-i18n="services.s2.problem">"My content doesn't engage."</div>
+      </div>
+      <div class="service-desc" data-i18n="services.s2.desc">Strategy, copy and design integrated — content that speaks to the right people at the right moment and converts.</div>
+      <div class="service-tags">
+        <span class="service-tag" data-i18n="services.tags.strategy">Strategy</span>
+        <span class="service-tag" data-i18n="services.tags.copy">Copy</span>
+        <span class="service-tag" data-i18n="services.tags.design">Design</span>
+      </div>
     </div>
     <div class="service-row reveal">
       <div class="service-num">03</div>
-      <div><div class="service-title">Ad Creative</div><div class="service-problem">"My ads aren't converting."</div></div>
-      <div class="service-desc">Meta ad design + copy crafted to stop the scroll and drive action — visuals and words built to work together.</div>
-      <div class="service-tags"><span class="service-tag">Design</span><span class="service-tag">Copy</span><span class="service-tag">Meta Ads</span></div>
+      <div>
+        <div class="service-title" data-i18n="services.s3.title">Ad Creative</div>
+        <div class="service-problem" data-i18n="services.s3.problem">"My ads aren't converting."</div>
+      </div>
+      <div class="service-desc" data-i18n="services.s3.desc">Meta ad design + copy crafted to stop the scroll and drive action — visuals and words built to work together.</div>
+      <div class="service-tags">
+        <span class="service-tag" data-i18n="services.tags.design">Design</span>
+        <span class="service-tag" data-i18n="services.tags.copy">Copy</span>
+        <span class="service-tag" data-i18n="services.tags.meta">Meta Ads</span>
+      </div>
     </div>
     <div class="service-row reveal">
       <div class="service-num">04</div>
-      <div><div class="service-title">Visual Identity</div><div class="service-problem">"My brand has no identity."</div></div>
-      <div class="service-desc">Digital art and branding that make a brand instantly recognizable — across every format and platform.</div>
-      <div class="service-tags"><span class="service-tag">Digital Art</span><span class="service-tag">Branding</span></div>
+      <div>
+        <div class="service-title" data-i18n="services.s4.title">Visual Identity</div>
+        <div class="service-problem" data-i18n="services.s4.problem">"My brand has no identity."</div>
+      </div>
+      <div class="service-desc" data-i18n="services.s4.desc">Digital art and branding that make a brand instantly recognizable — across every format and platform.</div>
+      <div class="service-tags">
+        <span class="service-tag" data-i18n="services.tags.art">Digital Art</span>
+        <span class="service-tag" data-i18n="services.tags.branding">Branding</span>
+      </div>
     </div>
     <div class="service-row reveal">
       <div class="service-num">05</div>
-      <div><div class="service-title">Social Media Management</div><div class="service-problem">"I need to grow my audience."</div></div>
-      <div class="service-desc">End-to-end social management: planning, creation, scheduling, community and analytics — all handled.</div>
-      <div class="service-tags"><span class="service-tag">SMM</span><span class="service-tag">Strategy</span><span class="service-tag">Analytics</span></div>
+      <div>
+        <div class="service-title" data-i18n="services.s5.title">Social Media Management</div>
+        <div class="service-problem" data-i18n="services.s5.problem">"I need to grow my audience."</div>
+      </div>
+      <div class="service-desc" data-i18n="services.s5.desc">End-to-end social management: planning, creation, scheduling, community and analytics — all handled.</div>
+      <div class="service-tags">
+        <span class="service-tag" data-i18n="services.tags.smm">SMM</span>
+        <span class="service-tag" data-i18n="services.tags.strategy">Strategy</span>
+        <span class="service-tag" data-i18n="services.tags.analytics">Analytics</span>
+      </div>
     </div>
     <div class="service-row reveal">
       <div class="service-num">06</div>
-      <div><div class="service-title">Strategic Copywriting</div><div class="service-problem">"My copy doesn't sell."</div></div>
-      <div class="service-desc">Captions, website copy, email sequences and ad copy written to connect, persuade and convert.</div>
-      <div class="service-tags"><span class="service-tag">Copy</span><span class="service-tag">Email</span><span class="service-tag">Web Copy</span></div>
+      <div>
+        <div class="service-title" data-i18n="services.s6.title">Strategic Copywriting</div>
+        <div class="service-problem" data-i18n="services.s6.problem">"My copy doesn't sell."</div>
+      </div>
+      <div class="service-desc" data-i18n="services.s6.desc">Captions, website copy, email sequences and ad copy written to connect, persuade and convert.</div>
+      <div class="service-tags">
+        <span class="service-tag" data-i18n="services.tags.copy">Copy</span>
+        <span class="service-tag" data-i18n="services.tags.email">Email</span>
+        <span class="service-tag" data-i18n="services.tags.webcopy">Web Copy</span>
+      </div>
     </div>
   </div>
 </section>
@@ -1563,15 +1602,45 @@ footer{background:var(--black);border-top:var(--dark-border);}
 <section id="portfolio">
   <div class="ast ast-1">*</div>
   <div class="portfolio-header">
-    <div class="section-tag reveal">// Work</div>
-    <h2 class="portfolio-heading reveal">What I've <em>built</em></h2>
+    <div class="section-tag reveal" data-i18n="work.tag">// Work</div>
+    <h2 class="portfolio-heading reveal" data-i18n="work.heading">What I've <em>built</em></h2>
   </div>
   <div class="portfolio-grid">
-    <div class="p-item" data-project="static-posts" style="cursor:pointer;background-image:url('https://res.cloudinary.com/dwhsnfsoa/image/upload/q_auto/f_auto/v1779301545/drama/dec76e238407689.69152eb2b9a06_dqdxqx.jpg');background-size:cover;background-position:center;"><div class="p-placeholder" style="background:rgba(0,0,0,0.45);"></div><div class="p-info"><div class="p-cat">Content Creation</div><div class="p-title">Drama SP</div></div></div>
-    <div class="p-item" data-project="website" style="cursor:pointer;background-image:url('https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/websites/fixme1.jpg');background-size:cover;background-position:top center;"><div class="p-placeholder"><div class="p-placeholder-box"><span class="p-placeholder-label">project image</span></div></div><div class="p-info"><div class="p-cat">Development</div><div class="p-title">Website Project</div></div></div>
-    <div class="p-item" data-project="brand-identity" style="cursor:pointer;background-image:url('https://i.pinimg.com/originals/40/ed/e7/40ede7c8bd1527ed82574cf70c369a90.jpg');background-size:cover;background-position:center;"><div class="p-placeholder" style="background:rgba(0,0,0,0.35);"></div><div class="p-info"><div class="p-cat">Digital Art</div><div class="p-title">Digital Art</div></div></div>
-    <div class="p-item" data-project="flavia-madeira" style="cursor:pointer;background-image:url('https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/flaviamadeira/IMG_9976.jpg');background-size:cover;background-position:center;"><div class="p-placeholder" style="background:rgba(0,0,0,0.45);"></div><div class="p-info"><div class="p-cat">Social Media</div><div class="p-title">Flavia Madeira</div></div></div>
-    <div class="p-item" data-project="id-content-strategy" style="cursor:pointer;background-color:#000000;background-image:url('https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/brands/id.png');background-size:45%;background-repeat:no-repeat;background-position:center 45%;"><div class="p-placeholder" style="background:rgba(0,0,0,0.55);"></div><div class="p-info"><div class="p-cat">Content Strategy</div><div class="p-title">ID — Content Strategy</div></div></div>
+    <div class="p-item" data-project="static-posts" style="cursor:pointer;background-image:url('https://res.cloudinary.com/dwhsnfsoa/image/upload/q_auto/f_auto/v1779301545/drama/dec76e238407689.69152eb2b9a06_dqdxqx.jpg');background-size:cover;background-position:center;">
+      <div class="p-placeholder" style="background:rgba(0,0,0,0.45);"></div>
+      <div class="p-info">
+        <div class="p-cat" data-i18n="work.drama.cat">Content Creation</div>
+        <div class="p-title" data-i18n="work.drama.title">Drama SP</div>
+      </div>
+    </div>
+    <div class="p-item" data-project="website" style="cursor:pointer;background-image:url('https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/websites/fixme1.jpg');background-size:cover;background-position:top center;">
+      <div class="p-placeholder"><div class="p-placeholder-box"><span class="p-placeholder-label" data-i18n="work.placeholder">project image</span></div></div>
+      <div class="p-info">
+        <div class="p-cat" data-i18n="work.website.cat">Development</div>
+        <div class="p-title" data-i18n="work.website.title">Website Project</div>
+      </div>
+    </div>
+    <div class="p-item" data-project="brand-identity" style="cursor:pointer;background-image:url('https://i.pinimg.com/originals/40/ed/e7/40ede7c8bd1527ed82574cf70c369a90.jpg');background-size:cover;background-position:center;">
+      <div class="p-placeholder" style="background:rgba(0,0,0,0.35);"></div>
+      <div class="p-info">
+        <div class="p-cat" data-i18n="work.art.cat">Digital Art</div>
+        <div class="p-title" data-i18n="work.art.title">Digital Art</div>
+      </div>
+    </div>
+    <div class="p-item" data-project="flavia-madeira" style="cursor:pointer;background-image:url('https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/flaviamadeira/IMG_9976.jpg');background-size:cover;background-position:center;">
+      <div class="p-placeholder" style="background:rgba(0,0,0,0.45);"></div>
+      <div class="p-info">
+        <div class="p-cat" data-i18n="work.flavia.cat">Social Media</div>
+        <div class="p-title" data-i18n="work.flavia.title">Flavia Madeira</div>
+      </div>
+    </div>
+    <div class="p-item" data-project="id-content-strategy" style="cursor:pointer;background-color:#000000;background-image:url('https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/brands/id.png');background-size:45%;background-repeat:no-repeat;background-position:center 45%;">
+      <div class="p-placeholder" style="background:rgba(0,0,0,0.55);"></div>
+      <div class="p-info">
+        <div class="p-cat" data-i18n="work.id.cat">Content Strategy</div>
+        <div class="p-title" data-i18n="work.id.title">ID — Content Strategy</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1580,15 +1649,35 @@ footer{background:var(--black);border-top:var(--dark-border);}
   <div class="ast ast-1">*</div>
   <div class="ast ast-2">*</div>
   <div class="process-header">
-    <div class="section-tag reveal">// Process</div>
-    <h2 class="process-heading reveal">How I <em>work</em></h2>
+    <div class="section-tag reveal" data-i18n="process.tag">// Process</div>
+    <h2 class="process-heading reveal" data-i18n="process.heading">How I <em>work</em></h2>
   </div>
   <div class="process-steps">
-    <div class="process-step reveal"><div class="process-num">01</div><div class="process-step-title">Briefing</div><div class="process-step-desc">I understand your business, audience, goals and what's not working right now.</div></div>
-    <div class="process-step reveal"><div class="process-num">02</div><div class="process-step-title">Strategy</div><div class="process-step-desc">I map out the full plan — positioning, messaging, visual direction, channels.</div></div>
-    <div class="process-step reveal"><div class="process-num">03</div><div class="process-step-title">Creation</div><div class="process-step-desc">Design, copy, code — all produced with the same strategic vision.</div></div>
-    <div class="process-step reveal"><div class="process-num">04</div><div class="process-step-title">Revision</div><div class="process-step-desc">You review, I refine. Until it's exactly right.</div></div>
-    <div class="process-step reveal"><div class="process-num">05</div><div class="process-step-title">Delivery</div><div class="process-step-desc">Launch + follow-up. I don't disappear after delivery.</div></div>
+    <div class="process-step reveal">
+      <div class="process-num">01</div>
+      <div class="process-step-title" data-i18n="process.p1.title">Briefing</div>
+      <div class="process-step-desc" data-i18n="process.p1.desc">I understand your business, audience, goals and what's not working right now.</div>
+    </div>
+    <div class="process-step reveal">
+      <div class="process-num">02</div>
+      <div class="process-step-title" data-i18n="process.p2.title">Strategy</div>
+      <div class="process-step-desc" data-i18n="process.p2.desc">I map out the full plan — positioning, messaging, visual direction, channels.</div>
+    </div>
+    <div class="process-step reveal">
+      <div class="process-num">03</div>
+      <div class="process-step-title" data-i18n="process.p3.title">Creation</div>
+      <div class="process-step-desc" data-i18n="process.p3.desc">Design, copy, code — all produced with the same strategic vision.</div>
+    </div>
+    <div class="process-step reveal">
+      <div class="process-num">04</div>
+      <div class="process-step-title" data-i18n="process.p4.title">Revision</div>
+      <div class="process-step-desc" data-i18n="process.p4.desc">You review, I refine. Until it's exactly right.</div>
+    </div>
+    <div class="process-step reveal">
+      <div class="process-num">05</div>
+      <div class="process-step-title" data-i18n="process.p5.title">Delivery</div>
+      <div class="process-step-desc" data-i18n="process.p5.desc">Launch + follow-up. I don't disappear after delivery.</div>
+    </div>
   </div>
 </section>
 
@@ -1596,53 +1685,98 @@ footer{background:var(--black);border-top:var(--dark-border);}
 <section id="tools">
   <div class="ast ast-1">*</div>
   <div class="tools-header">
-    <div class="section-tag reveal">// Stack</div>
-    <h2 class="tools-heading reveal">Tools & <em>stack</em></h2>
+    <div class="section-tag reveal" data-i18n="tools.tag">// Stack</div>
+    <h2 class="tools-heading reveal" data-i18n="tools.heading">Tools & <em>stack</em></h2>
   </div>
   <div class="tools-grid">
-    <div class="tool-group reveal"><div class="tool-group-label">Visual &amp; Creative</div><ul class="tool-list"><li>Figma</li><li>Adobe Illustrator</li><li>Adobe Photoshop</li><li>Canva Pro</li><li>CapCut</li><li>DaVinci Resolve</li></ul></div>
-    <div class="tool-group reveal"><div class="tool-group-label">Development</div><ul class="tool-list"><li>HTML / CSS / JS</li><li>React</li><li>Cursor</li><li>Claude Code</li><li>WordPress</li><li>Shopify</li></ul></div>
-    <div class="tool-group reveal"><div class="tool-group-label">Strategy &amp; Social</div><ul class="tool-list"><li>Meta Business Suite</li><li>Buffer</li><li>Google Analytics 4</li><li>Metricool</li><li>Notion</li></ul></div>
-    <div class="tool-group reveal"><div class="tool-group-label">Management</div><ul class="tool-list"><li>ClickUp</li><li>Slack</li><li>Notion</li><li>Airtable</li><li>Google Workspace</li></ul></div>
+    <div class="tool-group reveal">
+      <div class="tool-group-label" data-i18n="tools.g1">Visual &amp; Creative</div>
+      <ul class="tool-list">
+        <li>Figma</li>
+        <li>Adobe Illustrator</li>
+        <li>Adobe Photoshop</li>
+        <li>Canva Pro</li>
+        <li>CapCut</li>
+        <li>DaVinci Resolve</li>
+      </ul>
+    </div>
+    <div class="tool-group reveal">
+      <div class="tool-group-label" data-i18n="tools.g2">Development</div>
+      <ul class="tool-list">
+        <li>HTML / CSS / JS</li>
+        <li>React</li>
+        <li>Cursor</li>
+        <li>Claude Code</li>
+        <li>WordPress</li>
+        <li>Shopify</li>
+      </ul>
+    </div>
+    <div class="tool-group reveal">
+      <div class="tool-group-label" data-i18n="tools.g3">Strategy &amp; Social</div>
+      <ul class="tool-list">
+        <li>Meta Business Suite</li>
+        <li>Buffer</li>
+        <li>Google Analytics 4</li>
+        <li>Metricool</li>
+        <li>Notion</li>
+      </ul>
+    </div>
+    <div class="tool-group reveal">
+      <div class="tool-group-label" data-i18n="tools.g4">Management</div>
+      <ul class="tool-list">
+        <li>ClickUp</li>
+        <li>Slack</li>
+        <li>Notion</li>
+        <li>Airtable</li>
+        <li>Google Workspace</li>
+      </ul>
+    </div>
   </div>
 </section>
 
 <!-- POSITIONING -->
 <section id="brands">
   <div class="brands-header">
-    <h2 class="positioning-statement reveal">Good products get ignored every day.<br>Bad storytelling is usually why.</h2>
+    <h2 class="positioning-statement reveal" data-i18n="brands.heading">Good products get ignored every day.<br>Bad storytelling is usually why.</h2>
   </div>
   <div class="positioning-stats reveal">
-    <div class="pstat"><div class="pstat-num">9M+</div><div class="pstat-label">Views generated</div></div>
+    <div class="pstat">
+      <div class="pstat-num">9M+</div>
+      <div class="pstat-label" data-i18n="brands.s1">Views generated</div>
+    </div>
     <div class="pstat-div"></div>
-    <div class="pstat"><div class="pstat-num">10+</div><div class="pstat-label">Brands worked with</div></div>
+    <div class="pstat">
+      <div class="pstat-num">10+</div>
+      <div class="pstat-label" data-i18n="brands.s2">Brands worked with</div>
+    </div>
     <div class="pstat-div"></div>
-    <div class="pstat"><div class="pstat-num">5</div><div class="pstat-label">Years in the field</div></div>
+    <div class="pstat">
+      <div class="pstat-num">5</div>
+      <div class="pstat-label" data-i18n="brands.s3">Years in the field</div>
+    </div>
   </div>
-  </section>
-
-
+</section>
 
 <!-- CONTACT -->
 <section id="contact">
   <div class="ast ast-2" style="opacity:0.45;">*</div>
   <div class="contact-inner">
     <div class="contact-left">
-      <h2 class="contact-heading reveal"><span>GOT A</span><span>PROJECT?</span><em>LET'S GO.</em></h2>
+      <h2 class="contact-heading reveal" data-i18n="contact.heading"><span>GOT A</span><span>PROJECT?</span><em>LET'S GO.</em></h2>
       <div class="contact-links">
-        <a class="contact-link reveal" href="mailto:thayxna@gmail.com"><span class="contact-link-label">Email</span>thayxna@gmail.com →</a>
-        <a class="contact-link reveal" href="https://wa.me/5511978364606" target="_blank"><span class="contact-link-label">WhatsApp</span>+55 11 97836-4606 →</a>
-        <a class="contact-link reveal" href="#" target="_blank"><span class="contact-link-label">LinkedIn</span>coming soon →</a>
+        <a class="contact-link reveal" href="mailto:thayxna@gmail.com"><span class="contact-link-label" data-i18n="contact.email">Email</span>thayxna@gmail.com →</a>
+        <a class="contact-link reveal" href="https://wa.me/5511978364606" target="_blank"><span class="contact-link-label" data-i18n="contact.whatsapp">WhatsApp</span>+55 11 97836-4606 →</a>
+        <a class="contact-link reveal" href="#" target="_blank"><span class="contact-link-label" data-i18n="contact.linkedin">LinkedIn</span>coming soon →</a>
       </div>
     </div>
-    </div>
+  </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-bottom">
     <span class="footer-name">Tatá Guimarães © 2026</span>
-    <span class="footer-copy">Strategy · Design · Development · Copy</span>
+    <span class="footer-copy" data-i18n="footer.copy">Strategy · Design · Development · Copy</span>
   </div>
 </footer>
 
@@ -1731,13 +1865,337 @@ document.addEventListener('keydown', function(e) {
 });
 </script>
 <script>
+// Translations Dictionary
+window.translations = {
+  en: {
+    "nav.about": "About",
+    "nav.services": "Services",
+    "nav.work": "Work",
+    "nav.process": "Process",
+    "nav.contact": "Contact",
+    "nav.cta": "Let's work →",
+    
+    "ticker.strategy": "Social Media Strategy",
+    "ticker.design": "Social Media Design",
+    "ticker.web": "Web Experiences",
+    "ticker.art": "Digital Art",
+    "ticker.creation": "Content Creation",
+    "ticker.copy": "Copywriting",
+    "ticker.video": "Video Editing",
+    
+    "about.tag": "// About me",
+    "about.heading": "HELLO, <em>I'm Tatá.</em>",
+    "about.bio": "Full-spectrum creative based in Brazil. Strategy, copy, design, development. I do it all, and I do it with intention.",
+    "skills.strategy": "Social Media Strategy",
+    "skills.design": "Social Media Design",
+    "skills.web": "Web Experiences",
+    "skills.art": "Digital Art",
+    "skills.creation": "Content Creation",
+    "skills.contentStrategy": "Content Strategy",
+    "skills.video": "Video Editing",
+    "skills.copy": "Copywriting",
+    "about.explore": "Explore my work ↓",
+    "about.talk": "Let's talk →",
+    
+    "stats.years": "Years Exp.",
+    "stats.ideas": "Ideas",
+    "stats.views": "Views",
+    
+    "services.tag": "// Services",
+    "services.heading": "What I <em>solve</em>",
+    
+    "services.s1.title": "Brand Ecosystem",
+    "services.s1.problem": "\"I have no online presence.\"",
+    "services.s1.desc": "Website + visual identity + content strategy built from scratch, with one cohesive vision across every touchpoint.",
+    
+    "services.s2.title": "Content Engine",
+    "services.s2.problem": "\"My content doesn't engage.\"",
+    "services.s2.desc": "Strategy, copy and design integrated — content that speaks to the right people at the right moment and converts.",
+    
+    "services.s3.title": "Ad Creative",
+    "services.s3.problem": "\"My ads aren't converting.\"",
+    "services.s3.desc": "Meta ad design + copy crafted to stop the scroll and drive action — visuals and words built to work together.",
+    
+    "services.s4.title": "Visual Identity",
+    "services.s4.problem": "\"My brand has no identity.\"",
+    "services.s4.desc": "Digital art and branding that make a brand instantly recognizable — across every format and platform.",
+    
+    "services.s5.title": "Social Media Management",
+    "services.s5.problem": "\"I need to grow my audience.\"",
+    "services.s5.desc": "End-to-end social management: planning, creation, scheduling, community and analytics — all handled.",
+    
+    "services.s6.title": "Strategic Copywriting",
+    "services.s6.problem": "\"My copy doesn't sell.\"",
+    "services.s6.desc": "Captions, website copy, email sequences and ad copy written to connect, persuade and convert.",
+    
+    "services.tags.web": "Web Exp",
+    "services.tags.design": "Design",
+    "services.tags.strategy": "Strategy",
+    "services.tags.copy": "Copy",
+    "services.tags.meta": "Meta Ads",
+    "services.tags.art": "Digital Art",
+    "services.tags.branding": "Branding",
+    "services.tags.smm": "SMM",
+    "services.tags.analytics": "Analytics",
+    "services.tags.email": "Email",
+    "services.tags.webcopy": "Web Copy",
+    
+    "work.tag": "// Work",
+    "work.heading": "What I've <em>built</em>",
+    "work.drama.cat": "Content Creation",
+    "work.drama.title": "Drama SP",
+    "work.website.cat": "Development",
+    "work.website.title": "Website Project",
+    "work.placeholder": "project image",
+    "work.art.cat": "Digital Art",
+    "work.art.title": "Digital Art",
+    "work.flavia.cat": "Social Media",
+    "work.flavia.title": "Flavia Madeira",
+    "work.id.cat": "Content Strategy",
+    "work.id.title": "ID — Content Strategy",
+    
+    "process.tag": "// Process",
+    "process.heading": "How I <em>work</em>",
+    "process.p1.title": "Briefing",
+    "process.p1.desc": "I understand your business, audience, goals and what's not working right now.",
+    "process.p2.title": "Strategy",
+    "process.p2.desc": "I map out the full plan — positioning, messaging, visual direction, channels.",
+    "process.p3.title": "Creation",
+    "process.p3.desc": "Design, copy, code — all produced with the same strategic vision.",
+    "process.p4.title": "Revision",
+    "process.p4.desc": "You review, I refine. Until it's exactly right.",
+    "process.p5.title": "Delivery",
+    "process.p5.desc": "Launch + follow-up. I don't disappear after delivery.",
+    
+    "tools.tag": "// Stack",
+    "tools.heading": "Tools & <em>stack</em>",
+    "tools.g1": "Visual & Creative",
+    "tools.g2": "Development",
+    "tools.g3": "Strategy & Social",
+    "tools.g4": "Management",
+    
+    "brands.heading": "Good products get ignored every day.<br>Bad storytelling is usually why.",
+    "brands.s1": "Views generated",
+    "brands.s2": "Brands worked with",
+    "brands.s3": "Years in the field",
+    
+    "contact.heading": "<span>GOT A</span><span>PROJECT?</span><em>LET'S GO.</em>",
+    "contact.email": "Email",
+    "contact.whatsapp": "WhatsApp",
+    "contact.linkedin": "LinkedIn",
+    
+    "footer.copy": "Strategy · Design · Development · Copy"
+  },
+  pt: {
+    "nav.about": "Sobre",
+    "nav.services": "Serviços",
+    "nav.work": "Portfólio",
+    "nav.process": "Processo",
+    "nav.contact": "Contato",
+    "nav.cta": "Vamos conversar →",
+    
+    "ticker.strategy": "Estratégia de Redes",
+    "ticker.design": "Design de Redes",
+    "ticker.web": "Experiências Web",
+    "ticker.art": "Arte Digital",
+    "ticker.creation": "Criação de Conteúdo",
+    "ticker.copy": "Copywriting",
+    "ticker.video": "Edição de Vídeo",
+    
+    "about.tag": "// Sobre mim",
+    "about.heading": "OLÁ, <em>Sou a Tatá.</em>",
+    "about.bio": "Criativa completa baseada no Brasil. Estratégia, copy, design, desenvolvimento. Faço tudo isso, e faço com intenção.",
+    "skills.strategy": "Estratégia de Redes Sociais",
+    "skills.design": "Design de Redes Sociais",
+    "skills.web": "Experiências Web",
+    "skills.art": "Arte Digital",
+    "skills.creation": "Criação de Conteúdo",
+    "skills.contentStrategy": "Estratégia de Conteúdo",
+    "skills.video": "Edição de Vídeo",
+    "skills.copy": "Copywriting",
+    "about.explore": "Explore meu trabalho ↓",
+    "about.talk": "Vamos conversar →",
+    
+    "stats.years": "Anos de Exp.",
+    "stats.ideas": "Ideias",
+    "stats.views": "Views",
+    
+    "services.tag": "// Serviços",
+    "services.heading": "O que eu <em>resolvo</em>",
+    
+    "services.s1.title": "Ecossistema de Marca",
+    "services.s1.problem": "\"Não tenho presença online.\"",
+    "services.s1.desc": "Site + identidade visual + estratégia de conteúdo construídos do zero, com uma visão coesa em todos os pontos de contato.",
+    
+    "services.s2.title": "Máquina de Conteúdo",
+    "services.s2.problem": "\"Meu conteúdo não engaja.\"",
+    "services.s2.desc": "Estratégia, copy e design integrados — conteúdo que fala com as pessoas certas no momento certo e converte.",
+    
+    "services.s3.title": "Criativos para Anúncios",
+    "services.s3.problem": "\"Meus anúncios não convertem.\"",
+    "services.s3.desc": "Design + copy para anúncios de Meta criados para parar o feed e gerar ação — visual e texto trabalhando juntos.",
+    
+    "services.s4.title": "Identidade Visual",
+    "services.s4.problem": "\"Minha marca não tem identidade.\"",
+    "services.s4.desc": "Arte digital e branding que tornam uma marca instantaneamente reconhecível — em todos os formatos e plataformas.",
+    
+    "services.s5.title": "Gestão de Redes Sociais",
+    "services.s5.problem": "\"Preciso crescer meu público.\"",
+    "services.s5.desc": "Gestão de redes ponta a ponta: planejamento, criação, agendamento, comunidade e relatórios — tudo resolvido.",
+    
+    "services.s6.title": "Copywriting Estratégico",
+    "services.s6.problem": "\"Minha copy não vende.\"",
+    "services.s6.desc": "Legendas, textos de site, sequências de e-mail e copy de anúncios escritos para conectar, persuadir e converter.",
+    
+    "services.tags.web": "Web Exp",
+    "services.tags.design": "Design",
+    "services.tags.strategy": "Estratégia",
+    "services.tags.copy": "Copy",
+    "services.tags.meta": "Meta Ads",
+    "services.tags.art": "Arte Digital",
+    "services.tags.branding": "Branding",
+    "services.tags.smm": "Redes Sociais",
+    "services.tags.analytics": "Relatórios",
+    "services.tags.email": "E-mail",
+    "services.tags.webcopy": "Textos Web",
+    
+    "work.tag": "// Portfólio",
+    "work.heading": "O que eu <em>construí</em>",
+    "work.drama.cat": "Criação de Conteúdo",
+    "work.drama.title": "Drama SP",
+    "work.website.cat": "Desenvolvimento",
+    "work.website.title": "Projeto Web",
+    "work.placeholder": "imagem do projeto",
+    "work.art.cat": "Arte Digital",
+    "work.art.title": "Arte Digital",
+    "work.flavia.cat": "Redes Sociais",
+    "work.flavia.title": "Flavia Madeira",
+    "work.id.cat": "Estratégia de Conteúdo",
+    "work.id.title": "ID — Estratégia de Conteúdo",
+    
+    "process.tag": "// Processo",
+    "process.heading": "Como eu <em>trabalho</em>",
+    "process.p1.title": "Briefing",
+    "process.p1.desc": "Entendo o seu negócio, público, objetivos e o que não está funcionando no momento.",
+    "process.p2.title": "Estratégia",
+    "process.p2.desc": "Mapeio todo o plano — posicionamento, mensagem, direção visual, canais.",
+    "process.p3.title": "Criação",
+    "process.p3.desc": "Design, copy, código — tudo produzido com a mesma visão estratégica.",
+    "process.p4.title": "Revisão",
+    "process.p4.desc": "Você revisa, eu refino. Até ficar perfeito.",
+    "process.p5.title": "Entrega",
+    "process.p5.desc": "Lançamento + acompanhamento. Não desapareço depois da entrega.",
+    
+    "tools.tag": "// Stack",
+    "tools.heading": "Ferramentas & <em>stack</em>",
+    "tools.g1": "Visual & Criativo",
+    "tools.g2": "Desenvolvimento",
+    "tools.g3": "Estratégia & Social",
+    "tools.g4": "Gestão",
+    
+    "brands.heading": "Bons produtos são ignorados todos os dias.<br>Narrativas ruins geralmente são o motivo.",
+    "brands.s1": "Views gerados",
+    "brands.s2": "Marcas atendidas",
+    "brands.s3": "Anos de experiência",
+    
+    "contact.heading": "<span>TEM UM</span><span>PROJETO?</span><em>VAMOS NESSA.</em>",
+    "contact.email": "E-mail",
+    "contact.whatsapp": "WhatsApp",
+    "contact.linkedin": "LinkedIn",
+    
+    "footer.copy": "Estratégia · Design · Desenvolvimento · Copy"
+  }
+};
+
+window.currentLang = 'en';
+
+window.setLanguage = function(lang) {
+  window.currentLang = lang;
+  localStorage.setItem('tg_lang', lang);
+  
+  // 1. Update elements with data-i18n
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    var key = el.getAttribute('data-i18n');
+    if (window.translations[lang] && window.translations[lang][key] !== undefined) {
+      el.innerHTML = window.translations[lang][key];
+    }
+  });
+  
+  // 2. Update active state in switcher
+  document.querySelectorAll('.lang-btn').forEach(function(btn) {
+    if (btn.getAttribute('data-lang-opt') === lang) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  });
+  
+  // 3. Update HTML lang attribute
+  document.documentElement.setAttribute('lang', lang);
+  
+  // 4. Update dynamic attributes
+  var closeBtn = document.getElementById('modalClose');
+  if (closeBtn) {
+    closeBtn.setAttribute('aria-label', lang === 'pt' ? 'Fechar' : 'Close');
+  }
+  
+  var ext = document.getElementById('modalExternalLink');
+  if (ext) {
+    ext.textContent = lang === 'pt' ? 'Ver online ↗' : 'View live ↗';
+  }
+  
+  var prevBtn = document.getElementById('modalPrev');
+  if (prevBtn) {
+    prevBtn.textContent = lang === 'pt' ? '← Anterior' : '← Prev';
+  }
+  
+  var nextBtn = document.getElementById('modalNext');
+  if (nextBtn) {
+    nextBtn.textContent = lang === 'pt' ? 'Próximo →' : 'Next →';
+  }
+};
+
+// Initialize Language
+function initLanguage() {
+  var savedLang = localStorage.getItem('tg_lang');
+  if (savedLang) {
+    window.setLanguage(savedLang);
+  } else {
+    // Detect browser language
+    var userLang = navigator.language || navigator.userLanguage;
+    if (userLang && userLang.toLowerCase().indexOf('pt') > -1) {
+      window.setLanguage('pt');
+    } else {
+      window.setLanguage('en');
+    }
+  }
+}
+
+// Call language init on load
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initLanguage);
+} else {
+  initLanguage();
+}
+
 (function() {
   var PROJECTS = {
     'static-posts': {
-      cat: 'Content Creation',
-      title: 'Drama — Content Creation',
-      desc: 'DRAMA SP is a Brazilian bikini brand defined by a provocative, irreverent and unapologetically bold tone of voice. I led content creation and creative direction for brand campaigns and activations, including anniversary campaigns, pre-launch hype content and behind-the-scenes, translating DRAMA SP\'s identity into consistent visual and audiovisual narratives.',
-      tags: ['Content Creation', 'Video Editing', 'Making of', 'Video Direction', 'Social Media', 'Copywriting', 'Brand Voice'],
+      cat: { en: 'Content Creation', pt: 'Criação de Conteúdo' },
+      title: { en: 'Drama — Content Creation', pt: 'Drama — Criação de Conteúdo' },
+      desc: {
+        en: 'DRAMA SP is a Brazilian bikini brand defined by a provocative, irreverent and unapologetically bold tone of voice. I led content creation and creative direction for brand campaigns and activations, including anniversary campaigns, pre-launch hype content and behind-the-scenes, translating DRAMA SP\'s identity into consistent visual and audiovisual narratives.',
+        pt: 'A DRAMA SP é uma marca brasileira de biquínis definida por um tom de voz provocativo, irreverente e assumidamente audacioso. Liderou a criação de conteúdo e a direção criativa de campanhas e ativações da marca, incluindo campanhas de aniversário, conteúdo de hype pré-lançamento e bastidores, traduzindo a identidade da DRAMA SP em narrativas visuais e audiovisuais consistentes.'
+      },
+      tags: [
+        { en: 'Content Creation', pt: 'Criação de Conteúdo' },
+        { en: 'Video Editing', pt: 'Edição de Vídeo' },
+        { en: 'Making of', pt: 'Making of' },
+        { en: 'Video Direction', pt: 'Direção de Vídeo' },
+        { en: 'Social Media', pt: 'Redes Sociais' },
+        { en: 'Copywriting', pt: 'Copywriting' },
+        { en: 'Brand Voice', pt: 'Voz da Marca' }
+      ],
       images: [
         'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/drama/dramavideo2.jpg',
         'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/drama/dramavideo5.jpg'
@@ -1756,16 +2214,26 @@ document.addEventListener('keydown', function(e) {
         { url: 'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/drama/dramavideo12.mp4', poster: '', label: '', ratio: '9/16' }
       ],
       results: [
-        { num: '+250K', label: 'Interactions' },
-        { num: 'R$30K', label: 'Sales in 1 month' },
-        { num: '200+', label: 'Content pieces' }
+        { num: '+250K', label: { en: 'Interactions', pt: 'Interações' } },
+        { num: 'R$30K', label: { en: 'Sales in 1 month', pt: 'Vendas em 1 mês' } },
+        { num: '200+', label: { en: 'Content pieces', pt: 'Peças de conteúdo' } }
       ],
       externalLink: ''
     },
     'website': {
-      cat: 'Development', title: 'FixMe — Web Development',
-      desc: 'FixMe is an AI-powered PC optimization tool built for gamers and power users. I developed the landing page translating a technical product into a clear, conversion-focused narrative. Dark aesthetic with neon accents, structured to guide the user from problem to solution.',
-      tags: ['Development', 'Web Design', 'Copywriting', 'UX Structure', 'AI-assisted'],
+      cat: { en: 'Development', pt: 'Desenvolvimento' },
+      title: { en: 'FixMe — Web Development', pt: 'FixMe — Desenvolvimento Web' },
+      desc: {
+        en: 'FixMe is an AI-powered PC optimization tool built for gamers and power users. I developed the landing page translating a technical product into a clear, conversion-focused narrative. Dark aesthetic with neon accents, structured to guide the user from problem to solution.',
+        pt: 'O FixMe é uma ferramenta de otimização de PC por Inteligência Artificial criada para gamers e usuários avançados. Desenvolvi a landing page traduzindo um produto técnico em uma narrativa clara e focada em conversão. Estética escura com detalhes em neon, estruturada para guiar o usuário do problema à solução.'
+      },
+      tags: [
+        { en: 'Development', pt: 'Desenvolvimento' },
+        { en: 'Web Design', pt: 'Web Design' },
+        { en: 'Copywriting', pt: 'Copywriting' },
+        { en: 'UX Structure', pt: 'Estrutura UX' },
+        { en: 'AI-assisted', pt: 'Assistido por IA' }
+      ],
       images: [
         'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/websites/fixme1.jpg',
         'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/websites/fixme2.jpg',
@@ -1782,33 +2250,54 @@ document.addEventListener('keydown', function(e) {
       externalLink: ''
     },
     'brand-identity': {
-      cat: 'Digital Art',
-      title: 'Digital Art',
-      desc: 'A selection of digital illustrations and 2D animation work spanning retro, psychedelic and naif aesthetics. From frame-by-frame rotoscopy animation to editorial illustration and character design.',
-      tags: ['Digital Art', 'Illustration', '2D Animation', 'Rotoscopy', 'Character Design'],
+      cat: { en: 'Digital Art', pt: 'Arte Digital' },
+      title: { en: 'Digital Art', pt: 'Arte Digital' },
+      desc: {
+        en: 'A selection of digital illustrations and 2D animation work spanning retro, psychedelic and naif aesthetics. From frame-by-frame rotoscopy animation to editorial illustration and character design.',
+        pt: 'Uma seleção de ilustrações digitais e trabalhos de animação 2D abrangendo estéticas retro, psicodélicas e naif. Desde animação rotoscópica quadro a quadro até ilustração editorial e design de personagens.'
+      },
+      tags: [
+        { en: 'Digital Art', pt: 'Arte Digital' },
+        { en: 'Illustration', pt: 'Ilustração' },
+        { en: '2D Animation', pt: 'Animação 2D' },
+        { en: 'Rotoscopy', pt: 'Rotoscopia' },
+        { en: 'Character Design', pt: 'Design de Personagens' }
+      ],
       images: [
         'https://i.pinimg.com/originals/40/ed/e7/40ede7c8bd1527ed82574cf70c369a90.jpg',
         'https://i.pinimg.com/originals/45/d6/92/45d6926a9666a3076574d6e6d154bec6.jpg',
         'https://i.pinimg.com/originals/6d/e3/fc/6de3fc118ecde35dfaaa91931f7802b8.jpg'
       ],
       imageCaptions: [
-        'Weirdcore Strawberry Art | Retro Indie Illustration',
-        'Digital Art / Illustration / Friends Draw / Naif',
-        'A colorful and psychedelic lofi illustration about feeling lost and searching for yourself. Retro vintage art style with a melancholic vibe. Pop Art Illustration | Vintage 70s Vibe'
+        { en: 'Weirdcore Strawberry Art | Retro Indie Illustration', pt: 'Arte de Morango Weirdcore | Ilustração Indie Retrô' },
+        { en: 'Digital Art / Illustration / Friends Draw / Naif', pt: 'Arte Digital / Ilustração / Desenho de Amigos / Naif' },
+        { en: 'A colorful and psychedelic lofi illustration about feeling lost and searching for yourself. Retro vintage art style with a melancholic vibe. Pop Art Illustration | Vintage 70s Vibe', pt: 'Uma ilustração lofi colorida e psicodélica sobre se sentir perdido e se procurar. Estilo de arte vintage retrô com uma vibe melancólica. Ilustração Pop Art | Vibe Vintage Anos 70' }
       ],
       imageRow: [],
       imageLayout: 'feed',
       video: 'https://www.youtube.com/embed/wD1mQ-oMnNM?si=aFSC2hgXFLDw3I8g',
-      videoCaption: '2D Animation (rotoscopy) for Vanguart, directed and produced by Andrei Moyssiadis.',
+      videoCaption: {
+        en: '2D Animation (rotoscopy) for Vanguart, directed and produced by Andrei Moyssiadis.',
+        pt: 'Animação 2D (rotoscopia) para a banda Vanguart, dirigida e produzida por Andrei Moyssiadis.'
+      },
       videoGallery: null,
       results: [],
       externalLink: ''
     },
     'flavia-madeira': {
-      cat: 'Social Media',
-      title: 'Flavia Madeira — Social Media',
-      desc: 'Flavia Madeira is a fashion jewelry brand driven by visual language, where image and movement are central to the brand\'s expression. I worked on the creation and development of social media content, exploring narrative, rhythm, and experimentation across visual, audiovisual, and textual formats, with a focus on strengthening the brand\'s voice and digital positioning. The brand operates with themed collections that carry strong concepts and narratives. The content challenge was to build a voice that translated this authorial depth—selling meaning before selling the product, in a tone that resonates with an audience that values significance and refinement.',
-      tags: ['Social Media', 'Content Creation', 'Creative Direction', 'Copywriting', 'Visual Narrative'],
+      cat: { en: 'Social Media', pt: 'Redes Sociais' },
+      title: { en: 'Flavia Madeira — Social Media', pt: 'Flavia Madeira — Redes Sociais' },
+      desc: {
+        en: 'Flavia Madeira is a fashion jewelry brand driven by visual language, where image and movement are central to the brand\'s expression. I worked on the creation and development of social media content, exploring narrative, rhythm, and experimentation across visual, audiovisual, and textual formats, with a focus on strengthening the brand\'s voice and digital positioning. The brand operates with themed collections that carry strong concepts and narratives. The content challenge was to build a voice that translated this authorial depth—selling meaning before selling the product, in a tone that resonates with an audience that values significance and refinement.',
+        pt: 'Flavia Madeira é uma marca de joias autorais movida pela linguagem visual, onde a imagem e o movimento são centrais para a expressão da marca. Trabalhei na criação e desenvolvimento de conteúdo para redes sociais, explorando narrativa, ritmo e experimentação em formatos visuais, audiovisuais e textuais, com foco no fortalecimento da voz da marca e posicionamento digital. A marca opera com coleções temáticas que carregam conceitos e narrativas fortes. O desafio de conteúdo foi construir uma voz que traduzisse essa profundidade autoral — vendendo significado antes de vender o produto, em um tom que ressoa com um público que valoriza o sentido e o refinamento.'
+      },
+      tags: [
+        { en: 'Social Media', pt: 'Redes Sociais' },
+        { en: 'Content Creation', pt: 'Criação de Conteúdo' },
+        { en: 'Creative Direction', pt: 'Direção Criativa' },
+        { en: 'Copywriting', pt: 'Copywriting' },
+        { en: 'Visual Narrative', pt: 'Narrativa Visual' }
+      ],
       images: [
         'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/flaviamadeira/IMG_9976.jpg',
         'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/flaviamadeira/IMG_9977.jpg',
@@ -1821,25 +2310,36 @@ document.addEventListener('keydown', function(e) {
         { url: 'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/flaviamadeira/escadinha.mp4', poster: '', label: 'Escadinha', ratio: '16/9' }
       ],
       results: [
-        { num: 'Narrative', label: 'Content' },
-        { num: 'Premium', label: 'Positioning' },
-        { num: 'Visual', label: 'Identity' }
+        { num: 'Narrative', label: { en: 'Content', pt: 'Conteúdo' } },
+        { num: 'Premium', label: { en: 'Positioning', pt: 'Posicionamento' } },
+        { num: 'Visual', label: { en: 'Identity', pt: 'Identidade' } }
       ],
       externalLink: ''
     },
     'id-content-strategy': {
-      cat: 'Content Strategy',
-      title: 'ID — Content Strategy',
-      desc: '<strong>Interdependência</strong> is an environmental communication project conceived by filmmaker Caio Ferraz. Using water as a lens, it reveals how everything is connected — from climate to the way we live. We transformed this complex socio-environmental topic into a high-growth organic channel from scratch.<br><br><strong>The Challenge:</strong><br>Scale, engage, and drive conversions around a complex socio-environmental topic starting with only ~200 followers.<br><br><strong>The Strategy:</strong><br>• <strong>Cinematic Storytelling:</strong> Developed the content strategy and executed direct creation, focusing on high-performance scripting and video editing.<br>• <strong>Translating Complexity:</strong> Packaged deep scientific themes into highly clear, relatable, and shareable short-form video formats.<br><br><strong>Qualified Growth (3 Months, 100% Organic):</strong><br>• <strong>Audience Quality:</strong> Reached diverse, high-caliber audiences outside the initial bubble (public figures, experts, and creators) under zero ad spend.<br>• <strong>Polarization Proof:</strong> Successfully crossed cultural niches and broke through demographic bubbles.<br><br><strong>Conclusion:</strong><br>A case study proving that a well-structured content strategy can transform specialized knowledge into consistent organic growth by bridging reach, engagement, and conversion.',
-      tags: ['Content Strategy', 'Video Scripting', 'Video Editing', 'Creative Direction', 'Growth Marketing'],
+      cat: { en: 'Content Strategy', pt: 'Estratégia de Conteúdo' },
+      title: { en: 'ID — Content Strategy', pt: 'ID — Estratégia de Conteúdo' },
+      desc: {
+        en: '<strong>Interdependência</strong> is an environmental communication project conceived by filmmaker Caio Ferraz. Using water as a lens, it reveals how everything is connected — from climate to the way we live. We transformed this complex socio-environmental topic into a high-growth organic channel from scratch.<br><br><strong>The Challenge:</strong><br>Scale, engage, and drive conversions around a complex socio-environmental topic starting with only ~200 followers.<br><br><strong>The Strategy:</strong><br>• <strong>Cinematic Storytelling:</strong> Developed the content strategy and executed direct creation, focusing on high-performance scripting and video editing.<br>• <strong>Translating Complexity:</strong> Packaged deep scientific themes into highly clear, relatable, and shareable short-form video formats.<br><br><strong>Qualified Growth (3 Months, 100% Organic):</strong><br>• <strong>Audience Quality:</strong> Reached diverse, high-caliber audiences outside the initial bubble (public figures, experts, and creators) under zero ad spend.<br>• <strong>Polarization Proof:</strong> Successfully crossed cultural niches and broke through demographic bubbles.<br><br><strong>Conclusion:</strong><br>A case study proving that a well-structured content strategy can transform specialized knowledge into consistent organic growth by bridging reach, engagement, and conversion.',
+        pt: '<strong>Interdependência</strong> é um projeto de comunicação ambiental idealizado pelo cineasta Caio Ferraz. Usando a água como lente, revela como tudo está conectado — do clima à forma como vivemos. Transformamos este tema socioambiental complexo em um canal de alto crescimento orgânico a partir do zero.<br><br><strong>O Desafio:</strong><br>Escalar, engajar e gerar conversões em torno de um tema socioambiental complexo começando com apenas ~200 seguidores.<br><br><strong>O Estratégia:</strong><br>• <strong>Storytelling Cinemático:</strong> Desenvolvi a estratégia de conteúdo e executei a criação direta, com foco em roteiros de alta performance e edição de vídeo.<br>• <strong>Traduzindo Complexidade:</strong> Empacotei temas científicos profundos em formatos de vídeo curtos altamente claros, relacionáveis e compartilháveis.<br><br><strong>Crescimento Qualificado (3 Meses, 100% Orgânico):</strong><br>• <strong>Qualidade de Audiência:</strong> Alcancei públicos diversos e de alto calibre fora da bolha inicial (figuras públicas, especialistas e criadores) sem qualquer investimento em anúncios.<br>• <strong>Prova de Polarização:</strong> Atravessei com sucesso nichos culturais e rompi bolhas demográficas.<br><br><strong>Conclusão:</strong><br>Um estudo de caso provando que uma estratégia de conteúdo bem estruturada pode transformar conhecimento especializado em crescimento orgânico consistente, unindo alcance, engajamento e conversão.'
+      },
+      tags: [
+        { en: 'Content Strategy', pt: 'Estratégia de Conteúdo' },
+        { en: 'Video Scripting', pt: 'Roteirização de Vídeo' },
+        { en: 'Video Editing', pt: 'Edição de Vídeo' },
+        { en: 'Creative Direction', pt: 'Direção Criativa' },
+        { en: 'Growth Marketing', pt: 'Growth Marketing' }
+      ],
       images: ['https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/id-videos.jpg'],
-      imageCaptions: ['Organic short-form video content designed for Interdependência.'],
+      imageCaptions: [
+        { en: 'Organic short-form video content designed for Interdependência.', pt: 'Conteúdo de vídeo curto orgânico criado para o Interdependência.' }
+      ],
       imageRow: [],
       video: null,
       results: [
-        { num: '+28K', label: 'Audience Conversion' },
-        { num: '+358.5K', label: 'Interactions & Circulation' },
-        { num: '1.6M', label: 'Scale Organic Reach' }
+        { num: '+28K', label: { en: 'Audience Conversion', pt: 'Conversão de Público' } },
+        { num: '+358.5K', label: { en: 'Interactions & Circulation', pt: 'Interações & Circulação' } },
+        { num: '1.6M', label: { en: 'Scale Organic Reach', pt: 'Alcance Orgânico Escalonado' } }
       ],
       externalLink: ''
     }
@@ -1855,15 +2355,21 @@ document.addEventListener('keydown', function(e) {
 
   function buildBody(key) {
     var p = PROJECTS[key];
-    var h = '<p class="modal-desc">'+p.desc+'</p>';
+    var currentLang = window.currentLang || 'en';
+    var descText = typeof p.desc === 'object' ? p.desc[currentLang] : p.desc;
+    var h = '<p class="modal-desc">'+descText+'</p>';
     if (p.tags && p.tags.length) {
-      h += '<div class="modal-tags">'+p.tags.map(function(t){return '<span class="modal-tag">'+t+'</span>';}).join('')+'</div>';
+      h += '<div class="modal-tags">'+p.tags.map(function(t){
+        var tagText = typeof t === 'object' ? t[currentLang] : t;
+        return '<span class="modal-tag">'+tagText+'</span>';
+      }).join('')+'</div>';
     }
     h += '<div class="modal-media">';
 
     // video gallery first
     if (p.videoGallery && p.videoGallery.length) {
-      h += '<div class="modal-section-label">Videos</div>';
+      var videoLabel = currentLang === 'pt' ? 'Vídeos' : 'Videos';
+      h += '<div class="modal-section-label">'+videoLabel+'</div>';
       h += '<div class="modal-video-gallery">';
       h += '<div class="modal-video-main ratio-16-9" id="videoMain_'+key+'">';
       h += '<video src="'+(p.video||p.videoGallery[0].url)+'" controls playsinline id="mainVid_'+key+'"></video>';
@@ -1877,10 +2383,11 @@ document.addEventListener('keydown', function(e) {
           var textColors = ['#111111','#111111','#111111','#111111','#111111','#111111','#111111','#111111'];
           var bg = colors[i % colors.length];
           var fg = textColors[i % textColors.length];
-          var onclickFn = 'switchVideo(\''+key+'\',\''+v.url+'\',\''+ratio+'\',\''+v.label+'\',this)';
+          var vLabel = typeof v.label === 'object' ? v.label[currentLang] : v.label;
+          var onclickFn = 'switchVideo(\''+key+'\',\''+v.url+'\',\''+ratio+'\',\''+vLabel+'\',this)';
           h += '<div class="modal-video-thumb" onclick="'+onclickFn+'" style="background:'+bg+';">';
           h += '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;font-size:1.4rem;color:'+fg+';opacity:0.8;">▶</div>';
-          if (v.label) h += '<div class="modal-video-thumb-label" style="pointer-events:none;color:'+fg+';">'+v.label+'</div>';
+          if (vLabel) h += '<div class="modal-video-thumb-label" style="pointer-events:none;color:'+fg+';">'+vLabel+'</div>';
           h += '</div>';
         });
         h += '</div>';
@@ -1894,7 +2401,8 @@ document.addEventListener('keydown', function(e) {
         h += '<div class="modal-video-wrap"><video src="'+p.video+'" controls playsinline></video></div>';
       }
       if (p.videoCaption) {
-        h += '<div style="font-family:var(--tech);font-size:0.68rem;letter-spacing:0.06em;color:rgba(26,26,26,0.45);padding:0.5rem 0 1rem;line-height:1.5;">'+p.videoCaption+'</div>';
+        var videoCapText = typeof p.videoCaption === 'object' ? p.videoCaption[currentLang] : p.videoCaption;
+        h += '<div style="font-family:var(--tech);font-size:0.68rem;letter-spacing:0.06em;color:rgba(26,26,26,0.45);padding:0.5rem 0 1rem;line-height:1.5;">'+videoCapText+'</div>';
       }
     } else if (p.video === undefined) {
       h += '<div class="modal-video-wrap"><div class="modal-video-placeholder"><span class="play-icon">▶</span><span>add video URL in PROJECTS</span></div></div>';
@@ -1902,18 +2410,20 @@ document.addEventListener('keydown', function(e) {
 
     // images after video
     if (p.images && p.images.length) {
+      var pTitleText = typeof p.title === 'object' ? p.title[currentLang] : p.title;
       if (p.imageLayout === 'feed') {
         var cols = p.images.length === 2 ? 2 : 3;
         h += '<div style="display:grid;grid-template-columns:repeat('+cols+',1fr);gap:0.5rem;margin-bottom:1rem;">';
         p.images.forEach(function(s) {
-          h += '<div style="aspect-ratio:4/5;overflow:hidden;border:2px solid var(--black);"><img src="'+s+'" alt="'+p.title+'" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div>';
+          h += '<div style="aspect-ratio:4/5;overflow:hidden;border:2px solid var(--black);"><img src="'+s+'" alt="'+pTitleText+'" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div>';
         });
         h += '</div>';
       } else {
         p.images.forEach(function(s, idx) {
-          h += img(s, p.title);
+          h += img(s, pTitleText);
           if (p.imageCaptions && p.imageCaptions[idx]) {
-            h += '<div style="font-family:var(--tech);font-size:0.68rem;letter-spacing:0.06em;color:rgba(26,26,26,0.45);padding:0.5rem 0 1rem;line-height:1.5;">'+p.imageCaptions[idx]+'</div>';
+            var captionText = typeof p.imageCaptions[idx] === 'object' ? p.imageCaptions[idx][currentLang] : p.imageCaptions[idx];
+            h += '<div style="font-family:var(--tech);font-size:0.68rem;letter-spacing:0.06em;color:rgba(26,26,26,0.45);padding:0.5rem 0 1rem;line-height:1.5;">'+captionText+'</div>';
           }
         });
       }
@@ -1921,8 +2431,12 @@ document.addEventListener('keydown', function(e) {
 
     h += '</div>';
     if (p.results && p.results.length) {
-      h += '<div class="modal-section-label">Results</div><div class="modal-results">';
-      p.results.forEach(function(r){ h += '<div class="modal-result"><div class="modal-result-num">'+r.num+'</div><div class="modal-result-label">'+r.label+'</div></div>'; });
+      var resultsLabel = currentLang === 'pt' ? 'Resultados' : 'Results';
+      h += '<div class="modal-section-label">'+resultsLabel+'</div><div class="modal-results">';
+      p.results.forEach(function(r){
+        var rLabel = typeof r.label === 'object' ? r.label[currentLang] : r.label;
+        h += '<div class="modal-result"><div class="modal-result-num">'+r.num+'</div><div class="modal-result-label">'+rLabel+'</div></div>';
+      });
       h += '</div>';
     }
     return h;
@@ -1931,9 +2445,10 @@ document.addEventListener('keydown', function(e) {
   function openModal(key) {
     var p = PROJECTS[key];
     if (!p) return;
+    var currentLang = window.currentLang || 'en';
     currentIdx = ORDER.indexOf(key);
-    document.getElementById('modalCat').textContent = p.cat;
-    document.getElementById('modalTitle').textContent = p.title;
+    document.getElementById('modalCat').textContent = typeof p.cat === 'object' ? p.cat[currentLang] : p.cat;
+    document.getElementById('modalTitle').textContent = typeof p.title === 'object' ? p.title[currentLang] : p.title;
     document.getElementById('modalBody').innerHTML = buildBody(key);
     var ext = document.getElementById('modalExternalLink');
     ext.href = p.externalLink || '#';
