@@ -1,0 +1,22 @@
+{
+  "name": "portfolio-tata",
+  "version": "1.0.0",
+  "description": "Tatá Guimarães Portfolio Website",
+  "type": "module",
+  "scripts": {
+    "dev": "npx http-server -p 3000",
+    "build": "echo 'No build step required for static HTML'",
+    "lint": "echo 'No linter configured'"
+  },
+  "dependencies": {
+    "@vercel/speed-insights": "^2.0.0"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "portfolio",
+    "vercel",
+    "speed-insights"
+  ],
+  "author": "Tatá Guimarães",
+  "license": "MIT"
+}
