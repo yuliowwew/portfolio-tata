@@ -194,7 +194,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 
 /* CONTACT */
 #contact{background:var(--black);position:relative;overflow:hidden;border-bottom:2px solid rgba(255,255,255,0.08);}
-.contact-inner{display:grid;grid-template-columns:1.5fr 1fr;min-height:70vh;}
+.contact-inner{display:block;}
 .contact-left{padding:6rem var(--container-pad);border-right:2px solid rgba(255,255,255,0.08);display:flex;flex-direction:column;justify-content:space-between;position:relative;z-index:2;}
 .contact-heading{--contact-light-offset:-0.035em;font-family:var(--hv);font-weight:900;font-size:clamp(3rem,8vw,8rem);letter-spacing:-0.05em;line-height:0.88;text-transform:uppercase;color:var(--white);margin-bottom:3rem;}
 .contact-heading span,.contact-heading em{display:block;}
@@ -1008,15 +1008,16 @@ section{isolation:auto;}
 .contact-inner{gap:1rem;padding:0 var(--section-pad);}
 .contact-left{
   border:0;
-  border-radius:2rem;
-  background:#171717;
-  padding: clamp(3rem, 8vw, 5rem) var(--container-pad);
+  border-radius:0;
+  background:transparent;
+  padding: clamp(3rem, 6vw, 5rem) var(--container-pad);
 }
 .contact-right{
   border-radius:2rem;
   background:var(--white);
   color:var(--black);
-  padding: clamp(3rem, 8vw, 5rem) var(--container-pad);
+  padding: clamp(2rem, 5vw, 3rem) var(--container-pad);
+  max-width:560px;
 }
 .contact-heading{--contact-light-offset:0;font-size:clamp(3.8rem,9vw,9.5rem);}
 .contact-heading span:nth-child(2){color:var(--white);}
@@ -1632,33 +1633,7 @@ footer{background:var(--black);border-top:var(--dark-border);}
         <a class="contact-link reveal" href="#" target="_blank"><span class="contact-link-label">LinkedIn</span>coming soon →</a>
       </div>
     </div>
-    <div class="contact-right">
-      <div class="contact-ready">// what do you need?</div>
-      <div class="briefing-card reveal">
-        <div class="briefing-section">
-          <div class="briefing-label">Service</div>
-          <div class="briefing-options" id="briefing-service">
-            <button class="briefing-btn" onclick="toggleBriefing(this)">Brand Ecosystem</button>
-            <button class="briefing-btn" onclick="toggleBriefing(this)">Content Engine</button>
-            <button class="briefing-btn" onclick="toggleBriefing(this)">Ad Creative</button>
-            <button class="briefing-btn" onclick="toggleBriefing(this)">Visual Identity</button>
-            <button class="briefing-btn" onclick="toggleBriefing(this)">Social Media</button>
-            <button class="briefing-btn" onclick="toggleBriefing(this)">Copywriting</button>
-            <button class="briefing-btn" onclick="toggleBriefing(this)">Something else</button>
-          </div>
-        </div>
-        <div class="briefing-section">
-          <div class="briefing-label">Timeline</div>
-          <div class="briefing-options">
-            <button class="briefing-btn" onclick="toggleBriefing(this)">ASAP</button>
-            <button class="briefing-btn" onclick="toggleBriefing(this)">This month</button>
-            <button class="briefing-btn" onclick="toggleBriefing(this)">No rush</button>
-          </div>
-        </div>
-        <a class="contact-cta" id="briefing-cta" href="mailto:thayxna@gmail.com" style="display:block;text-align:center;text-decoration:none;margin-top:auto;">Send →</a>
-      </div>
     </div>
-  </div>
 </section>
 
 <!-- FOOTER -->
