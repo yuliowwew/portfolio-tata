@@ -36,7 +36,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .lang-divider{color:var(--white);opacity:0.25;font-family:var(--hv);font-size:0.68rem;font-weight:800;}
 
 /* ASTERISK */
-.ast{position:absolute;color:var(--magenta);font-weight:900;line-height:1;pointer-events:none;user-select:none;z-index:3;}
+.ast{position:absolute;color:var(--magenta);font-weight:700;line-height:1;pointer-events:none;user-select:none;z-index:3;}
 
 /* TICKER */
 .ticker{background:var(--black);overflow:hidden;padding:9px 0;border-top:var(--border);border-bottom:var(--border);margin-top:4rem;}
@@ -66,7 +66,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .stat-label{font-family:var(--ui);font-weight:700;font-size:0.65rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-top:0.4rem;line-height:1.4;}
 /* about asterisks */
 #about .ast-1{font-size:22rem;top:50%;left:50%;transform:translate(-50%,-50%) rotate(12deg);opacity:0.06;z-index:1;}
-#about .ast-2{font-size:5rem;bottom:6rem;right:2rem;transform:rotate(-30deg);opacity:0.85;z-index:4;}
+#about .ast-2{font-size:2rem;bottom:6rem;right:2rem;transform:rotate(-30deg);opacity:0.85;z-index:4;}
 
 /* BREATH */
 #breath{background:var(--magenta);padding:8rem var(--container-pad);border-bottom:var(--border);position:relative;overflow:hidden;}
@@ -492,6 +492,28 @@ section{isolation:auto;}
   justify-content: space-between;
   align-items: center;
   opacity: 0.75;
+}
+.video-waiting-text {
+  position: absolute;
+  bottom: 3.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--tech);
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.65);
+  text-align: center;
+  z-index: 2;
+  pointer-events: none;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.75);
+  white-space: nowrap;
+}
+.video-waiting-status {
+  color: var(--magenta);
+  font-weight: 700;
+}
+.video-waiting-cursor {
+  animation: blink 1s step-end infinite;
+  font-weight: bold;
 }
 .video-ui-brackets {
   position: absolute;
@@ -1443,31 +1465,31 @@ footer{background:var(--black);border-top:var(--dark-border);}
 <!-- TICKER -->
 <div class="ticker">
   <div class="ticker-track">
-    <span data-i18n="ticker.strategy">Social Media Strategy</span><span class="dot">*</span>
-    <span data-i18n="ticker.design">Social Media Design</span><span class="dot">*</span>
-    <span data-i18n="ticker.web">Web Experiences</span><span class="dot">*</span>
-    <span data-i18n="ticker.art">Digital Art</span><span class="dot">*</span>
-    <span data-i18n="ticker.creation">Content Creation</span><span class="dot">*</span>
-    <span data-i18n="ticker.copy">Copywriting</span><span class="dot">*</span>
-    <span data-i18n="ticker.video">Video Editing</span><span class="dot">*</span>
-    <span data-i18n="ticker.strategy">Social Media Strategy</span><span class="dot">*</span>
-    <span data-i18n="ticker.design">Social Media Design</span><span class="dot">*</span>
-    <span data-i18n="ticker.web">Web Experiences</span><span class="dot">*</span>
-    <span data-i18n="ticker.art">Digital Art</span><span class="dot">*</span>
-    <span data-i18n="ticker.creation">Content Creation</span><span class="dot">*</span>
-    <span data-i18n="ticker.copy">Copywriting</span><span class="dot">*</span>
+    <span data-i18n="ticker.strategy">Social Media Strategy</span><span class="dot">★</span>
+    <span data-i18n="ticker.design">Social Media Design</span><span class="dot">★</span>
+    <span data-i18n="ticker.web">Web Experiences</span><span class="dot">★</span>
+    <span data-i18n="ticker.art">Digital Art</span><span class="dot">★</span>
+    <span data-i18n="ticker.creation">Content Creation</span><span class="dot">★</span>
+    <span data-i18n="ticker.copy">Copywriting</span><span class="dot">★</span>
+    <span data-i18n="ticker.video">Video Editing</span><span class="dot">★</span>
+    <span data-i18n="ticker.strategy">Social Media Strategy</span><span class="dot">★</span>
+    <span data-i18n="ticker.design">Social Media Design</span><span class="dot">★</span>
+    <span data-i18n="ticker.web">Web Experiences</span><span class="dot">★</span>
+    <span data-i18n="ticker.art">Digital Art</span><span class="dot">★</span>
+    <span data-i18n="ticker.creation">Content Creation</span><span class="dot">★</span>
+    <span data-i18n="ticker.copy">Copywriting</span><span class="dot">★</span>
   </div>
 </div>
 
 <!-- ABOUT -->
 <section id="about">
-  <div class="ast ast-1">*</div>
-  <div class="ast ast-2">*</div>
+  <div class="ast ast-1">★</div>
+  <div class="ast ast-2">★</div>
   <div class="about-left">
     <div>
-      <div class="section-tag reveal" data-i18n="about.tag">// About me</div>
+      <div class="section-tag reveal" data-i18n="about.tag">// Digital Presence</div>
       <h2 class="about-heading reveal" data-i18n="about.heading">IDEAS THAT<br><em>Work.</em></h2>
-      <p class="about-bio reveal" data-i18n="about.bio">Intersecting strategy, design, copy, and code to build experiences that convert. I bring a multidisciplinary lens to your project, activating the right tools to amplify your positioning.</p>
+      <p class="about-bio reveal" data-i18n="about.bio">I build digital presence for brands and projects by combining strategy, narrative, aesthetics, and experience. I create digital languages, content, and experiences that translate ideas into presence, clarity, and brand perception.</p>
     </div>
 
     <div class="hero-cta-wrap reveal">
@@ -1490,6 +1512,7 @@ footer{background:var(--black);border-top:var(--dark-border);}
         </div>
         <div class="video-ui-tc">TC 00:04:12:15</div>
       </div>
+      <div class="video-waiting-text" data-i18n="about.video.caption">[ <span class="video-waiting-status">status</span>: waiting for our call... <span class="video-waiting-cursor">_</span> ]</div>
       <div class="video-ui-bottom">
         <span>1080p 60fps</span>
         <span>STBY // LOG</span>
@@ -1512,7 +1535,7 @@ footer{background:var(--black);border-top:var(--dark-border);}
 
 <!-- SERVICES -->
 <section id="services">
-  <div class="ast ast-1">*</div>
+  <div class="ast ast-1">★</div>
   <div class="services-header">
     <div class="section-tag reveal" data-i18n="services.tag">// Services</div>
     <h2 class="services-heading reveal" data-i18n="services.heading">What I <em>solve</em></h2>
@@ -1521,78 +1544,79 @@ footer{background:var(--black);border-top:var(--dark-border);}
     <div class="service-row reveal">
       <div class="service-num">01</div>
       <div>
-        <div class="service-title" data-i18n="services.s1.title">Brand Ecosystem</div>
-        <div class="service-problem" data-i18n="services.s1.problem">"I have no online presence."</div>
+        <div class="service-title" data-i18n="services.s1.title">Digital Presence</div>
+        <div class="service-problem" data-i18n="services.s1.problem">"My brand doesn't communicate its true value."</div>
       </div>
-      <div class="service-desc" data-i18n="services.s1.desc">Website + visual identity + content strategy built from scratch, with one cohesive vision across every touchpoint.</div>
+      <div class="service-desc" data-i18n="services.s1.desc">Digital strategy, language, and experiences designed to transform perception into presence. Websites, content, and identity working together seamlessly.</div>
       <div class="service-tags">
-        <span class="service-tag" data-i18n="services.tags.web">Web Exp</span>
-        <span class="service-tag" data-i18n="services.tags.design">Design</span>
-        <span class="service-tag" data-i18n="services.tags.strategy">Strategy</span>
+        <span class="service-tag" data-i18n="services.tags.strategy">STRATEGY</span>
+        <span class="service-tag" data-i18n="services.tags.website">WEBSITE</span>
+        <span class="service-tag" data-i18n="services.tags.narrative">NARRATIVE</span>
       </div>
     </div>
     <div class="service-row reveal">
       <div class="service-num">02</div>
       <div>
-        <div class="service-title" data-i18n="services.s2.title">Content Engine</div>
-        <div class="service-problem" data-i18n="services.s2.problem">"My content doesn't engage."</div>
+        <div class="service-title" data-i18n="services.s2.title">Content Systems</div>
+        <div class="service-problem" data-i18n="services.s2.problem">"My content feels disjointed and inconsistent."</div>
       </div>
-      <div class="service-desc" data-i18n="services.s2.desc">Strategy, copy and design integrated — content that speaks to the right people at the right moment and converts.</div>
+      <div class="service-desc" data-i18n="services.s2.desc">Content frameworks that organize positioning, narrative, and identity to establish continuous and recognizable digital communication.</div>
       <div class="service-tags">
-        <span class="service-tag" data-i18n="services.tags.strategy">Strategy</span>
-        <span class="service-tag" data-i18n="services.tags.copy">Copy</span>
-        <span class="service-tag" data-i18n="services.tags.design">Design</span>
+        <span class="service-tag" data-i18n="services.tags.content">CONTENT</span>
+        <span class="service-tag" data-i18n="services.tags.positioning">POSITIONING</span>
+        <span class="service-tag" data-i18n="services.tags.strategy">STRATEGY</span>
       </div>
     </div>
     <div class="service-row reveal">
       <div class="service-num">03</div>
       <div>
-        <div class="service-title" data-i18n="services.s3.title">Ad Creative</div>
-        <div class="service-problem" data-i18n="services.s3.problem">"My ads aren't converting."</div>
+        <div class="service-title" data-i18n="services.s3.title">Brand Experience</div>
+        <div class="service-problem" data-i18n="services.s3.problem">"My online presence doesn't inspire confidence."</div>
       </div>
-      <div class="service-desc" data-i18n="services.s3.desc">Meta ad design + copy crafted to stop the scroll and drive action — visuals and words built to work together.</div>
+      <div class="service-desc" data-i18n="services.s3.desc">Developing interfaces, landing pages, and digital experiences that align aesthetics, clarity, and brand perception.</div>
       <div class="service-tags">
-        <span class="service-tag" data-i18n="services.tags.design">Design</span>
-        <span class="service-tag" data-i18n="services.tags.copy">Copy</span>
-        <span class="service-tag" data-i18n="services.tags.meta">Meta Ads</span>
+        <span class="service-tag" data-i18n="services.tags.webexp">WEB EXPERIENCE</span>
+        <span class="service-tag" data-i18n="services.tags.aesthetics">AESTHETICS</span>
+        <span class="service-tag" data-i18n="services.tags.ux">UX</span>
       </div>
     </div>
     <div class="service-row reveal">
       <div class="service-num">04</div>
       <div>
-        <div class="service-title" data-i18n="services.s4.title">Visual Identity</div>
-        <div class="service-problem" data-i18n="services.s4.problem">"My brand has no identity."</div>
+        <div class="service-title" data-i18n="services.s4.title">Narrative & Copy</div>
+        <div class="service-problem" data-i18n="services.s4.problem">"I struggle to explain what I do."</div>
       </div>
-      <div class="service-desc" data-i18n="services.s4.desc">Digital art and branding that make a brand instantly recognizable — across every format and platform.</div>
+      <div class="service-desc" data-i18n="services.s4.desc">Texts, narratives, and communication frameworks developed to make ideas clearer, more relevant, and memorable.</div>
       <div class="service-tags">
-        <span class="service-tag" data-i18n="services.tags.art">Digital Art</span>
-        <span class="service-tag" data-i18n="services.tags.branding">Branding</span>
+        <span class="service-tag" data-i18n="services.tags.copywriting">COPYWRITING</span>
+        <span class="service-tag" data-i18n="services.tags.language">LANGUAGE</span>
+        <span class="service-tag" data-i18n="services.tags.clarity">CLARITY</span>
       </div>
     </div>
     <div class="service-row reveal">
       <div class="service-num">05</div>
       <div>
-        <div class="service-title" data-i18n="services.s5.title">Social Media Management</div>
-        <div class="service-problem" data-i18n="services.s5.problem">"I need to grow my audience."</div>
+        <div class="service-title" data-i18n="services.s5.title">Language Direction</div>
+        <div class="service-problem" data-i18n="services.s5.problem">"My communication lacks identity."</div>
       </div>
-      <div class="service-desc" data-i18n="services.s5.desc">End-to-end social management: planning, creation, scheduling, community and analytics — all handled.</div>
+      <div class="service-desc" data-i18n="services.s5.desc">Building visual and narrative systems that help brands develop aesthetic consistency and a strong cultural presence online.</div>
       <div class="service-tags">
-        <span class="service-tag" data-i18n="services.tags.smm">SMM</span>
-        <span class="service-tag" data-i18n="services.tags.strategy">Strategy</span>
-        <span class="service-tag" data-i18n="services.tags.analytics">Analytics</span>
+        <span class="service-tag" data-i18n="services.tags.identity">IDENTITY</span>
+        <span class="service-tag" data-i18n="services.tags.narrative">NARRATIVE</span>
+        <span class="service-tag" data-i18n="services.tags.direction">DIRECTION</span>
       </div>
     </div>
     <div class="service-row reveal">
       <div class="service-num">06</div>
       <div>
-        <div class="service-title" data-i18n="services.s6.title">Strategic Copywriting</div>
-        <div class="service-problem" data-i18n="services.s6.problem">"My copy doesn't sell."</div>
+        <div class="service-title" data-i18n="services.s6.title">Strategic Content</div>
+        <div class="service-problem" data-i18n="services.s6.problem">"My content doesn't build connection."</div>
       </div>
-      <div class="service-desc" data-i18n="services.s6.desc">Captions, website copy, email sequences and ad copy written to connect, persuade and convert.</div>
+      <div class="service-desc" data-i18n="services.s6.desc">Content crafted to align perception, positioning, and audience behavior—moving away from generic formulas.</div>
       <div class="service-tags">
-        <span class="service-tag" data-i18n="services.tags.copy">Copy</span>
-        <span class="service-tag" data-i18n="services.tags.email">Email</span>
-        <span class="service-tag" data-i18n="services.tags.webcopy">Web Copy</span>
+        <span class="service-tag" data-i18n="services.tags.strategy">STRATEGY</span>
+        <span class="service-tag" data-i18n="services.tags.content">CONTENT</span>
+        <span class="service-tag" data-i18n="services.tags.social">SOCIAL</span>
       </div>
     </div>
   </div>
@@ -1600,7 +1624,7 @@ footer{background:var(--black);border-top:var(--dark-border);}
 
 <!-- PORTFOLIO -->
 <section id="portfolio">
-  <div class="ast ast-1">*</div>
+  <div class="ast ast-1">★</div>
   <div class="portfolio-header">
     <div class="section-tag reveal" data-i18n="work.tag">// Work</div>
     <h2 class="portfolio-heading reveal" data-i18n="work.heading">What I've <em>built</em></h2>
@@ -1646,8 +1670,8 @@ footer{background:var(--black);border-top:var(--dark-border);}
 
 <!-- PROCESS -->
 <section id="process">
-  <div class="ast ast-1">*</div>
-  <div class="ast ast-2">*</div>
+  <div class="ast ast-1">★</div>
+  <div class="ast ast-2">★</div>
   <div class="process-header">
     <div class="section-tag reveal" data-i18n="process.tag">// Process</div>
     <h2 class="process-heading reveal" data-i18n="process.heading">How I <em>work</em></h2>
@@ -1655,38 +1679,38 @@ footer{background:var(--black);border-top:var(--dark-border);}
   <div class="process-steps">
     <div class="process-step reveal">
       <div class="process-num">01</div>
-      <div class="process-step-title" data-i18n="process.p1.title">Briefing</div>
-      <div class="process-step-desc" data-i18n="process.p1.desc">I understand your business, audience, goals and what's not working right now.</div>
+      <div class="process-step-title" data-i18n="process.p1.title">Discovery</div>
+      <div class="process-step-desc" data-i18n="process.p1.desc">Analysis of context, positioning, language, and brand perception.</div>
     </div>
     <div class="process-step reveal">
       <div class="process-num">02</div>
-      <div class="process-step-title" data-i18n="process.p2.title">Strategy</div>
-      <div class="process-step-desc" data-i18n="process.p2.desc">I map out the full plan — positioning, messaging, visual direction, channels.</div>
+      <div class="process-step-title" data-i18n="process.p2.title">Structure</div>
+      <div class="process-step-desc" data-i18n="process.p2.desc">Defining strategy, narrative, and digital experience.</div>
     </div>
     <div class="process-step reveal">
       <div class="process-num">03</div>
-      <div class="process-step-title" data-i18n="process.p3.title">Creation</div>
-      <div class="process-step-desc" data-i18n="process.p3.desc">Design, copy, code — all produced with the same strategic vision.</div>
+      <div class="process-step-title" data-i18n="process.p3.title">System</div>
+      <div class="process-step-desc" data-i18n="process.p3.desc">Building content, pages, and visual languages connected to each other.</div>
     </div>
     <div class="process-step reveal">
       <div class="process-num">04</div>
-      <div class="process-step-title" data-i18n="process.p4.title">Revision</div>
-      <div class="process-step-desc" data-i18n="process.p4.desc">You review, I refine. Until it's exactly right.</div>
+      <div class="process-step-title" data-i18n="process.p4.title">Adjustments</div>
+      <div class="process-step-desc" data-i18n="process.p4.desc">Refinement of communication, aesthetics, and usability.</div>
     </div>
     <div class="process-step reveal">
       <div class="process-num">05</div>
-      <div class="process-step-title" data-i18n="process.p5.title">Delivery</div>
-      <div class="process-step-desc" data-i18n="process.p5.desc">Launch + follow-up. I don't disappear after delivery.</div>
+      <div class="process-step-title" data-i18n="process.p5.title">Expansion</div>
+      <div class="process-step-desc" data-i18n="process.p5.desc">Delivery, implementation, and follow-up of the digital presence.</div>
     </div>
   </div>
 </section>
 
 <!-- TOOLS -->
 <section id="tools">
-  <div class="ast ast-1">*</div>
+  <div class="ast ast-1">★</div>
   <div class="tools-header">
-    <div class="section-tag reveal" data-i18n="tools.tag">// Stack</div>
-    <h2 class="tools-heading reveal" data-i18n="tools.heading">Tools & <em>stack</em></h2>
+    <div class="section-tag reveal" data-i18n="tools.tag">// Tools</div>
+    <h2 class="tools-heading reveal" data-i18n="tools.heading">Tools</h2>
   </div>
   <div class="tools-grid">
     <div class="tool-group reveal">
@@ -1701,14 +1725,14 @@ footer{background:var(--black);border-top:var(--dark-border);}
       </ul>
     </div>
     <div class="tool-group reveal">
-      <div class="tool-group-label" data-i18n="tools.g2">Development</div>
+      <div class="tool-group-label" data-i18n="tools.g2">Digital Experiences</div>
       <ul class="tool-list">
-        <li>HTML / CSS / JS</li>
-        <li>React</li>
-        <li>Cursor</li>
-        <li>Claude Code</li>
-        <li>WordPress</li>
-        <li>Shopify</li>
+        <li data-i18n="tools.g2.item1">Institutional websites</li>
+        <li data-i18n="tools.g2.item2">Landing pages</li>
+        <li data-i18n="tools.g2.item3">Web interfaces</li>
+        <li data-i18n="tools.g2.item4">Content architecture</li>
+        <li data-i18n="tools.g2.item5">Applied AI</li>
+        <li data-i18n="tools.g2.item6">Shopify</li>
       </ul>
     </div>
     <div class="tool-group reveal">
@@ -1759,7 +1783,7 @@ footer{background:var(--black);border-top:var(--dark-border);}
 
 <!-- CONTACT -->
 <section id="contact">
-  <div class="ast ast-2" style="opacity:0.45;">*</div>
+  <div class="ast ast-2" style="opacity:0.45;">★</div>
   <div class="contact-inner">
     <div class="contact-left">
       <h2 class="contact-heading reveal" data-i18n="contact.heading"><span>GOT A</span><span>PROJECT?</span><em>LET'S GO.</em></h2>
@@ -1883,9 +1907,9 @@ window.translations = {
     "ticker.copy": "Copywriting",
     "ticker.video": "Video Editing",
     
-    "about.tag": "// About me",
+    "about.tag": "// Digital Presence",
     "about.heading": "IDEAS THAT<br><em>Work.</em>",
-    "about.bio": "Intersecting strategy, design, copy, and code to build experiences that convert. I bring a multidisciplinary lens to your project, activating the right tools to amplify your positioning.",
+    "about.bio": "I build digital presence for brands and projects by combining strategy, narrative, aesthetics, and experience. I create digital languages, content, and experiences that translate ideas into presence, clarity, and brand perception.",
     "skills.strategy": "Social Media Strategy",
     "skills.design": "Social Media Design",
     "skills.web": "Web Experiences",
@@ -1896,6 +1920,7 @@ window.translations = {
     "skills.copy": "Copywriting",
     "about.explore": "Explore my work ↓",
     "about.talk": "Let's talk →",
+    "about.video.caption": "[ <span class=\"video-waiting-status\">status</span>: waiting for our call... <span class=\"video-waiting-cursor\">_</span> ]",
     
     "stats.years": "Years Exp.",
     "stats.ideas": "Ideas",
@@ -1904,41 +1929,44 @@ window.translations = {
     "services.tag": "// Services",
     "services.heading": "What I <em>solve</em>",
     
-    "services.s1.title": "Brand Ecosystem",
-    "services.s1.problem": "\"I have no online presence.\"",
-    "services.s1.desc": "Website + visual identity + content strategy built from scratch, with one cohesive vision across every touchpoint.",
+    "services.s1.title": "Digital Presence",
+    "services.s1.problem": "\"My brand doesn't communicate its true value.\"",
+    "services.s1.desc": "Digital strategy, language, and experiences designed to transform perception into presence. Websites, content, and identity working together seamlessly.",
     
-    "services.s2.title": "Content Engine",
-    "services.s2.problem": "\"My content doesn't engage.\"",
-    "services.s2.desc": "Strategy, copy and design integrated — content that speaks to the right people at the right moment and converts.",
+    "services.s2.title": "Content Systems",
+    "services.s2.problem": "\"My content feels disjointed and inconsistent.\"",
+    "services.s2.desc": "Content frameworks that organize positioning, narrative, and identity to establish continuous and recognizable digital communication.",
     
-    "services.s3.title": "Ad Creative",
-    "services.s3.problem": "\"My ads aren't converting.\"",
-    "services.s3.desc": "Meta ad design + copy crafted to stop the scroll and drive action — visuals and words built to work together.",
+    "services.s3.title": "Brand Experience",
+    "services.s3.problem": "\"My online presence doesn't inspire confidence.\"",
+    "services.s3.desc": "Developing interfaces, landing pages, and digital experiences that align aesthetics, clarity, and brand perception.",
     
-    "services.s4.title": "Visual Identity",
-    "services.s4.problem": "\"My brand has no identity.\"",
-    "services.s4.desc": "Digital art and branding that make a brand instantly recognizable — across every format and platform.",
+    "services.s4.title": "Narrative & Copy",
+    "services.s4.problem": "\"I struggle to explain what I do.\"",
+    "services.s4.desc": "Texts, narratives, and communication frameworks developed to make ideas clearer, more relevant, and memorable.",
     
-    "services.s5.title": "Social Media Management",
-    "services.s5.problem": "\"I need to grow my audience.\"",
-    "services.s5.desc": "End-to-end social management: planning, creation, scheduling, community and analytics — all handled.",
+    "services.s5.title": "Language Direction",
+    "services.s5.problem": "\"My communication lacks identity.\"",
+    "services.s5.desc": "Building visual and narrative systems that help brands develop aesthetic consistency and a strong cultural presence online.",
     
-    "services.s6.title": "Strategic Copywriting",
-    "services.s6.problem": "\"My copy doesn't sell.\"",
-    "services.s6.desc": "Captions, website copy, email sequences and ad copy written to connect, persuade and convert.",
+    "services.s6.title": "Strategic Content",
+    "services.s6.problem": "\"My content doesn't build connection.\"",
+    "services.s6.desc": "Content crafted to align perception, positioning, and audience behavior—moving away from generic formulas.",
     
-    "services.tags.web": "Web Exp",
-    "services.tags.design": "Design",
-    "services.tags.strategy": "Strategy",
-    "services.tags.copy": "Copy",
-    "services.tags.meta": "Meta Ads",
-    "services.tags.art": "Digital Art",
-    "services.tags.branding": "Branding",
-    "services.tags.smm": "SMM",
-    "services.tags.analytics": "Analytics",
-    "services.tags.email": "Email",
-    "services.tags.webcopy": "Web Copy",
+    "services.tags.strategy": "STRATEGY",
+    "services.tags.website": "WEBSITE",
+    "services.tags.narrative": "NARRATIVE",
+    "services.tags.content": "CONTENT",
+    "services.tags.positioning": "POSITIONING",
+    "services.tags.webexp": "WEB EXPERIENCE",
+    "services.tags.aesthetics": "AESTHETICS",
+    "services.tags.ux": "UX",
+    "services.tags.copywriting": "COPYWRITING",
+    "services.tags.language": "LANGUAGE",
+    "services.tags.clarity": "CLARITY",
+    "services.tags.identity": "IDENTITY",
+    "services.tags.direction": "DIRECTION",
+    "services.tags.social": "SOCIAL",
     
     "work.tag": "// Work",
     "work.heading": "What I've <em>built</em>",
@@ -1956,21 +1984,27 @@ window.translations = {
     
     "process.tag": "// Process",
     "process.heading": "How I <em>work</em>",
-    "process.p1.title": "Briefing",
-    "process.p1.desc": "I understand your business, audience, goals and what's not working right now.",
-    "process.p2.title": "Strategy",
-    "process.p2.desc": "I map out the full plan — positioning, messaging, visual direction, channels.",
-    "process.p3.title": "Creation",
-    "process.p3.desc": "Design, copy, code — all produced with the same strategic vision.",
-    "process.p4.title": "Revision",
-    "process.p4.desc": "You review, I refine. Until it's exactly right.",
-    "process.p5.title": "Delivery",
-    "process.p5.desc": "Launch + follow-up. I don't disappear after delivery.",
+    "process.p1.title": "Discovery",
+    "process.p1.desc": "Analysis of context, positioning, language, and brand perception.",
+    "process.p2.title": "Structure",
+    "process.p2.desc": "Defining strategy, narrative, and digital experience.",
+    "process.p3.title": "System",
+    "process.p3.desc": "Building content, pages, and visual languages connected to each other.",
+    "process.p4.title": "Adjustments",
+    "process.p4.desc": "Refinement of communication, aesthetics, and usability.",
+    "process.p5.title": "Expansion",
+    "process.p5.desc": "Delivery, implementation, and follow-up of the digital presence.",
     
-    "tools.tag": "// Stack",
-    "tools.heading": "Tools & <em>stack</em>",
+    "tools.tag": "// Tools",
+    "tools.heading": "Tools",
     "tools.g1": "Visual & Creative",
-    "tools.g2": "Development",
+    "tools.g2": "Digital Experiences",
+    "tools.g2.item1": "Institutional websites",
+    "tools.g2.item2": "Landing pages",
+    "tools.g2.item3": "Web interfaces",
+    "tools.g2.item4": "Content architecture",
+    "tools.g2.item5": "Applied AI",
+    "tools.g2.item6": "Shopify",
     "tools.g3": "Strategy & Social",
     "tools.g4": "Management",
     
@@ -2002,9 +2036,9 @@ window.translations = {
     "ticker.copy": "Copywriting",
     "ticker.video": "Edição de Vídeo",
     
-    "about.tag": "// Sobre mim",
+    "about.tag": "// Presença Digital",
     "about.heading": "IDEIAS QUE<br><em>Funcionam.</em>",
-    "about.bio": "Conecto estratégia, design, escrita e desenvolvimento para criar experiências que convertem. Trago um olhar multidisciplinar para o seu projeto, ativando as ferramentas certas para destacar o seu posicionamento.",
+    "about.bio": "Construo presença digital para marcas e projetos combinando estratégia, narrativa, estética e experiência. Crio linguagens, conteúdos e experiências digitais que traduzem ideias em presença, clareza e percepção de marca.",
     "skills.strategy": "Estratégia de Redes Sociais",
     "skills.design": "Design de Redes Sociais",
     "skills.web": "Experiências Web",
@@ -2015,6 +2049,7 @@ window.translations = {
     "skills.copy": "Copywriting",
     "about.explore": "Explore meu trabalho ↓",
     "about.talk": "Vamos conversar →",
+    "about.video.caption": "[ <span class=\"video-waiting-status\">status</span>: aguardando nossa call... <span class=\"video-waiting-cursor\">_</span> ]",
     
     "stats.years": "Anos de Exp.",
     "stats.ideas": "Ideias",
@@ -2023,41 +2058,44 @@ window.translations = {
     "services.tag": "// Serviços",
     "services.heading": "O que eu <em>resolvo</em>",
     
-    "services.s1.title": "Ecossistema de Marca",
-    "services.s1.problem": "\"Não tenho presença online.\"",
-    "services.s1.desc": "Site + identidade visual + estratégia de conteúdo construídos do zero, com uma visão coesa em todos os pontos de contato.",
+    "services.s1.title": "Presença Digital",
+    "services.s1.problem": "\"Minha marca não comunica o valor que tem.\"",
+    "services.s1.desc": "Estratégia, linguagem e experiência digital pensadas para transformar percepção em presença. Sites, conteúdo e identidade trabalhando de forma integrada.",
     
-    "services.s2.title": "Máquina de Conteúdo",
-    "services.s2.problem": "\"Meu conteúdo não engaja.\"",
-    "services.s2.desc": "Estratégia, copy e design integrados — conteúdo que fala com as pessoas certas no momento certo e converte.",
+    "services.s2.title": "Sistemas de Conteúdo",
+    "services.s2.problem": "\"Meu conteúdo parece solto e inconsistente.\"",
+    "services.s2.desc": "Estruturas de conteúdo que organizam posicionamento, narrativa e identidade para criar comunicação contínua e reconhecível no digital.",
     
-    "services.s3.title": "Criativos para Anúncios",
-    "services.s3.problem": "\"Meus anúncios não convertem.\"",
-    "services.s3.desc": "Design + copy para anúncios de Meta criados para parar o feed e gerar ação — visual e texto trabalhando juntos.",
+    "services.s3.title": "Experiência de Marca",
+    "services.s3.problem": "\"Minha presença online não transmite confiança.\"",
+    "services.s3.desc": "Desenvolvimento de interfaces, páginas e experiências digitais que alinham estética, clareza e percepção de marca.",
     
-    "services.s4.title": "Identidade Visual",
-    "services.s4.problem": "\"Minha marca não tem identidade.\"",
-    "services.s4.desc": "Arte digital e branding que tornam uma marca instantaneamente reconhecível — em todos os formatos e plataformas.",
+    "services.s4.title": "Narrativa & Copy",
+    "services.s4.problem": "\"Tenho dificuldade em explicar o que faço.\"",
+    "services.s4.desc": "Textos, narrativas e estruturas de comunicação desenvolvidas para tornar ideias mais claras, relevantes e memoráveis.",
     
-    "services.s5.title": "Gestão de Redes Sociais",
-    "services.s5.problem": "\"Preciso crescer meu público.\"",
-    "services.s5.desc": "Gestão de redes ponta a ponta: planejamento, criação, agendamento, comunidade e relatórios — tudo resolvido.",
+    "services.s5.title": "Direção de Linguagem",
+    "services.s5.problem": "\"Minha comunicação não tem identidade.\"",
+    "services.s5.desc": "Construção de sistemas visuais e narrativos que ajudam marcas a desenvolver consistência estética e presença cultural no digital.",
     
-    "services.s6.title": "Copywriting Estratégico",
-    "services.s6.problem": "\"Minha copy não vende.\"",
-    "services.s6.desc": "Legendas, textos de site, sequências de e-mail e copy de anúncios escritos para conectar, persuadir e converter.",
+    "services.s6.title": "Conteúdo Estratégico",
+    "services.s6.problem": "\"Meu conteúdo não gera conexão.\"",
+    "services.s6.desc": "Conteúdo pensado para alinhar percepção, posicionamento e comportamento de audiência, sem depender de fórmulas genéricas.",
     
-    "services.tags.web": "Web Exp",
-    "services.tags.design": "Design",
-    "services.tags.strategy": "Estratégia",
-    "services.tags.copy": "Copy",
-    "services.tags.meta": "Meta Ads",
-    "services.tags.art": "Arte Digital",
-    "services.tags.branding": "Branding",
-    "services.tags.smm": "Redes Sociais",
-    "services.tags.analytics": "Relatórios",
-    "services.tags.email": "E-mail",
-    "services.tags.webcopy": "Textos Web",
+    "services.tags.strategy": "ESTRATÉGIA",
+    "services.tags.website": "SITE",
+    "services.tags.narrative": "NARRATIVA",
+    "services.tags.content": "CONTEÚDO",
+    "services.tags.positioning": "POSICIONAMENTO",
+    "services.tags.webexp": "WEB EXPERIENCE",
+    "services.tags.aesthetics": "ESTÉTICA",
+    "services.tags.ux": "UX",
+    "services.tags.copywriting": "COPYWRITING",
+    "services.tags.language": "LINGUAGEM",
+    "services.tags.clarity": "CLAREZA",
+    "services.tags.identity": "IDENTIDADE",
+    "services.tags.direction": "DIREÇÃO",
+    "services.tags.social": "SOCIAL",
     
     "work.tag": "// Portfólio",
     "work.heading": "O que eu <em>construí</em>",
@@ -2075,21 +2113,27 @@ window.translations = {
     
     "process.tag": "// Processo",
     "process.heading": "Como eu <em>trabalho</em>",
-    "process.p1.title": "Briefing",
-    "process.p1.desc": "Entendo o seu negócio, público, objetivos e o que não está funcionando no momento.",
-    "process.p2.title": "Estratégia",
-    "process.p2.desc": "Mapeio todo o plano — posicionamento, mensagem, direção visual, canais.",
-    "process.p3.title": "Criação",
-    "process.p3.desc": "Design, copy, código — tudo produzido com a mesma visão estratégica.",
-    "process.p4.title": "Revisão",
-    "process.p4.desc": "Você revisa, eu refino. Até ficar perfeito.",
-    "process.p5.title": "Entrega",
-    "process.p5.desc": "Lançamento + acompanhamento. Não desapareço depois da entrega.",
+    "process.p1.title": "Leitura",
+    "process.p1.desc": "Análise de contexto, posicionamento, linguagem e percepção da marca.",
+    "process.p2.title": "Estrutura",
+    "process.p2.desc": "Definição de estratégia, narrativa e experiência digital.",
+    "process.p3.title": "Sistema",
+    "process.p3.desc": "Construção de conteúdos, páginas e linguagens visuais conectadas entre si.",
+    "process.p4.title": "Ajustes",
+    "process.p4.desc": "Refinamento de comunicação, estética e usabilidade.",
+    "process.p5.title": "Expansão",
+    "process.p5.desc": "Entrega, implementação e acompanhamento da presença digital.",
     
-    "tools.tag": "// Stack",
-    "tools.heading": "Ferramentas & <em>stack</em>",
+    "tools.tag": "// Ferramentas",
+    "tools.heading": "Ferramentas",
     "tools.g1": "Visual & Criativo",
-    "tools.g2": "Desenvolvimento",
+    "tools.g2": "Experiências Digitais",
+    "tools.g2.item1": "Sites institucionais",
+    "tools.g2.item2": "Landing pages",
+    "tools.g2.item3": "Interfaces web",
+    "tools.g2.item4": "Arquitetura de conteúdo",
+    "tools.g2.item5": "IA aplicada",
+    "tools.g2.item6": "Shopify",
     "tools.g3": "Estratégia & Social",
     "tools.g4": "Gestão",
     
