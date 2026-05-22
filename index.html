@@ -194,7 +194,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 
 /* CONTACT */
 #contact{background:var(--black);position:relative;overflow:hidden;border-bottom:2px solid rgba(255,255,255,0.08);}
-.contact-inner{display:grid;grid-template-columns:1fr auto;min-height:70vh;}
+.contact-inner{display:grid;grid-template-columns:1.5fr 1fr;min-height:70vh;}
 .contact-left{padding:6rem var(--container-pad);border-right:2px solid rgba(255,255,255,0.08);display:flex;flex-direction:column;justify-content:space-between;position:relative;z-index:2;}
 .contact-heading{--contact-light-offset:-0.035em;font-family:var(--hv);font-weight:900;font-size:clamp(3rem,8vw,8rem);letter-spacing:-0.05em;line-height:0.88;text-transform:uppercase;color:var(--white);margin-bottom:3rem;}
 .contact-heading span,.contact-heading em{display:block;}
@@ -203,7 +203,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .contact-link{display:flex;align-items:center;gap:1.5rem;font-family:var(--hv);font-weight:600;font-size:0.9rem;color:rgba(255,255,255,0.6);text-decoration:none;padding:1rem 0;border-bottom:1px solid rgba(255,255,255,0.08);transition:color .2s,padding-left .3s;}
 .contact-link:hover{color:var(--white);padding-left:0.75rem;}
 .contact-link-label{font-family:var(--ui);font-weight:800;font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.25);min-width:60px;line-height:1.4;}
-.contact-right{padding:6rem var(--container-pad);display:flex;flex-direction:column;justify-content:space-between;min-width:260px;position:relative;z-index:2;}
+.contact-right{padding:6rem var(--container-pad);display:flex;flex-direction:column;justify-content:space-between;position:relative;z-index:2;}
 .contact-cta{font-family:var(--hv);font-weight:900;font-size:0.85rem;letter-spacing:0.02em;text-transform:uppercase;padding:1.1rem 2rem;background:var(--magenta);color:var(--white);border:none;transition:background .2s;width:100%;}
 .contact-cta:hover{background:var(--white);color:var(--black);}
 .contact-ready{font-family:var(--ui);font-weight:800;font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.2);line-height:1.4;margin-bottom:1rem;}
@@ -1464,7 +1464,7 @@ footer{background:var(--black);border-top:var(--dark-border);}
       </div>
       <div class="stat-div"></div>
       <div class="stat">
-        <div class="stat-num">9M+</div>
+        <div class="stat-num">100M+</div>
         <div class="stat-label">Views</div>
       </div>
     </div>
@@ -1794,7 +1794,6 @@ document.addEventListener('keydown', function(e) {
         'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/drama/dramavideo5.jpg'
       ],
       imageRow: [],
-      imageLayout: 'feed',
       video: 'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/drama/dramavideo4.mp4',
       videoGallery: [
         { url: 'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/drama/dramavideo1.mp4', poster: '', label: '', ratio: '16/9' },
@@ -1814,22 +1813,11 @@ document.addEventListener('keydown', function(e) {
       externalLink: ''
     },
     'website': {
-      cat: 'Development', title: 'FixMe — Web Development',
-      desc: 'FixMe is an AI-powered PC optimization tool built for gamers and power users. I developed the full landing page — from hero to pricing — translating a technical product into a clear, conversion-focused narrative. Dark aesthetic with neon accents, structured to guide the user from problem to solution.',
-      tags: ['Development', 'Web Design', 'Copywriting', 'UX Structure', 'AI-assisted'],
-      images: [
-        'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/websites/fixme1.jpg',
-        'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/websites/fixme2.jpg',
-        'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/websites/fixme3.jpg',
-        'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/websites/fixme4.jpg',
-        'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/websites/fixme5.jpg',
-        'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/websites/fixme6.jpg',
-        'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/websites/fixme7.jpg',
-        'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/websites/fixme8.jpg',
-        'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/websites/fixme9.jpg'
-      ],
-      imageRow: [], imageLayout: '', video: '',
-      results: [],
+      cat: 'Development', title: 'Website Project',
+      desc: 'Describe the website you built.',
+      tags: ['HTML','CSS','JavaScript','Webflow'],
+      images: ['',''], imageRow: [], video: '',
+      results: [{num:'↑40%',label:'Conversion'},{num:'98',label:'Lighthouse'},{num:'2 wk',label:'Delivered'}],
       externalLink: ''
     },
     'brand-identity': {
@@ -1848,7 +1836,6 @@ document.addEventListener('keydown', function(e) {
         'A colorful and psychedelic lofi illustration about feeling lost and searching for yourself. Retro vintage art style with a melancholic vibe. Pop Art Illustration | Vintage 70s Vibe'
       ],
       imageRow: [],
-      imageLayout: 'feed',
       video: 'https://www.youtube.com/embed/wD1mQ-oMnNM?si=aFSC2hgXFLDw3I8g',
       videoCaption: '2D Animation (rotoscopy) for Vanguart, directed and produced by Andrei Moyssiadis.',
       videoGallery: null,
@@ -1863,14 +1850,13 @@ document.addEventListener('keydown', function(e) {
       cat: 'Social Media',
       title: 'Flavia Madeira — Social Media',
       desc: 'Flavia Madeira is a fashion jewelry brand driven by visual language, where image and movement are central to the brand\'s expression. I worked on the creation and development of social media content, exploring narrative, rhythm, and experimentation across visual, audiovisual, and textual formats, with a focus on strengthening the brand\'s voice and digital positioning. The brand operates with themed collections that carry strong concepts and narratives. The content challenge was to build a voice that translated this authorial depth—selling meaning before selling the product, in a tone that resonates with an audience that values significance and refinement.',
-      tags: ['Social Media', 'Content Creation', 'Copywriting', 'Visual Narrative'],
+      tags: ['Social Media', 'Content Creation', 'Creative Direction', 'Copywriting', 'Visual Narrative'],
       images: [
         'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/flaviamadeira/IMG_9976.jpg',
         'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/flaviamadeira/IMG_9977.jpg',
         'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/flaviamadeira/IMG_9978.jpg'
       ],
       imageRow: [],
-      imageLayout: 'feed',
       video: 'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/flaviamadeira/escadinha.mp4',
       videoGallery: [
         { url: 'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/flaviamadeira/escadinha.mp4', poster: '', label: 'Escadinha', ratio: '16/9' }
@@ -1886,11 +1872,10 @@ document.addEventListener('keydown', function(e) {
       cat: 'Content Strategy',
       title: 'ID — Content Strategy',
       desc: '<strong>Interdependência</strong> is an environmental communication project conceived by filmmaker Caio Ferraz. Using water as a lens, it reveals how everything is connected — from climate to the way we live. We transformed this complex socio-environmental topic into a high-growth organic channel from scratch.<br><br><strong>The Challenge:</strong><br>Scale, engage, and drive conversions around a complex socio-environmental topic starting with only ~200 followers.<br><br><strong>The Strategy:</strong><br>• <strong>Cinematic Storytelling:</strong> Developed the content strategy and executed direct creation, focusing on high-performance scripting and video editing.<br>• <strong>Translating Complexity:</strong> Packaged deep scientific themes into highly clear, relatable, and shareable short-form video formats.<br><br><strong>Qualified Growth (3 Months, 100% Organic):</strong><br>• <strong>Audience Quality:</strong> Reached diverse, high-caliber audiences outside the initial bubble (public figures, experts, and creators) under zero ad spend.<br>• <strong>Polarization Proof:</strong> Successfully crossed cultural niches and broke through demographic bubbles.<br><br><strong>Conclusion:</strong><br>A case study proving that a well-structured content strategy can transform specialized knowledge into consistent organic growth by bridging reach, engagement, and conversion.',
-      tags: ['Content Strategy', 'Video Scripting', 'Video Editing', 'Growth Marketing'],
+      tags: ['Content Strategy', 'Video Scripting', 'Video Editing', 'Creative Direction', 'Growth Marketing'],
       images: ['https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/id-videos.jpg'],
       imageCaptions: ['Organic short-form video content designed for Interdependência.'],
       imageRow: [],
-      imageLayout: 'feed',
       video: null,
       results: [
         { num: '+28K', label: 'Audience Conversion' },
@@ -1958,21 +1943,12 @@ document.addEventListener('keydown', function(e) {
 
     // images after video
     if (p.images && p.images.length) {
-      if (p.imageLayout === 'feed') {
-        var cols = p.images.length === 2 ? 2 : 3;
-        h += '<div style="display:grid;grid-template-columns:repeat('+cols+',1fr);gap:0.5rem;margin-bottom:1rem;">';
-        p.images.forEach(function(s) {
-          h += '<div style="aspect-ratio:4/5;overflow:hidden;border:2px solid var(--black);"><img src="'+s+'" alt="'+p.title+'" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div>';
-        });
-        h += '</div>';
-      } else {
-        p.images.forEach(function(s, idx) {
-          h += img(s, p.title);
-          if (p.imageCaptions && p.imageCaptions[idx]) {
-            h += '<div style="font-family:var(--tech);font-size:0.68rem;letter-spacing:0.06em;color:rgba(26,26,26,0.45);padding:0.5rem 0 1rem;line-height:1.5;">'+p.imageCaptions[idx]+'</div>';
-          }
-        });
-      }
+      p.images.forEach(function(s, idx) {
+        h += img(s, p.title);
+        if (p.imageCaptions && p.imageCaptions[idx]) {
+          h += '<div style="font-family:var(--tech);font-size:0.68rem;letter-spacing:0.06em;color:rgba(26,26,26,0.45);padding:0.5rem 0 1rem;line-height:1.5;">'+p.imageCaptions[idx]+'</div>';
+        }
+      });
     }
 
     h += '</div>';
