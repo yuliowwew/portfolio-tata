@@ -1104,10 +1104,11 @@ footer{background:var(--black);border-top:var(--dark-border);}
 }
 
 @media (max-width: 640px){
-  nav{align-items:flex-start!important;gap:1rem!important;flex-wrap:wrap!important;background:#181818!important;border-bottom:1px solid rgba(244,240,232,0.15)!important;}
+  nav{align-items:center!important;gap:1rem!important;flex-wrap:wrap!important;background:#181818!important;border-bottom:1px solid rgba(244,240,232,0.15)!important;}
   .nav-links{order:3;width:100%;justify-content:space-between;gap:.5rem;}
   .nav-links a{font-size:.62rem;}
   .ticker{margin-top:6.8rem;}
+  .ticker-track{animation-duration:10s!important;will-change:transform;transform:translateZ(0);}
   #about,#services,#portfolio,#process,#tools,#testimonials{padding: var(--section-pad) var(--container-pad);}
   #brands{padding: var(--section-pad) 0;}
   #contact{padding: var(--section-pad) 0;}
@@ -1117,6 +1118,9 @@ footer{background:var(--black);border-top:var(--dark-border);}
   .about-left,.about-right,#breath,.service-row,.p-item,.process-step,.tool-group,.testi-card,.testi-card-alt,.chat-bubble,.contact-left,.contact-right{border-radius:1.25rem;}
   .about-left,.about-right{padding: clamp(2.5rem, 6vw, 3rem) clamp(1.25rem,5vw,2rem) clamp(1.8rem, 5vw, 2.2rem);}
   .about-left{display:flex!important;flex-direction:column!important;justify-content:flex-start!important;height:fit-content!important;}
+  .about-heading{margin-bottom:1.2rem!important;}
+  .about-bio{margin-bottom:1.5rem!important;}
+  .portfolio-heading{font-size:clamp(1.7rem, 6.5vw, 2.2rem)!important;white-space:nowrap!important;}
   #breath{margin: var(--section-pad) var(--container-pad); padding: clamp(3rem, 10vw, 5rem) clamp(1.5rem,5vw,3rem);}
   .portfolio-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem;}
   .p-item{min-height:220px;padding:.85rem;}
