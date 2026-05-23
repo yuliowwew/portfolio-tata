@@ -1364,6 +1364,57 @@ footer{background:var(--black);border-top:var(--dark-border);}
   color:rgba(255,255,255,0.4);
 }
 
+/* IMAGE LIGHTBOX */
+.img-lightbox{
+  position:fixed;inset:0;z-index:999999;
+  background:rgba(12,12,12,0.95);
+  backdrop-filter:blur(12px) saturate(160%);
+  -webkit-backdrop-filter:blur(12px) saturate(160%);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;
+  transition:opacity .3s cubic-bezier(0.25,1,0.5,1);
+}
+.img-lightbox.open{opacity:1;pointer-events:all;}
+.img-lightbox-inner{
+  position:relative;
+  max-width:90vw;max-height:90vh;
+  display:flex;flex-direction:column;align-items:center;
+}
+.img-lightbox-inner img{
+  max-width:100%;max-height:85vh;
+  object-fit:contain;
+  border:2px solid rgba(244,240,232,0.15);
+  box-shadow:0 24px 60px rgba(0,0,0,0.6);
+  transform:scale(0.95);
+  transition:transform .35s cubic-bezier(0.25,1,0.5,1);
+}
+.img-lightbox.open .img-lightbox-inner img{
+  transform:scale(1);
+}
+.img-lightbox-close{
+  position:absolute;top:-48px;right:0;
+  font-family:var(--hv);font-weight:900;
+  font-size:1.35rem;color:var(--white);
+  background:transparent;border:none;
+  cursor:pointer;opacity:0.7;
+  transition:opacity .15s, transform .15s;
+  padding:8px;
+}
+.img-lightbox-close:hover{
+  opacity:1;
+  transform:rotate(90deg);
+}
+
+/* ZOOM IN HOVER FOR IMAGES INSIDE MODALS */
+.modal-body img, .modal-img-wrap img{
+  cursor:zoom-in;
+  transition:opacity .25s ease, transform .25s ease;
+}
+.modal-body img:hover, .modal-img-wrap img:hover{
+  opacity:0.92;
+  transform:scale(1.015);
+}
+
 /* ── BRUTALIST COLLAGE & ZINE STYLING (CRAP MARKET & HUNGRY LION VIBES) ── */
 
 /* Global Grain Overlay */
@@ -1892,8 +1943,30 @@ function closeLightbox() {
   lbVid.src = '';
   document.body.style.overflow = '';
 }
+function openImgLightbox(src) {
+  var lb = document.getElementById('imgLightbox');
+  var lbImg = document.getElementById('imgLightboxImage');
+  if (lb && lbImg) {
+    lbImg.src = src;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+}
+function closeImgLightbox() {
+  var lb = document.getElementById('imgLightbox');
+  if (lb) {
+    lb.classList.remove('open');
+    var mainOverlay = document.getElementById('modalOverlay');
+    if (!mainOverlay || !mainOverlay.classList.contains('open')) {
+      document.body.style.overflow = '';
+    }
+  }
+}
 document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'Escape') {
+    closeLightbox();
+    closeImgLightbox();
+  }
 });
 </script>
 <script>
@@ -2440,7 +2513,7 @@ if (document.readyState === 'loading') {
     } else if (p.video) {
       var isYT = p.video.indexOf('youtube') > -1 || p.video.indexOf('youtu.be') > -1;
       if (isYT) {
-        h += '<div class="modal-video-wrap"><iframe src="'+p.video+'" allowfullscreen></iframe></div>';
+        h += '<div class="modal-video-wrap"><iframe src="'+p.video+'" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>';
       } else {
         h += '<div class="modal-video-wrap"><video src="'+p.video+'" controls playsinline></video></div>';
       }
@@ -2531,7 +2604,20 @@ if (document.readyState === 'loading') {
     });
     document.getElementById('modalPrev').addEventListener('click', function(){ navigate(-1); });
     document.getElementById('modalNext').addEventListener('click', function(){ navigate(1); });
+    document.getElementById('modalBody').addEventListener('click', function(e) {
+      if (e.target && e.target.tagName === 'IMG') {
+        openImgLightbox(e.target.src);
+      }
+    });
     document.addEventListener('keydown', function(e) {
+      var imgLb = document.getElementById('imgLightbox');
+      if (imgLb && imgLb.classList.contains('open')) {
+        if (e.key === 'Escape') {
+          closeImgLightbox();
+          e.stopPropagation();
+          return;
+        }
+      }
       if (!document.getElementById('modalOverlay').classList.contains('open')) return;
       if (e.key === 'Escape') closeModal();
       if (e.key === 'ArrowRight') navigate(1);
@@ -2554,6 +2640,14 @@ if (document.readyState === 'loading') {
     <button class="vid-lightbox-close" onclick="closeLightbox()">✕</button>
     <video id="vidLightboxVideo" controls playsinline></video>
     <div class="vid-lightbox-label" id="vidLightboxLabel"></div>
+  </div>
+</div>
+
+<!-- IMAGE LIGHTBOX -->
+<div class="img-lightbox" id="imgLightbox" onclick="if(event.target===this)closeImgLightbox()">
+  <div class="img-lightbox-inner">
+    <button class="img-lightbox-close" onclick="closeImgLightbox()">✕</button>
+    <img id="imgLightboxImage" src="" alt="Zoomed view">
   </div>
 </div>
 
