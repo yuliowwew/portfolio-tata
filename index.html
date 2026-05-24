@@ -2505,8 +2505,8 @@ if (document.readyState === 'loading') {
         p.videoGallery.forEach(function(v, i){
           var activeClass = i === 0 ? ' active' : '';
           var ratio = v.ratio || '16/9';
-          var colors = ['#7EE8A2','#FF2D78','#FFEC00','#FF2D78','#7EE8A2','#FF4D00','#FF2D78','#FFEC00'];
-          var textColors = ['#111111','#111111','#111111','#111111','#111111','#111111','#111111','#111111'];
+          var colors = ['var(--mint)', 'var(--magenta)', 'var(--sun)', 'var(--petal)', 'var(--cyan)', 'var(--violet)', 'var(--acid)'];
+          var textColors = ['var(--black)', 'var(--white)', 'var(--black)', 'var(--black)', 'var(--black)', 'var(--white)', 'var(--black)'];
           var bg = colors[i % colors.length];
           var fg = textColors[i % textColors.length];
           var vLabel = typeof v.label === 'object' ? v.label[currentLang] : v.label;
