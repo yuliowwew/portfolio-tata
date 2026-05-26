@@ -1,0 +1,20 @@
+{
+  "name": "portfolio-tata",
+  "version": "1.0.0",
+  "description": "Tatá Guimarães Portfolio",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'Static HTML site - no build required'",
+    "test": "echo 'No tests specified'"
+  },
+  "keywords": [
+    "portfolio",
+    "web",
+    "design"
+  ],
+  "author": "Tatá Guimarães",
+  "license": "ISC",
+  "dependencies": {
+    "@vercel/analytics": "^1.1.1"
+  }
+}
