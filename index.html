@@ -2255,7 +2255,7 @@ function openGroupLightbox(projectKey, storyIdx) {
   var currentLang = window.currentLang || 'en';
   var sLabel = typeof storyGroup.label === 'object' ? storyGroup.label[currentLang] : storyGroup.label;
   
-  if (labelEl) labelEl.textContent = sLabel || '';
+  // Label display removed
   
   mediaContainer.innerHTML = '';
   
@@ -2739,12 +2739,13 @@ if (document.readyState === 'loading') {
       cat: { en: 'Social Media', pt: 'Social Media' },
       title: { en: 'Flavia Madeira', pt: 'Flavia Madeira' },
       desc: {
-        en: '<strong>The brand</strong><br>Flavia Madeira is a designer jewelry brand where image and movement are central to its expression. It features a consolidated visual identity and a high-ticket audience that values meaning and refinement.<br><br><strong>The challenge</strong><br>To work within an already established identity without diluting it, while bringing more proximity and resonance to a demanding audience, where the wrong tone costs more than silence.<br><br><strong>What I did</strong><br>I developed a three-tier editorial architecture designed to build progressive desire in an audience that does not buy on impulse, but rather through identification:<ul><li><strong>Product</strong> — direct conversion content, showcasing the jewelry itself.</li><li><strong>Brand Universe</strong> — identity content, revealing how the brand thinks, what it admires, and what makes up its world. This tier builds a sense of belonging prior to purchase.</li><li><strong>Editorial</strong> — prestige content that elevates brand perception and sustains its high-value positioning.</li></ul>The core work was understanding what resonates with this specific audience and delivering refinement within the brand\'s existing language, without breaking what was already working.<br><br><strong>Results</strong><br>731k views during the period, with 135.9% organic growth. In a high-ticket niche brand, consistency of language and quality of audience matter more than volume, and that is what the strategy prioritized.',
-        pt: '<strong>A marca</strong><br>A marca Flavia Madeira é uma marca de joias autorais onde a imagem e o movimento são centrais para a expressão. Identidade visual consolidada, público high ticket que valoriza sentido e refinamento.<br><br><strong>O desafio</strong><br>Trabalhar dentro de uma identidade já estabelecida sem diluí-la, trazendo ao mesmo tempo mais proximidade e ressonância para um público exigente, onde o tom errado custa mais do que o silêncio.<br><br><strong>O que fiz</strong><br>Desenvolvi uma arquitetura editorial em três camadas, pensada para construir desejo progressivo em um público que não compra por impulso, mas por identificação:<ul><li><strong>Produto</strong> — conteúdo de conversão direta, mostrando a joia em si.</li><li><strong>Universo da marca</strong> — conteúdo de identidade, revelando como a marca pensa, o que ela admira e o que faz parte do seu mundo. Essa camada cria pertencimento antes da compra.</li><li><strong>Editorial</strong> — conteúdo de prestígio que eleva a percepção da marca e sustenta o posicionamento de alto valor.</li></ul>O trabalho central foi entender o que ressoa com esse público específico e entregar refinamento dentro da linguagem já existente da marca, sem quebrar o que já funcionava.<br><br><strong>Resultado</strong><br>731K views no período, com crescimento orgânico de 135,9%. Em uma marca de nicho high ticket, consistência de linguagem e qualidade de audiência importam mais que volume, e foi isso que a estratégia priorizou.'
+        en: 'Designer jewelry, high-ticket audience, consolidated visual identity. The challenge was to work within this identity without diluting it. A brand where the wrong tone costs more than silence.<br><br><strong>What I did</strong><br>I developed a three-tier editorial architecture to build progressive desire in an audience that does not buy on impulse, but rather through identification: product, brand universe, and art curation. Curation content achieved the highest qualitative engagement, with high save and share rates, signaling a real connection to the brand\'s universe.<br><br><strong>Results</strong><br>731k views, 135.9% organic growth. In a high-ticket niche, audience quality matters more than volume.',
+        pt: 'Joias autorais, público high ticket, identidade visual consolidada. O desafio era trabalhar dentro dessa identidade sem diluí-la. Uma marca onde o tom errado custa mais do que o silêncio.<br><br><strong>O que fiz</strong><br>Desenvolvi uma arquitetura editorial em três camadas para construir desejo progressivo em um público que não compra por impulso, mas por identificação: produto, universo da marca e curadoria de arte. Os conteúdos de curadoria foram os de maior engajamento qualitativo, com altos índices de salvamento e compartilhamento, sinalizando identificação real com o universo da marca.<br><br><strong>Resultado</strong><br>731K views, crescimento orgânico de 135,9%. Em nicho high ticket, qualidade de audiência importa mais que volume.'
       },
       tags: [
         { en: 'Social Media', pt: 'Social Media' },
-        { en: 'Strategy & Content Creation', pt: 'Estratégia e Criação de Conteúdo' }
+        { en: 'Strategy & Content Creation', pt: 'Estratégia e Criação de Conteúdo' },
+        { en: '2025', pt: '2025' }
       ],
       images: [
         'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/flaviamadeira/IMG_9976.jpg',
@@ -2774,7 +2775,8 @@ if (document.readyState === 'loading') {
         {
           type: 'image',
           url: 'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/FM%20STORIES/storiesFLAPROD.png',
-          label: { en: 'Product I', pt: 'Produto I' }
+          label: { en: 'Product I', pt: 'Produto I' },
+          badge: '3 ITEMS'
         },
         {
           type: 'group',
@@ -2891,22 +2893,31 @@ if (document.readyState === 'loading') {
       h += '<div class="modal-stories-tray">';
       p.stories.forEach(function(s, idx) {
         var sLabel = typeof s.label === 'object' ? s.label[currentLang] : s.label;
+        var badgeHTML = '';
+        if (s.badge) {
+          badgeHTML = '<div class="modal-story-group-badge">'+s.badge+'</div>';
+        } else if (s.type === 'group') {
+          badgeHTML = '<div class="modal-story-group-badge">'+s.items.length+' ITEMS</div>';
+        }
+
         if (s.type === 'group') {
-          var onclickFn = 'openGroupLightbox(\''+key+'\','+idx+')';
+          var onclickFn = 'event.stopPropagation(); openGroupLightbox(\''+key+'\','+idx+')';
           h += '<div class="modal-story-card" onclick="'+onclickFn+'">';
           h += '<img src="'+s.coverUrl+'" alt="'+sLabel+'" loading="lazy">';
-          h += '<div class="modal-story-group-badge">'+s.items.length+' ITEMS</div>';
+          h += badgeHTML;
           h += '</div>';
         } else if (s.type === 'video') {
-          var onclickFn = 'switchVideo(\''+key+'\',\''+s.url+'\',\'9/16\',\''+sLabel+'\')';
+          var onclickFn = 'event.stopPropagation(); switchVideo(\''+key+'\',\''+s.url+'\',\'9/16\',\''+sLabel+'\')';
           h += '<div class="modal-story-card" onclick="'+onclickFn+'">';
           h += '<video src="'+s.url+'" playsinline muted preload="metadata" style="width:100%;height:100%;object-fit:cover;pointer-events:none;"></video>';
           h += '<div class="modal-story-play-icon">▶</div>';
+          h += badgeHTML;
           h += '</div>';
         } else {
-          var onclickFn = 'openImgLightbox(\''+s.url+'\')';
+          var onclickFn = 'event.stopPropagation(); openImgLightbox(\''+s.url+'\')';
           h += '<div class="modal-story-card" onclick="'+onclickFn+'">';
           h += '<img src="'+s.url+'" alt="'+sLabel+'" loading="lazy">';
+          h += badgeHTML;
           h += '</div>';
         }
       });
@@ -3073,7 +3084,6 @@ if (document.readyState === 'loading') {
   <div class="group-lightbox-inner">
     <button class="group-lightbox-close" onclick="closeGroupLightbox()">✕</button>
     <div class="group-lightbox-media" id="groupLightboxMedia"></div>
-    <div class="group-lightbox-label" id="groupLightboxLabel"></div>
   </div>
 </div>
 
