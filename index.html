@@ -1452,6 +1452,194 @@ footer{background:var(--black);border-top:var(--dark-border);}
   color:rgba(255,255,255,0.4);
 }
 
+/* GROUPED LIGHTBOX */
+.group-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  background: rgba(12, 12, 12, 0.95);
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.group-lightbox.open {
+  opacity: 1;
+  pointer-events: all;
+}
+.group-lightbox-inner {
+  position: relative;
+  width: 95vw;
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.group-lightbox-media {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  width: 100%;
+}
+.group-media-item {
+  flex: 1;
+  border: 2px solid rgba(255,255,255,0.15);
+  background: #000;
+  overflow: hidden;
+}
+.group-media-item.ratio-9-16 {
+  aspect-ratio: 9/16;
+  max-width: 320px;
+}
+.group-media-item.ratio-16-9 {
+  aspect-ratio: 16/9;
+  max-width: 500px;
+}
+.group-media-item img,
+.group-media-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.group-lightbox-close {
+  position: absolute;
+  top: -48px;
+  right: 0;
+  font-family: var(--hv);
+  font-weight: 900;
+  font-size: 1.2rem;
+  color: white;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity .15s;
+  padding: 8px;
+}
+.group-lightbox-close:hover {
+  opacity: 1;
+}
+.group-lightbox-label {
+  font-family: var(--tech);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  margin-top: 0.5rem;
+}
+.modal-story-group-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: var(--magenta);
+  color: var(--white);
+  font-family: var(--tech);
+  font-size: 0.55rem;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 2px;
+  letter-spacing: 0.05em;
+  pointer-events: none;
+}
+
+/* Mobile responsive for grouped lightbox */
+@media (max-width: 768px) {
+  .group-lightbox-media {
+    flex-direction: row;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: 1rem;
+    gap: 1rem;
+    width: 100%;
+  }
+  .group-media-item {
+    flex: 0 0 220px;
+  }
+}
+
+/* STORIES TRAY */
+.modal-stories-tray {
+  display: flex;
+  gap: 1.25rem;
+  overflow-x: auto;
+  padding-bottom: 1.25rem;
+  margin-bottom: 2.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,0,0,0.15) transparent;
+}
+.modal-stories-tray::-webkit-scrollbar {
+  height: 6px;
+}
+.modal-stories-tray::-webkit-scrollbar-track {
+  background: transparent;
+}
+.modal-stories-tray::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.15);
+  border-radius: 3px;
+}
+.modal-story-card {
+  flex: 0 0 160px;
+  aspect-ratio: 9/16;
+  border: 2px solid var(--black);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  background: var(--black);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+}
+.modal-story-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+.modal-story-card img,
+.modal-story-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.modal-story-play-icon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.2);
+  color: var(--white);
+  font-size: 2.2rem;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  transition: background 0.2s, font-size 0.2s;
+  pointer-events: none;
+}
+.modal-story-card:hover .modal-story-play-icon {
+  background: rgba(0,0,0,0.35);
+  font-size: 2.4rem;
+}
+.modal-story-card-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.2rem 0.5rem 0.5rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+  color: var(--white);
+  font-family: var(--tech);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-align: center;
+  pointer-events: none;
+}
+
 /* IMAGE LIGHTBOX */
 .img-lightbox{
   position:fixed;inset:0;z-index:999999;
@@ -2053,10 +2241,64 @@ function closeImgLightbox() {
     }
   }
 }
+function openGroupLightbox(projectKey, storyIdx) {
+  var lb = document.getElementById('groupLightbox');
+  var mediaContainer = document.getElementById('groupLightboxMedia');
+  var labelEl = document.getElementById('groupLightboxLabel');
+  
+  if (!lb || !mediaContainer) return;
+  
+  var project = window.PROJECTS[projectKey];
+  if (!project || !project.stories || !project.stories[storyIdx]) return;
+  
+  var storyGroup = project.stories[storyIdx];
+  var currentLang = window.currentLang || 'en';
+  var sLabel = typeof storyGroup.label === 'object' ? storyGroup.label[currentLang] : storyGroup.label;
+  
+  if (labelEl) labelEl.textContent = sLabel || '';
+  
+  mediaContainer.innerHTML = '';
+  
+  var html = '';
+  storyGroup.items.forEach(function(item) {
+    var ratioClass = item.ratio === '16/9' ? 'ratio-16-9' : 'ratio-9-16';
+    if (item.type === 'video') {
+      html += '<div class="group-media-item video-item ' + ratioClass + '">';
+      html += '<video src="' + item.url + '" controls playsinline autoplay loop muted></video>';
+      html += '</div>';
+    } else {
+      html += '<div class="group-media-item img-item ' + ratioClass + '">';
+      html += '<img src="' + item.url + '" alt="Story item">';
+      html += '</div>';
+    }
+  });
+  
+  mediaContainer.innerHTML = html;
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeGroupLightbox() {
+  var lb = document.getElementById('groupLightbox');
+  var mediaContainer = document.getElementById('groupLightboxMedia');
+  if (lb) {
+    lb.classList.remove('open');
+    if (mediaContainer) {
+      mediaContainer.querySelectorAll('video').forEach(function(v) {
+        v.pause();
+      });
+      mediaContainer.innerHTML = '';
+    }
+    var mainOverlay = document.getElementById('modalOverlay');
+    if (!mainOverlay || !mainOverlay.classList.contains('open')) {
+      document.body.style.overflow = '';
+    }
+  }
+}
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') {
     closeLightbox();
     closeImgLightbox();
+    closeGroupLightbox();
   }
 });
 </script>
@@ -2278,7 +2520,7 @@ window.translations = {
     "work.placeholder": "imagem do projeto",
     "work.art.cat": "Arte Digital",
     "work.art.title": "Arte Digital",
-    "work.flavia.cat": "Redes Sociais",
+    "work.flavia.cat": "Social Media",
     "work.flavia.title": "Flavia Madeira",
     "work.id.cat": "Estratégia de Conteúdo",
     "work.id.title": "ID — Estratégia de Conteúdo",
@@ -2390,7 +2632,7 @@ if (document.readyState === 'loading') {
 }
 
 (function() {
-  var PROJECTS = {
+  window.PROJECTS = {
     'static-posts': {
       cat: { en: 'Content Creation', pt: 'Criação de Conteúdo' },
       title: { en: 'Drama — Content Creation', pt: 'Drama — Criação de Conteúdo' },
@@ -2494,17 +2736,15 @@ if (document.readyState === 'loading') {
       externalLink: ''
     },
     'flavia-madeira': {
-      cat: { en: 'Social Media', pt: 'Redes Sociais' },
-      title: { en: 'Flavia Madeira — Social Media', pt: 'Flavia Madeira — Redes Sociais' },
+      cat: { en: 'Social Media', pt: 'Social Media' },
+      title: { en: 'Flavia Madeira', pt: 'Flavia Madeira' },
       desc: {
-        en: 'Flavia Madeira is a fashion jewelry brand driven by visual language, where image and movement are central to the brand\'s expression. I contributed to social media content production, exploring narrative, rhythm, and experimentation across visual, audiovisual, and textual formats, within a consolidated identity, for an audience that values significance and refinement.',
-        pt: 'Flavia Madeira é uma marca de joias autorais movida pela linguagem visual, onde a imagem e o movimento são centrais para a expressão da marca. Contribuí com a produção de conteúdo para redes sociais explorando narrativa, ritmo e experimentação em formatos visuais, audiovisuais e textuais, dentro de uma identidade já consolidada, para um público que valoriza o sentido e o refinamento.'
+        en: '<strong>The brand</strong><br>Flavia Madeira is a designer jewelry brand where image and movement are central to its expression. It features a consolidated visual identity and a high-ticket audience that values meaning and refinement.<br><br><strong>The challenge</strong><br>To work within an already established identity without diluting it, while bringing more proximity and resonance to a demanding audience, where the wrong tone costs more than silence.<br><br><strong>What I did</strong><br>I developed a three-tier editorial architecture designed to build progressive desire in an audience that does not buy on impulse, but rather through identification:<ul><li><strong>Product</strong> — direct conversion content, showcasing the jewelry itself.</li><li><strong>Brand Universe</strong> — identity content, revealing how the brand thinks, what it admires, and what makes up its world. This tier builds a sense of belonging prior to purchase.</li><li><strong>Editorial</strong> — prestige content that elevates brand perception and sustains its high-value positioning.</li></ul>The core work was understanding what resonates with this specific audience and delivering refinement within the brand\'s existing language, without breaking what was already working.<br><br><strong>Results</strong><br>731k views during the period, with 135.9% organic growth. In a high-ticket niche brand, consistency of language and quality of audience matter more than volume, and that is what the strategy prioritized.',
+        pt: '<strong>A marca</strong><br>A marca Flavia Madeira é uma marca de joias autorais onde a imagem e o movimento são centrais para a expressão. Identidade visual consolidada, público high ticket que valoriza sentido e refinamento.<br><br><strong>O desafio</strong><br>Trabalhar dentro de uma identidade já estabelecida sem diluí-la, trazendo ao mesmo tempo mais proximidade e ressonância para um público exigente, onde o tom errado custa mais do que o silêncio.<br><br><strong>O que fiz</strong><br>Desenvolvi uma arquitetura editorial em três camadas, pensada para construir desejo progressivo em um público que não compra por impulso, mas por identificação:<ul><li><strong>Produto</strong> — conteúdo de conversão direta, mostrando a joia em si.</li><li><strong>Universo da marca</strong> — conteúdo de identidade, revelando como a marca pensa, o que ela admira e o que faz parte do seu mundo. Essa camada cria pertencimento antes da compra.</li><li><strong>Editorial</strong> — conteúdo de prestígio que eleva a percepção da marca e sustenta o posicionamento de alto valor.</li></ul>O trabalho central foi entender o que ressoa com esse público específico e entregar refinamento dentro da linguagem já existente da marca, sem quebrar o que já funcionava.<br><br><strong>Resultado</strong><br>731K views no período, com crescimento orgânico de 135,9%. Em uma marca de nicho high ticket, consistência de linguagem e qualidade de audiência importam mais que volume, e foi isso que a estratégia priorizou.'
       },
       tags: [
-        { en: 'Social Media', pt: 'Redes Sociais' },
-        { en: 'Content Creation', pt: 'Criação de Conteúdo' },
-        { en: 'Copywriting', pt: 'Copywriting' },
-        { en: 'Visual Narrative', pt: 'Narrativa Visual' }
+        { en: 'Social Media', pt: 'Social Media' },
+        { en: 'Strategy & Content Creation', pt: 'Estratégia e Criação de Conteúdo' }
       ],
       images: [
         'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/flaviamadeira/IMG_9976.jpg',
@@ -2513,20 +2753,49 @@ if (document.readyState === 'loading') {
       ],
       imageRow: [],
       imageLayout: 'feed',
-      video: 'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/flaviamadeira/escadinha.mp4',
-      videoGallery: [
-        { url: 'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/flaviamadeira/escadinha.mp4', poster: '', label: 'Escadinha', ratio: '16/9' }
-      ],
+      video: null,
+      videoGallery: null,
       results: [
-        { num: 'Narrative', label: { en: 'Content', pt: 'Conteúdo' } },
-        { num: 'Premium', label: { en: 'Positioning', pt: 'Posicionamento' } },
-        { num: 'Visual', label: { en: 'Identity', pt: 'Identidade' } }
+        { num: '731K', label: { en: 'Views', pt: 'Views' } },
+        { num: '+135.9%', label: { en: 'Organic Growth', pt: 'Crescimento Orgânico' } },
+        { num: 'Premium', label: { en: 'Positioning', pt: 'Posicionamento' } }
       ],
+      stories: [
+        {
+          type: 'group',
+          label: { en: 'Kandinsky Series', pt: 'Sequência Kandinsky' },
+          coverUrl: 'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/FM%20STORIES/kandinsky3.jpg',
+          items: [
+            { type: 'video', url: 'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/FM%20STORIES/kandinsky1.mp4' },
+            { type: 'image', url: 'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/FM%20STORIES/kandinsky3.jpg' },
+            { type: 'image', url: 'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/FM%20STORIES/kandinsky2.jpg' }
+          ]
+        },
+        {
+          type: 'image',
+          url: 'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/FM%20STORIES/storiesFLAPROD.png',
+          label: { en: 'Product I', pt: 'Produto I' }
+        },
+        {
+          type: 'group',
+          label: { en: 'Product II', pt: 'Produto II' },
+          coverUrl: 'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/joiaspracasa.jpg',
+          items: [
+            { type: 'video', url: 'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/flaviamadeira/escadinha.mp4', ratio: '9/16' },
+            { type: 'image', url: 'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/joiaspracasa.jpg' },
+            { type: 'image', url: 'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/geofm.jpg' }
+          ]
+        }
+      ],
+      feedCaption: {
+        en: 'The feed was treated as a continuous visual composition. Each post was considered in relation to the whole, maintaining coherence of palette, rhythm, and identity without restricting the variety of content.',
+        pt: 'O feed foi tratado como uma composição visual contínua. Cada publicação considerada em relação ao conjunto, mantendo coerência de paleta, ritmo e identidade sem engessar a variedade de conteúdo.'
+      },
       externalLink: ''
     },
     'id-content-strategy': {
       cat: { en: 'Content Strategy', pt: 'Estratégia de Conteúdo' },
-      title: { en: 'Interdependence — Case Study', pt: 'Interdependência — Estudo de Caso' },
+      title: { en: 'Interdependence', pt: 'Interdependência' },
       desc: {
         en: '<strong>The project</strong><br>Interdependence is an environmental communication project conceived by documentary filmmaker Caio Ferraz. Using water as a lens, it reveals how everything is connected — from the climate to the way we live.<br><br><strong>The challenge</strong><br>Caio had accumulated over 10 years of research on the interdependence of water, vegetation, and climate change. The goal was to transform this knowledge into a sellable course — but the topic was dense, technical, and there was no prior audience. The challenge wasn\'t just to grow an account: it was to build a perception of value around a specialist and prepare a qualified audience for conversion.<br><br><strong>What I did</strong><br>Alongside Caio, I developed the content strategy and worked directly on creation — scripting and video editing. The core task was to translate complex scientific knowledge into short, clear, and shareable videos without losing the project\'s depth. Every decision regarding language and narrative was guided by a larger objective: to transform reach into audience, and audience into buyers.<br><br><strong>Results — 3 months, 100% organic</strong><ul><li>From 200 to +28k followers</li><li>1.6 million reach</li><li>358k interactions</li><li>Engagement from public figures such as Ailton Krenak, Marcelo Tas, and Eduardo Suplicy — with zero ad spend</li><li>Course sales target hit: 50 sales</li></ul>The content crossed cultural and demographic niches, attracting public figures, specialists, and creators from different fields — proving that a well-structured strategy can circulate specialized knowledge outside its initial bubble.<br><br><strong>What this case demonstrates</strong><br>Deep knowledge does not sell itself. This project proves that a well-executed content strategy transforms specialists into authorities and audiences into business results.',
         pt: '<strong>O projeto</strong><br>Interdependência é um projeto de comunicação ambiental idealizado pelo documentarista Caio Ferraz. Usando a água como lente, revela como tudo está conectado — do clima à forma como vivemos.<br><br><strong>O desafio</strong><br>Caio acumulava mais de 10 anos de pesquisa sobre a interdependência da água, da vegetação e das mudanças climáticas. O objetivo era transformar esse conhecimento em um curso vendável — mas o tema era denso, técnico, e não havia audiência prévia. O desafio não era só crescer uma conta: era construir percepção de valor em torno de um especialista e preparar uma audiência qualificada para conversão.<br><br><strong>O que fiz</strong><br>Ao lado de Caio, desenvolvi a estratégia de conteúdo e atuei diretamente na criação — roteiros e edição de vídeo. O trabalho central foi traduzir conhecimento científico complexo em vídeos curtos, claros e compartilháveis, sem perder a profundidade do projeto. Cada decisão de linguagem e narrativa foi orientada por um objetivo maior: transformar alcance em audiência e audiência em compradores.<br><br><strong>Resultados — 3 meses, 100% orgânico</strong><ul><li>De 200 para +28 mil seguidores</li><li>1,6 milhão de alcance</li><li>358 mil interações</li><li>Engajamento de figuras como Ailton Krenak, Marcelo Tas e Eduardo Suplicy — sem nenhum investimento em anúncios</li><li>Meta de vendas do curso batida: 50 vendas</li></ul>O conteúdo atravessou nichos culturais e demográficos, atraindo figuras públicas, especialistas e criadores de áreas distintas — provando que uma estratégia bem estruturada consegue circular conhecimento especializado fora da bolha inicial.<br><br><strong>O que esse caso demonstra</strong><br>Conhecimento profundo não se vende sozinho. Este projeto prova que estratégia de conteúdo bem executada transforma especialistas em referências e audiência em resultado comercial.'
@@ -2550,6 +2819,7 @@ if (document.readyState === 'loading') {
       externalLink: ''
     }
   };
+  var PROJECTS = window.PROJECTS;
 
   var ORDER = ['static-posts','website','brand-identity','flavia-madeira','id-content-strategy'];
   var currentIdx = 0;
@@ -2614,16 +2884,51 @@ if (document.readyState === 'loading') {
       h += '<div class="modal-video-wrap"><div class="modal-video-placeholder"><span class="play-icon">▶</span><span>add video URL in PROJECTS</span></div></div>';
     }
 
+    // stories tray
+    if (p.stories && p.stories.length) {
+      var storiesLabel = currentLang === 'pt' ? 'Stories (Conteúdo Vertical)' : 'Stories (Vertical Content)';
+      h += '<div class="modal-section-label">'+storiesLabel+'</div>';
+      h += '<div class="modal-stories-tray">';
+      p.stories.forEach(function(s, idx) {
+        var sLabel = typeof s.label === 'object' ? s.label[currentLang] : s.label;
+        if (s.type === 'group') {
+          var onclickFn = 'openGroupLightbox(\''+key+'\','+idx+')';
+          h += '<div class="modal-story-card" onclick="'+onclickFn+'">';
+          h += '<img src="'+s.coverUrl+'" alt="'+sLabel+'" loading="lazy">';
+          h += '<div class="modal-story-group-badge">'+s.items.length+' ITEMS</div>';
+          h += '</div>';
+        } else if (s.type === 'video') {
+          var onclickFn = 'switchVideo(\''+key+'\',\''+s.url+'\',\'9/16\',\''+sLabel+'\')';
+          h += '<div class="modal-story-card" onclick="'+onclickFn+'">';
+          h += '<video src="'+s.url+'" playsinline muted preload="metadata" style="width:100%;height:100%;object-fit:cover;pointer-events:none;"></video>';
+          h += '<div class="modal-story-play-icon">▶</div>';
+          h += '</div>';
+        } else {
+          var onclickFn = 'openImgLightbox(\''+s.url+'\')';
+          h += '<div class="modal-story-card" onclick="'+onclickFn+'">';
+          h += '<img src="'+s.url+'" alt="'+sLabel+'" loading="lazy">';
+          h += '</div>';
+        }
+      });
+      h += '</div>';
+    }
+
     // images after video
     if (p.images && p.images.length) {
       var pTitleText = typeof p.title === 'object' ? p.title[currentLang] : p.title;
       if (p.imageLayout === 'feed') {
+        var feedLabel = currentLang === 'pt' ? 'Feed' : 'Feed';
+        h += '<div class="modal-section-label">'+feedLabel+'</div>';
         var cols = p.images.length === 2 ? 2 : 3;
         h += '<div style="display:grid;grid-template-columns:repeat('+cols+',1fr);gap:0.5rem;margin-bottom:1rem;">';
         p.images.forEach(function(s) {
           h += '<div style="aspect-ratio:4/5;overflow:hidden;border:2px solid var(--black);"><img src="'+s+'" alt="'+pTitleText+'" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div>';
         });
         h += '</div>';
+        if (p.feedCaption) {
+          var feedCapText = typeof p.feedCaption === 'object' ? p.feedCaption[currentLang] : p.feedCaption;
+          h += '<div style="font-family:var(--tech);font-size:0.68rem;letter-spacing:0.06em;color:rgba(26,26,26,0.45);padding:0.5rem 0 1.5rem;line-height:1.5;">'+feedCapText+'</div>';
+        }
       } else {
         p.images.forEach(function(s, idx) {
           h += img(s, pTitleText);
@@ -2707,6 +3012,14 @@ if (document.readyState === 'loading') {
           return;
         }
       }
+      var grpLb = document.getElementById('groupLightbox');
+      if (grpLb && grpLb.classList.contains('open')) {
+        if (e.key === 'Escape') {
+          closeGroupLightbox();
+          e.stopPropagation();
+          return;
+        }
+      }
       if (!document.getElementById('modalOverlay').classList.contains('open')) return;
       if (e.key === 'Escape') closeModal();
       if (e.key === 'ArrowRight') navigate(1);
@@ -2752,6 +3065,15 @@ if (document.readyState === 'loading') {
   <div class="img-lightbox-inner">
     <button class="img-lightbox-close" onclick="closeImgLightbox()">✕</button>
     <img id="imgLightboxImage" src="" alt="Zoomed view">
+  </div>
+</div>
+
+<!-- GROUPED LIGHTBOX -->
+<div class="group-lightbox" id="groupLightbox" onclick="if(event.target===this)closeGroupLightbox()">
+  <div class="group-lightbox-inner">
+    <button class="group-lightbox-close" onclick="closeGroupLightbox()">✕</button>
+    <div class="group-lightbox-media" id="groupLightboxMedia"></div>
+    <div class="group-lightbox-label" id="groupLightboxLabel"></div>
   </div>
 </div>
 
