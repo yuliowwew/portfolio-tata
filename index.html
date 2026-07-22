@@ -327,7 +327,7 @@ nav{
 }
 .nav-links a,.nav-cta{font-family:var(--hv);font-weight:800;letter-spacing:.02em;text-transform:none;}
 .nav-links a{color:var(--white);opacity:.58;}
-.nav-links a:hover{color:var(--acid);opacity:1;}
+.nav-links a:hover,.nav-links a.active{color:var(--acid);opacity:1;}
 .nav-cta{
   background:var(--white);
   color:var(--black);
@@ -712,7 +712,7 @@ section{isolation:isolate;}
 .service-row:nth-child(1){background:var(--cyan);}
 .service-row:nth-child(2){background:var(--mint);transform:translateY(1.25rem);}
 .service-row:nth-child(3){background:var(--sun);}
-.service-row:nth-child(4){background:var(--violet);color:var(--white);}
+.service-row:nth-child(4){background:var(--violet);color:var(--black);}
 .service-row:nth-child(5){background:var(--magenta);color:var(--white);transform:translateY(1.25rem);}
 .service-row:nth-child(6){background:var(--white);}
 .service-row:hover{background:var(--acid);color:var(--black);transform:rotate(-1deg);}
@@ -1093,8 +1093,8 @@ section{isolation:isolate;}
 .chat-sender,.chat-msg{color:var(--black);}
 .stars{color:var(--sun);}
 
-#contact{border-bottom:var(--dark-border);padding-top:var(--section-pad);}
-.contact-inner{gap:1rem;padding:0 var(--container-pad);}
+#contact{border-bottom:var(--dark-border);padding-top:var(--section-pad);padding-bottom:clamp(3.5rem,6vw,5.5rem);}
+.contact-inner{display:grid;grid-template-columns:1.2fr 1fr;gap:4rem;align-items:start;padding:0 var(--container-pad);}
 .contact-left{
   border:0;
   border-radius:0;
@@ -1105,8 +1105,13 @@ section{isolation:isolate;}
   border-radius:2rem;
   background:var(--white);
   color:var(--black);
-  padding: clamp(2rem, 5vw, 3rem) clamp(1.5rem, 5vw, 3rem);
-  max-width:560px;
+  padding: clamp(1.75rem, 3.5vw, 2.5rem) clamp(1.5rem, 3.5vw, 2.25rem);
+  max-width:580px;
+  width:100%;
+  box-shadow:0 16px 40px rgba(0,0,0,0.18);
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
 }
 .contact-heading{--contact-light-offset:0;font-size:clamp(2.8rem,6vw,7rem);}
 .contact-heading span:nth-child(2){color:var(--white);}
@@ -1161,7 +1166,8 @@ footer{background:var(--black);border-top:var(--dark-border);}
 
 @media (max-width: 640px){
   nav{align-items:center!important;gap:1rem!important;flex-wrap:wrap!important;background:#181818!important;border-bottom:1px solid rgba(244,240,232,0.15)!important;}
-  .nav-links{order:3;width:100%;justify-content:space-between;gap:.5rem;}
+  .nav-links{order:3;width:100%;justify-content:flex-start;gap:1.25rem;overflow-x:auto;white-space:nowrap;padding:0.4rem 0;-webkit-overflow-scrolling:touch;}
+  .nav-links::-webkit-scrollbar{display:none;}
   .nav-links a{font-size:.62rem;}
   .ticker{margin-top:6.8rem;}
   .ticker-track{animation-duration:10s!important;will-change:transform;transform:translateZ(0);}
@@ -1364,6 +1370,12 @@ footer{background:var(--black);border-top:var(--dark-border);}
   cursor:pointer;border-right:none;transition:all .15s;
 }
 .modal-nav-btn:last-child{border-right:1px solid rgba(255,255,255,0.12);}
+.modal-pagination{
+  font-family:var(--tech);font-size:0.72rem;font-weight:700;
+  color:rgba(255,255,255,0.4);border:1px solid rgba(255,255,255,0.12);
+  border-right:none;padding:0.6rem 1rem;display:flex;align-items:center;
+  user-select:none;
+}
 .modal-nav-btn:hover{background:var(--magenta);color:var(--white);border-color:var(--magenta);}
 
 @media(max-width:640px){
@@ -1812,14 +1824,73 @@ footer{background:var(--black);border-top:var(--dark-border);}
 .logo-cell img{max-height:36px;max-width:100px;width:auto;height:auto;object-fit:contain;display:block;}
 
 /* BRIEFING CARD */
-.briefing-card{display:flex;flex-direction:column;gap:1.5rem;flex:1;padding-top:1.5rem;}
-.briefing-section{display:flex;flex-direction:column;gap:0.65rem;}
-.briefing-label{font-family:var(--tech);font-weight:700;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(0,0,0,0.45);}
-.briefing-options{display:flex;flex-wrap:wrap;gap:0.4rem;}
-.briefing-btn{font-family:var(--hv);font-weight:600;font-size:0.72rem;padding:0.4rem 0.9rem;background:transparent;color:rgba(0,0,0,0.75);border:1.5px solid rgba(0,0,0,0.3);cursor:pointer;transition:all .15s;border-radius:999px;}
-.briefing-btn:hover{border-color:rgba(0,0,0,0.6);color:rgba(0,0,0,1);background:rgba(0,0,0,0.05);}
-.briefing-btn.active{background:var(--magenta);color:var(--white);border-color:var(--magenta);}
-.contact-right{justify-content:flex-start;gap:0;}
+.contact-right{
+  border-radius:2rem;
+  background:var(--white);
+  color:var(--black);
+  padding: clamp(2rem, 4vw, 3rem) clamp(1.75rem, 4vw, 2.75rem);
+  max-width:580px;
+  width:100%;
+  box-shadow:0 16px 40px rgba(0,0,0,0.18);
+  display:flex;
+  flex-direction:column;
+  justify-flex-start;
+}
+.contact-ready{
+  font-family:var(--tech);
+  font-weight:700;
+  font-size:0.72rem;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:rgba(5,5,5,0.55);
+  margin-bottom:0.5rem;
+  line-height:1.4;
+}
+.briefing-card{display:flex;flex-direction:column;gap:1.35rem;flex:1;padding-top:0.5rem;}
+.briefing-section{display:flex;flex-direction:column;gap:0.55rem;}
+.briefing-label{font-family:var(--tech);font-weight:700;font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(0,0,0,0.45);}
+.briefing-options{display:flex;flex-wrap:wrap;gap:0.45rem;align-items:center;}
+.briefing-btn{
+  font-family:var(--hv);
+  font-weight:700;
+  font-size:0.72rem;
+  letter-spacing:0.02em;
+  padding:0.42rem 0.92rem;
+  background:transparent;
+  color:rgba(0,0,0,0.75);
+  border:1.5px solid rgba(0,0,0,0.22);
+  cursor:pointer;
+  transition:all .2s cubic-bezier(0.16,1,0.3,1);
+  border-radius:999px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  line-height:1.2;
+}
+.briefing-btn:hover{border-color:rgba(0,0,0,0.6);color:var(--black);background:rgba(0,0,0,0.04);transform:translateY(-1px);}
+.briefing-btn.active{background:var(--magenta);color:var(--white);border-color:var(--magenta);box-shadow:0 4px 12px rgba(255,43,138,0.28);}
+.contact-cta{
+  font-family:var(--hv);
+  font-weight:900;
+  font-size:0.85rem;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+  padding:1.1rem 2rem;
+  background:var(--magenta);
+  color:var(--white)!important;
+  border-radius:999px;
+  border:none;
+  margin-top:0.4rem;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  transition:all .25s cubic-bezier(0.16,1,0.3,1);
+  box-shadow:0 4px 16px rgba(255,43,138,0.3);
+}
+.contact-cta:hover{background:var(--black);color:var(--white)!important;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.25);}
 
 </style>
 </head>
@@ -2013,7 +2084,7 @@ footer{background:var(--black);border-top:var(--dark-border);}
     <h2 class="portfolio-heading reveal" data-i18n="work.heading">What I've <em>built</em></h2>
   </div>
   <div class="portfolio-grid">
-    <div class="p-item" data-project="static-posts" style="cursor:pointer;background-image:url('https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/dramacrazy.jpg');background-size:cover;background-position:center;">
+    <div class="p-item" data-project="static-posts" style="cursor:pointer;background-image:url('https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/dramacrazy-capa.jpg');background-size:cover;background-position:center;">
       <div class="p-placeholder" style="background:rgba(0,0,0,0.45);"></div>
       <div class="p-info">
         <div class="p-cat" data-i18n="work.drama.cat">Content Creation</div>
@@ -2178,6 +2249,40 @@ footer{background:var(--black);border-top:var(--dark-border);}
         <a class="contact-link reveal" href="#" target="_blank"><span class="contact-link-label" data-i18n="contact.linkedin">LinkedIn</span>coming soon →</a>
       </div>
     </div>
+    <div class="contact-right reveal">
+      <div class="contact-ready" data-i18n="contact.ready">Ready to build? Configure your briefing:</div>
+      <div class="briefing-card">
+        <div class="briefing-section">
+          <span class="briefing-label" data-i18n="briefing.service">I need help with...</span>
+          <div class="briefing-options">
+            <button class="briefing-btn active" onclick="toggleBriefing(this)" data-i18n="briefing.opt.social">Social Media Strategy</button>
+            <button class="briefing-btn" onclick="toggleBriefing(this)" data-i18n="briefing.opt.creation">Content Creation</button>
+            <button class="briefing-btn" onclick="toggleBriefing(this)" data-i18n="briefing.opt.video">Video Editing</button>
+            <button class="briefing-btn" onclick="toggleBriefing(this)" data-i18n="briefing.opt.copy">Copywriting</button>
+            <button class="briefing-btn" onclick="toggleBriefing(this)" data-i18n="briefing.opt.web">Web Experiences</button>
+            <button class="briefing-btn" onclick="toggleBriefing(this)" data-i18n="briefing.opt.art">Digital Art</button>
+            <button class="briefing-btn" onclick="toggleBriefing(this)" data-i18n="briefing.opt.other">Other</button>
+          </div>
+        </div>
+        <div class="briefing-section">
+          <span class="briefing-label" data-i18n="briefing.budget">Estimated budget...</span>
+          <div class="briefing-options">
+            <button class="briefing-btn active" onclick="toggleBriefing(this)" data-i18n="briefing.b1">Under 2k</button>
+            <button class="briefing-btn" onclick="toggleBriefing(this)" data-i18n="briefing.b2">2k - 10k</button>
+            <button class="briefing-btn" onclick="toggleBriefing(this)" data-i18n="briefing.b3">10k+</button>
+          </div>
+        </div>
+        <div class="briefing-section">
+          <span class="briefing-label" data-i18n="briefing.timeline">Timeline...</span>
+          <div class="briefing-options">
+            <button class="briefing-btn active" onclick="toggleBriefing(this)" data-i18n="briefing.opt.fast">Urgent</button>
+            <button class="briefing-btn" onclick="toggleBriefing(this)" data-i18n="briefing.opt.medium">1-2 Months</button>
+            <button class="briefing-btn" onclick="toggleBriefing(this)" data-i18n="briefing.opt.flexible">Flexible</button>
+          </div>
+        </div>
+        <a id="briefing-cta" class="contact-cta" href="mailto:thayxna@gmail.com?subject=Project Inquiry" style="text-align:center;text-decoration:none;display:block;" data-i18n="contact.sendBriefing">Send Briefing →</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -2201,6 +2306,23 @@ const obs=new IntersectionObserver(entries=>{
   Object.values(g).forEach(els=>els.forEach((el,i)=>setTimeout(()=>el.classList.add('visible'),i*75)));
 },{threshold:0.08,rootMargin:'0px 0px -60px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// Scroll Spy Observer
+const spyObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.getAttribute('id');
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        if (link.getAttribute('href') === '#' + id) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }
+  });
+}, { threshold: 0.3, rootMargin: '-20% 0px -50% 0px' });
+document.querySelectorAll('section[id]').forEach(sec => spyObserver.observe(sec));
 
 function toggleBriefing(btn) {
   const group = btn.closest('.briefing-options');
@@ -2233,6 +2355,7 @@ function toggleBriefing(btn) {
       <a class="modal-footer-link" id="modalExternalLink" href="#" target="_blank">View live ↗</a>
       <div class="modal-nav">
         <button class="modal-nav-btn" id="modalPrev">← Prev</button>
+        <span class="modal-pagination" id="modalPagination">1 / 5</span>
         <button class="modal-nav-btn" id="modalNext">Next →</button>
       </div>
     </div>
@@ -2450,33 +2573,7 @@ function navigateLightbox(dir) {
   loadMediaInLightbox();
 }
 
-document.addEventListener('keydown', function(e) {
-  var vidLb = document.getElementById('vidLightbox');
-  var imgLb = document.getElementById('imgLightbox');
-  var grpLb = document.getElementById('groupLightbox');
-  
-  var isLightboxOpen = (vidLb && vidLb.classList.contains('open')) ||
-                       (imgLb && imgLb.classList.contains('open')) ||
-                       (grpLb && grpLb.classList.contains('open'));
-                       
-  if (isLightboxOpen) {
-    if (e.key === 'Escape') {
-      closeLightbox();
-      e.stopPropagation();
-      return;
-    }
-    if (e.key === 'ArrowRight') {
-      navigateLightbox(1);
-      e.stopPropagation();
-      return;
-    }
-    if (e.key === 'ArrowLeft') {
-      navigateLightbox(-1);
-      e.stopPropagation();
-      return;
-    }
-  }
-});
+
 </script>
 <script>
 // Translations Dictionary
@@ -2605,7 +2702,26 @@ window.translations = {
     "contact.heading": "<span>GOT A</span><span>PROJECT?</span><em>LET'S GO.</em>",
     "contact.email": "Email",
     "contact.whatsapp": "WhatsApp",
-    "contact.linkedin": "LinkedIn"
+    "contact.linkedin": "LinkedIn",
+    
+    "contact.ready": "Ready to build? Configure your briefing:",
+    "briefing.service": "I need help with...",
+    "briefing.opt.social": "Social Media Strategy",
+    "briefing.opt.creation": "Content Creation",
+    "briefing.opt.video": "Video Editing",
+    "briefing.opt.copy": "Copywriting",
+    "briefing.opt.web": "Web Experiences",
+    "briefing.opt.art": "Digital Art",
+    "briefing.opt.other": "Other",
+    "briefing.budget": "Estimated budget...",
+    "briefing.b1": "Under 2k",
+    "briefing.b2": "2k - 10k",
+    "briefing.b3": "10k+",
+    "briefing.timeline": "Timeline...",
+    "briefing.opt.fast": "Urgent",
+    "briefing.opt.medium": "1-2 Months",
+    "briefing.opt.flexible": "Flexible",
+    "contact.sendBriefing": "Send Briefing →"
   },
   pt: {
     "nav.about": "Sobre",
@@ -2731,7 +2847,26 @@ window.translations = {
     "contact.heading": "<span>TEM UM</span><span>PROJETO?</span><em>VAMOS NESSA.</em>",
     "contact.email": "E-mail",
     "contact.whatsapp": "WhatsApp",
-    "contact.linkedin": "LinkedIn"
+    "contact.linkedin": "LinkedIn",
+    
+    "contact.ready": "Pronto para construir? Monte seu briefing:",
+    "briefing.service": "Preciso de ajuda com...",
+    "briefing.opt.social": "Estratégia de Redes",
+    "briefing.opt.creation": "Criação de Conteúdo",
+    "briefing.opt.video": "Edição de Vídeo",
+    "briefing.opt.copy": "Copywriting",
+    "briefing.opt.web": "Experiências Web",
+    "briefing.opt.art": "Arte Digital",
+    "briefing.opt.other": "Outro",
+    "briefing.budget": "Orçamento estimado...",
+    "briefing.b1": "Abaixo de 2k",
+    "briefing.b2": "2k - 10k",
+    "briefing.b3": "10k+",
+    "briefing.timeline": "Prazo estimado...",
+    "briefing.opt.fast": "Urgente",
+    "briefing.opt.medium": "1 a 2 Meses",
+    "briefing.opt.flexible": "Flexível",
+    "contact.sendBriefing": "Enviar Briefing →"
   }
 };
 
@@ -2821,7 +2956,7 @@ if (document.readyState === 'loading') {
       images: [
         'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/drama/dramavideo2.jpg',
         'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/drama/dramavideo5.jpg',
-        'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/dramacrazy.jpg'
+        'https://pub-d3215788d4fe42f785247d3bbca79705.r2.dev/dramacrazy-capa.jpg'
       ],
       imageRow: [],
       imageLayout: 'feed',
@@ -3134,6 +3269,8 @@ if (document.readyState === 'loading') {
     document.getElementById('modalCat').textContent = typeof p.cat === 'object' ? p.cat[currentLang] : p.cat;
     document.getElementById('modalTitle').textContent = typeof p.title === 'object' ? p.title[currentLang] : p.title;
     document.getElementById('modalBody').innerHTML = buildBody(key);
+    var pag = document.getElementById('modalPagination');
+    if (pag) pag.textContent = (currentIdx + 1) + ' / ' + ORDER.length;
     var ext = document.getElementById('modalExternalLink');
     ext.href = p.externalLink || '#';
     ext.style.display = p.externalLink ? '' : 'none';
@@ -3198,6 +3335,7 @@ if (document.readyState === 'loading') {
       var vidLb = document.getElementById('vidLightbox');
       var imgLb = document.getElementById('imgLightbox');
       var grpLb = document.getElementById('groupLightbox');
+      var modalOverlay = document.getElementById('modalOverlay');
       
       var isLightboxOpen = (vidLb && vidLb.classList.contains('open')) ||
                            (imgLb && imgLb.classList.contains('open')) ||
@@ -3207,24 +3345,41 @@ if (document.readyState === 'loading') {
         if (e.key === 'Escape') {
           closeLightbox();
           e.stopPropagation();
+          e.preventDefault();
           return;
         }
         if (e.key === 'ArrowRight') {
           navigateLightbox(1);
           e.stopPropagation();
+          e.preventDefault();
           return;
         }
         if (e.key === 'ArrowLeft') {
           navigateLightbox(-1);
           e.stopPropagation();
+          e.preventDefault();
+          return;
+        }
+      } else if (modalOverlay && modalOverlay.classList.contains('open')) {
+        if (e.key === 'Escape') {
+          closeModal();
+          e.stopPropagation();
+          e.preventDefault();
+          return;
+        }
+        if (e.key === 'ArrowRight') {
+          navigate(1);
+          e.stopPropagation();
+          e.preventDefault();
+          return;
+        }
+        if (e.key === 'ArrowLeft') {
+          navigate(-1);
+          e.stopPropagation();
+          e.preventDefault();
           return;
         }
       }
-      
-      if (!document.getElementById('modalOverlay').classList.contains('open')) return;
-      if (e.key === 'Escape') closeModal();
-      if (e.key === 'ArrowRight') navigate(1);
-      if (e.key === 'ArrowLeft') navigate(-1);
     });
     // hash open disabled in preview
   }
