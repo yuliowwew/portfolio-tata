@@ -50,7 +50,7 @@ nav:hover {
   border-bottom-color: var(--magenta);
 }
 .nav-logo {
-  font-family: var(--syne);
+  font-family: var(--outfit);
   font-weight: 800;
   font-size: 1.4rem;
   letter-spacing: -0.03em;
@@ -218,15 +218,15 @@ nav:hover {
   gap: 1.25rem;
 }
 .mobile-nav-links a {
-  font-family: var(--syne);
-  font-weight: 800;
-  font-size: clamp(2rem, 8vw, 3.5rem);
-  letter-spacing: -0.03em;
-  text-transform: uppercase;
+  font-family: var(--outfit);
+  font-weight: 500;
+  font-size: clamp(2rem, 6vw, 3rem);
+  letter-spacing: -0.02em;
+  text-transform: none;
   color: var(--white);
   text-decoration: none;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 1rem;
   transition: color 0.2s, transform 0.2s;
 }
@@ -340,7 +340,7 @@ nav:hover {
 #about{position:relative;overflow:hidden;}
 .about-left{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;text-align:left;gap:2rem;position:relative;z-index:2;}
 .section-tag{font-family:var(--ui);font-weight:800;font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--magenta);margin-bottom:1rem;line-height:1.4;}
-.about-heading{font-family:var(--outfit);font-weight:600;font-size:clamp(2.4rem,4.2vw,3.6rem);letter-spacing:-0.02em;line-height:1.08;text-transform:uppercase;margin-bottom:1.25rem;max-width:1000px;}
+.about-heading{font-family:var(--outfit);font-weight:600;font-size:clamp(2.4rem,4.2vw,3.6rem);letter-spacing:-0.02em;line-height:1.08;text-transform:none;margin-bottom:1.25rem;max-width:1000px;}
 .about-heading em{font-family:var(--outfit);font-style:italic;font-weight:400;color:var(--magenta);display:inline;margin-left:0 !important;}
 .word-highlight{color:var(--cyan);font-weight:400;}
 .about-bio{font-family:var(--hv);font-size:clamp(1.05rem,1.35vw,1.2rem);line-height:1.6;color:rgba(26,26,26,0.75);max-width:580px;margin-bottom:0;}
@@ -1296,10 +1296,10 @@ section{isolation:isolate;}
 
 /* Responsividade intermediária: 2 colunas para tablets e telas médias */
 @media (max-width: 1100px) and (min-width: 901px) {
-  .portfolio-grid {
+  #portfolio .portfolio-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  .p-item:nth-child(5) {
+  #portfolio .p-item:nth-child(5) {
     grid-column: span 2;
   }
 }
@@ -1351,22 +1351,170 @@ section{isolation:isolate;}
 
 /* RESPONSIVE LAYOUT FOR SERVICES, PROCESS & TOOLS */
 @media (max-width: 860px) {
+  .ticker {
+    display: none !important;
+  }
+
+  /* SERVICES → HORIZONTAL SWIPEABLE CAROUSEL */
+  #services .services-list {
+    display: flex !important;
+    flex-direction: row !important;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 0;
+    scrollbar-width: none;
+  }
+  #services .services-list::-webkit-scrollbar {
+    display: none;
+  }
   #services .service-row {
-    grid-template-columns: 1fr;
-    gap: 0.8rem;
+    flex: 0 0 80vw;
+    scroll-snap-align: start;
+    display: flex !important;
+    flex-direction: column;
+    gap: 0.75rem;
     padding: 1.75rem 1.5rem;
+    border-bottom: none;
+    border-right: 1px solid rgba(26, 26, 26, 0.1);
+    box-sizing: border-box;
+  }
+  #services .service-row:last-child {
+    border-right: none;
   }
   #services .service-tags {
     justify-content: flex-start;
     margin-top: 0.5rem;
   }
+
+  /* PORTFOLIO → HORIZONTAL SWIPEABLE CAROUSEL */
+  #portfolio .portfolio-grid {
+    display: flex !important;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 1rem;
+    padding: 1.5rem 1.25rem !important;
+    scrollbar-width: none;
+  }
+  #portfolio .portfolio-grid::-webkit-scrollbar {
+    display: none;
+  }
+  #portfolio .p-item {
+    flex: 0 0 78vw;
+    scroll-snap-align: start;
+    min-height: 300px;
+    aspect-ratio: 3/4;
+  }
+  #portfolio .p-item:nth-child(5) {
+    grid-column: unset !important;
+  }
+  /* Always show info on mobile carousel */
+  #portfolio .p-cat,
+  #portfolio .p-title {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+
+  /* PROCESS → HORIZONTAL SWIPEABLE CAROUSEL */
   #process .process-steps {
-    grid-template-columns: 1fr;
+    display: flex !important;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 0;
+    padding-bottom: 1rem;
+    scrollbar-width: none;
+  }
+  #process .process-steps::-webkit-scrollbar {
+    display: none;
   }
   #process .process-step {
-    border-right: none !important;
-    border-bottom: 1px solid rgba(26, 26, 26, 0.1) !important;
+    flex: 0 0 75vw;
+    scroll-snap-align: start;
+    border-right: 1px solid rgba(26, 26, 26, 0.1) !important;
+    border-bottom: none !important;
     padding: 2rem 1.5rem;
+    box-sizing: border-box;
+  }
+  #process .process-step:last-child {
+    flex: 0 0 75vw;
+    border-right: none !important;
+  }
+
+  /* CONTACT → HIDE BRIEFING, SHOW MOBILE CTA */
+  #contact .contact-right {
+    display: none !important;
+  }
+  #contact .contact-mobile-cta {
+    display: flex !important;
+  }
+  #contact .contact-inner {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+    text-align: center;
+  }
+  #contact .contact-left {
+    align-items: center;
+  }
+  #contact .contact-heading {
+    font-size: clamp(2rem, 8vw, 3rem);
+    text-align: center;
+  }
+
+  /* UNIFIED MOBILE CONTAINER SIZING */
+  #about, #services, #portfolio, #process, #brands, #contact {
+    padding: 1.25rem 1rem !important;
+  }
+  #about {
+    margin-top: 4.5rem !important;
+  }
+  .editorial-card {
+    border-radius: 1.25rem;
+  }
+  .about-hero-unified {
+    border-radius: 1.25rem;
+    min-height: auto !important;
+  }
+  #about .ast-2 {
+    top: auto !important;
+    bottom: 1.5rem !important;
+    left: auto !important;
+    right: 1.25rem !important;
+    transform: rotate(15deg) scale(0.65) !important;
+  }
+  #brands .ast-2 {
+    display: none !important;
+  }
+  #portfolio .ast-2 {
+    left: auto !important;
+    right: 1.5rem !important;
+    top: 2rem !important;
+    transform: rotate(20deg) scale(0.7) !important;
+  }
+  /* Unify inner card header padding */
+  #services .services-header,
+  #portfolio .portfolio-header,
+  #process .process-header,
+  #brands .brands-header {
+    padding: 1.5rem 1.25rem 1rem !important;
+  }
+  /* Unify brands stats margin */
+  #brands .positioning-stats {
+    margin: 0 1.25rem 1.5rem !important;
+  }
+  /* Unify portfolio grid internal padding */
+  #portfolio .portfolio-grid {
+    padding: 1rem 1.25rem !important;
+  }
+  /* About left internal */
+  .about-left {
+    padding: 2rem 1.25rem !important;
+  }
+
+  /* NAVBAR REDESIGN ON MOBILE */
+  .nav-actions .nav-cta {
+    display: none !important;
   }
 }
 /* CLEAN BRANDS DISPLAY */
@@ -1431,7 +1579,7 @@ section{isolation:isolate;}
 }
 #brands .positioning-statement {
   font-family: var(--outfit);
-  font-weight: 800;
+  font-weight: 400;
   font-size: clamp(1.6rem, 3.2vw, 2.4rem);
   letter-spacing: -0.02em;
   line-height: 1.18;
@@ -1634,6 +1782,55 @@ section{isolation:isolate;}
   box-shadow: none;
 }
 
+/* MOBILE CONTACT CTA (hidden on desktop) */
+#contact .contact-mobile-cta {
+  display: none;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
+.mobile-cta-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  font-family: var(--hv);
+  font-weight: 800;
+  font-size: 0.88rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.1rem 2rem;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 100%;
+  box-sizing: border-box;
+}
+.mobile-cta-email {
+  background: var(--acid);
+  color: var(--black);
+  border-color: var(--acid);
+}
+.mobile-cta-email:hover {
+  background: var(--white);
+  border-color: var(--white);
+  transform: translateY(-2px);
+}
+.mobile-cta-whatsapp {
+  background: transparent;
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+.mobile-cta-whatsapp:hover {
+  border-color: #25D366;
+  color: #25D366;
+  transform: translateY(-2px);
+}
+.mobile-cta-whatsapp svg {
+  fill: #25D366;
+}
+
 footer {
   background: var(--black);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -1662,16 +1859,6 @@ footer {
     aspect-ratio: 4/3;
     min-height: 380px;
   }
-  .portfolio-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
-  }
-  .p-item {
-    min-height: 280px;
-  }
-  .p-item:nth-child(5) {
-    grid-column: span 2 !important;
-  }
   .contact-inner {
     grid-template-columns: 1fr;
     gap: 3rem;
@@ -1680,23 +1867,14 @@ footer {
 
 @media (max-width: 640px) {
   .ticker {
-    margin-top: 4.5rem;
+    display: none !important;
   }
   #brands .positioning-stats {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
   }
   #brands .pstat-div {
-    width: 100%;
-    height: 1px;
-    background: rgba(255, 255, 255, 0.15);
-  }
-  .portfolio-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-  .p-item:nth-child(5) {
-    grid-column: span 1 !important;
+    display: none;
   }
 }
 
@@ -2638,6 +2816,20 @@ footer {
       <div class="contact-left reveal">
         <h2 class="contact-heading" data-i18n="contact.heading"><span>GOT A</span><span>PROJECT?</span><em>LET'S GO. <span class="title-star"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><path d="M12 2.5l2.7 5.8 6.3.6-4.7 4.3 1.3 6.2L12 16.2l-5.6 3.2 1.3-6.2-4.7-4.3 6.3-.6L12 2.5z"/></svg></span></em></h2>
       </div>
+
+      <!-- MOBILE-ONLY: Direct CTA buttons (hidden on desktop) -->
+      <div class="contact-mobile-cta reveal">
+        <a href="mailto:thayxna@gmail.com?subject=Project Inquiry" class="mobile-cta-btn mobile-cta-email">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          <span data-i18n="contact.mobile.email">Enviar e-mail →</span>
+        </a>
+        <a href="https://wa.me/5511978364606?text=Oi!%20Quero%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener" class="mobile-cta-btn mobile-cta-whatsapp">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span data-i18n="contact.mobile.whatsapp">WhatsApp →</span>
+        </a>
+      </div>
+
+      <!-- DESKTOP: Briefing form (hidden on mobile) -->
       <div class="contact-right reveal">
         <div class="contact-ready" data-i18n="contact.ready">Configure your briefing:</div>
         <div class="briefing-card">
@@ -3116,7 +3308,9 @@ window.translations = {
     "briefing.opt.fast": "Urgent",
     "briefing.opt.medium": "1-2 Months",
     "briefing.opt.flexible": "Flexible",
-    "contact.sendBriefing": "Send Briefing →"
+    "contact.sendBriefing": "Send Briefing →",
+    "contact.mobile.email": "Send e-mail →",
+    "contact.mobile.whatsapp": "WhatsApp →"
   },
   pt: {
     "nav.about": "Sobre",
@@ -3253,7 +3447,9 @@ window.translations = {
     "briefing.opt.fast": "Urgente",
     "briefing.opt.medium": "1 a 2 Meses",
     "briefing.opt.flexible": "Flexível",
-    "contact.sendBriefing": "Enviar Briefing →"
+    "contact.sendBriefing": "Enviar Briefing →",
+    "contact.mobile.email": "Enviar e-mail →",
+    "contact.mobile.whatsapp": "WhatsApp →"
   }
 };
 
