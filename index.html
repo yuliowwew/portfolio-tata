@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tatá Guimarães</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Space+Grotesk:wght@500;700;900&family=Syne:wght@700;800&display=swap" rel="stylesheet">
@@ -22,7 +23,9 @@
   --hv:'Space Grotesk',-apple-system,sans-serif;
   --syne:'Syne',sans-serif;
   --outfit:'Outfit',-apple-system,sans-serif;
-  --ui:var(--hv);
+  --ui:'Outfit',sans-serif;
+  --star-row: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 24"><path d="M12 2.5l2.7 5.8 6.3.6-4.7 4.3 1.3 6.2L12 16.2l-5.6 3.2 1.3-6.2-4.7-4.3 6.3-.6L12 2.5z" fill="%23FF2B8A"/><path d="M12 2.5l2.7 5.8 6.3.6-4.7 4.3 1.3 6.2L12 16.2l-5.6 3.2 1.3-6.2-4.7-4.3 6.3-.6L12 2.5z" fill="%2394FF1F" transform="translate(24, 0)"/><path d="M12 2.5l2.7 5.8 6.3.6-4.7 4.3 1.3 6.2L12 16.2l-5.6 3.2 1.3-6.2-4.7-4.3 6.3-.6L12 2.5z" fill="%23FFE600" transform="translate(48, 0)"/><path d="M12 2.5l2.7 5.8 6.3.6-4.7 4.3 1.3 6.2L12 16.2l-5.6 3.2 1.3-6.2-4.7-4.3 6.3-.6L12 2.5z" fill="%2338D9F8" transform="translate(72, 0)"/><path d="M12 2.5l2.7 5.8 6.3.6-4.7 4.3 1.3 6.2L12 16.2l-5.6 3.2 1.3-6.2-4.7-4.3 6.3-.6L12 2.5z" fill="%23F0A0B8" transform="translate(96, 0)"/></svg>');
+  --star-col: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 120"><path d="M12 2.5l2.7 5.8 6.3.6-4.7 4.3 1.3 6.2L12 16.2l-5.6 3.2 1.3-6.2-4.7-4.3 6.3-.6L12 2.5z" fill="%23FF2B8A"/><path d="M12 2.5l2.7 5.8 6.3.6-4.7 4.3 1.3 6.2L12 16.2l-5.6 3.2 1.3-6.2-4.7-4.3 6.3-.6L12 2.5z" fill="%2394FF1F" transform="translate(0, 24)"/><path d="M12 2.5l2.7 5.8 6.3.6-4.7 4.3 1.3 6.2L12 16.2l-5.6 3.2 1.3-6.2-4.7-4.3 6.3-.6L12 2.5z" fill="%23FFE600" transform="translate(0, 48)"/><path d="M12 2.5l2.7 5.8 6.3.6-4.7 4.3 1.3 6.2L12 16.2l-5.6 3.2 1.3-6.2-4.7-4.3 6.3-.6L12 2.5z" fill="%2338D9F8" transform="translate(0, 72)"/><path d="M12 2.5l2.7 5.8 6.3.6-4.7 4.3 1.3 6.2L12 16.2l-5.6 3.2 1.3-6.2-4.7-4.3 6.3-.6L12 2.5z" fill="%23F0A0B8" transform="translate(0, 96)"/></svg>');
   --tech:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono',monospace;
   --border:2px solid #1A1A1A;
 }
@@ -43,7 +46,7 @@ nav {
   background: rgba(24, 24, 24, 0.94);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border-bottom: 2px solid rgba(255, 43, 138, 0.35);
+  border-bottom: 2px solid var(--magenta);
   transition: border-color 0.3s;
 }
 nav:hover {
@@ -245,7 +248,7 @@ nav:hover {
   justify-content: space-between;
   align-items: center;
   padding-top: 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 2px solid var(--white);
   width: 100%;
 }
 .mobile-nav-cta {
@@ -329,15 +332,10 @@ nav:hover {
   }
 }
 
-/* TICKER */
-.ticker{background:var(--black);overflow:hidden;padding:9px 0;border-top:var(--border);border-bottom:var(--border);margin-top:2.25rem;}
-.ticker-track{display:flex;white-space:nowrap;animation:tick 20s linear infinite;}
-.ticker-track span{font-family:var(--hv);font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--white);padding:0 2rem;}
-.ticker-track span.dot{color:var(--magenta);padding:0 0.5rem;}
-@keyframes tick{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
 /* ABOUT */
-#about{position:relative;overflow:hidden;}
+#about{position:relative;overflow:hidden;margin-top:4.5rem;}
+.mobile-break{display:none;}
 .about-left{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;text-align:left;gap:2rem;position:relative;z-index:2;}
 .section-tag{font-family:var(--ui);font-weight:800;font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--magenta);margin-bottom:1rem;line-height:1.4;}
 .about-heading{font-family:var(--outfit);font-weight:600;font-size:clamp(2.4rem,4.2vw,3.6rem);letter-spacing:-0.02em;line-height:1.08;text-transform:none;margin-bottom:1.25rem;max-width:1000px;}
@@ -347,19 +345,19 @@ nav:hover {
 .about-bio-lead{font-family:var(--outfit);font-weight:700;font-size:1.1rem;line-height:1.5;color:var(--black);margin-bottom:0.75rem;}
 .about-bio-body{font-family:var(--hv);font-size:0.92rem;line-height:1.65;color:rgba(26,26,26,0.7);}
 .skills-wrap{display:flex;flex-wrap:wrap;gap:0.4rem;}
-.skill-pill{font-family:var(--ui);font-weight:700;font-size:0.68rem;letter-spacing:0.06em;text-transform:uppercase;padding:0.4rem 0.85rem;border:1px solid rgba(26,26,26,0.2);color:rgba(26,26,26,0.5);transition:all .15s;}
+.skill-pill{font-family:var(--ui);font-weight:700;font-size:0.68rem;letter-spacing:0.06em;text-transform:uppercase;padding:0.4rem 0.85rem;border:2px solid var(--black);color:rgba(26,26,26,0.5);transition:all .15s;}
 .skill-pill:hover{border-color:var(--magenta);color:var(--magenta);}
 .about-right{position:relative;overflow:hidden;border-radius:1.75rem;display:flex;flex-direction:column;justify-content:flex-end;padding:5rem 3rem 4rem;}
 .photo-placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(26,26,26,0.04);}
 .photo-label{font-family:var(--ui);font-weight:700;font-size:0.65rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(26,26,26,0.2);}
-.stats-row{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1px 1fr 1px 1fr;background:var(--black);}
-.stat-div{background:rgba(255,255,255,0.1);}
+.stats-row{position:relative;z-index:2;display:grid;grid-template-columns:1fr 2px 1fr 2px 1fr;background:var(--black);}
+.stat-div{background:var(--white);}
 .stat{padding:1.25rem 1rem;}
 .stat-num{font-family:var(--hv);font-weight:900;font-size:2.2rem;letter-spacing:-0.05em;line-height:1;color:var(--petal);}
 .stat-label{font-family:var(--ui);font-weight:700;font-size:0.65rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-top:0.4rem;line-height:1.4;}
 /* about asterisks */
 #about .ast-1{font-size:22rem;top:50%;left:50%;transform:translate(-50%,-50%) rotate(12deg);opacity:0.06;z-index:1;}
-#about .ast-2{font-size:clamp(4.5rem, 7vw, 6rem);top:clamp(2rem, 3.5vw, 3.25rem);left:max(clamp(2.5rem, 8vw, 7rem), calc((100vw - 1320px) / 2));right:auto;transform:translate(-30%, -35%) rotate(-18deg);opacity:1;animation:none;color:var(--magenta);z-index:25;filter:none;}
+
 
 /* BREATH */
 #breath{background:var(--magenta);padding:clamp(4rem, 6vw, 4.5rem) var(--container-pad);border-bottom:var(--border);position:relative;overflow:hidden;}
@@ -382,7 +380,7 @@ nav:hover {
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
   position: relative;
   z-index: 2;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 2px solid var(--white);
   box-sizing: border-box;
 }
 
@@ -390,13 +388,13 @@ nav:hover {
 #services .editorial-card {
   background: var(--petal);
   color: var(--black);
-  border: 1px solid rgba(240, 160, 184, 0.5);
+  border: 2px solid var(--petal);
 }
 
 #portfolio .editorial-card {
   background: #141414;
   color: var(--white);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 2px solid var(--white);
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
 }
 
@@ -416,7 +414,7 @@ nav:hover {
 #portfolio .portfolio-header,
 #process .process-header {
   padding: clamp(2rem, 3.5vw, 3rem) clamp(2.5rem, 5vw, 4.5rem) 1.25rem;
-  border-bottom: 1px solid rgba(26, 26, 26, 0.1);
+  border-bottom: 2px solid var(--black);
   margin-bottom: 0;
 }
 #brands .brands-header {
@@ -437,14 +435,14 @@ nav:hover {
 
 /* SERVICES CARD STYLING */
 #services .services-header {
-  border-bottom: 1px solid rgba(26, 26, 26, 0.12);
+  border-bottom: 2px solid var(--black);
 }
 #services .service-row {
   display: grid;
   grid-template-columns: 44px 1.1fr 1.3fr auto;
   align-items: center;
   padding: 1.35rem clamp(2.5rem, 5vw, 4.5rem);
-  border-bottom: 1px solid rgba(26, 26, 26, 0.12);
+  border-bottom: 2px solid var(--black);
   transition: background 0.25s;
   gap: 1.75rem;
 }
@@ -506,7 +504,7 @@ nav:hover {
 
 /* PORTFOLIO CARD STYLING */
 #portfolio .portfolio-header {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 2px solid var(--white);
 }
 #portfolio .portfolio-heading {
   color: var(--white);
@@ -522,7 +520,7 @@ nav:hover {
   position: relative;
   z-index: 2;
 }
-.p-item{aspect-ratio:4/3;border:2px solid rgba(255,255,255,0.08);border-radius:1.5rem;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:1.25rem;}
+.p-item{aspect-ratio:4/3;border:2px solid var(--white);border-radius:1.5rem;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:1.25rem;}
 .p-item:nth-child(3n){border-right:none;}
 .p-item:nth-child(1){background:#1a1020;}
 .p-item:nth-child(2){background:#1a1015;}
@@ -551,12 +549,12 @@ nav:hover {
 /* PROCESS CARD STYLING */
 #process .process-steps {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   border-top: none;
 }
 #process .process-step {
   padding: 1.5rem clamp(1.5rem, 2.5vw, 2rem);
-  border-right: 1px solid rgba(26, 26, 26, 0.1);
+  border-right: 2px solid var(--black);
   transition: background 0.25s;
 }
 #process .process-step:last-child {
@@ -614,8 +612,8 @@ nav:hover {
 .testi-text{font-family:var(--hv);font-style:italic;font-weight:300;font-size:1.05rem;line-height:1.75;color:rgba(255,255,255,0.85);margin-bottom:2rem;}
 .testi-author{font-family:var(--hv);font-weight:700;font-size:0.85rem;color:var(--white);}
 .testi-period{font-family:var(--ui);font-weight:600;font-size:0.68rem;letter-spacing:0.02em;color:rgba(255,255,255,0.3);margin-top:0.25rem;}
-.testi-stats{display:grid;grid-template-columns:1fr 1px 1fr 1px 1fr;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.08);}
-.tstat-div{background:rgba(255,255,255,0.08);}
+.testi-stats{display:grid;grid-template-columns:1fr 2px 1fr 2px 1fr;margin-top:1.5rem;padding-top:1.5rem;border-top:2px solid var(--white);}
+.tstat-div{background:var(--white);}
 .tstat{padding:0 1rem;}.tstat:first-child{padding-left:0;}
 .tstat-num{font-family:var(--hv);font-weight:900;font-size:1.1rem;color:var(--petal);letter-spacing:-0.03em;}
 .tstat-label{font-family:var(--ui);font-weight:700;font-size:0.65rem;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-top:0.25rem;line-height:1.4;}
@@ -639,7 +637,7 @@ nav:hover {
 #contact .ast-2{font-size:clamp(4.5rem, 7vw, 6rem);top:clamp(2rem, 3.5vw, 3.25rem);right:max(clamp(2.5rem, 8vw, 7rem), calc((100vw - 1320px) / 2));left:auto;color:var(--acid);opacity:1;animation:none;transform:translate(30%, -35%) rotate(15deg);z-index:25;filter:none;}
 
 /* FOOTER */
-footer{background:var(--black);border-top:2px solid rgba(255,255,255,0.08);}
+footer{background:var(--black);border-top:2px solid var(--white);}
 .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding:2rem var(--container-pad);}
 .footer-name{font-family:var(--hv);font-weight:700;font-size:0.8rem;color:rgba(255,255,255,0.2);}
 .footer-copy{font-family:var(--ui);font-weight:600;font-size:0.68rem;letter-spacing:0.04em;color:rgba(255,255,255,0.15);}
@@ -667,8 +665,8 @@ footer{background:var(--black);border-top:2px solid rgba(255,255,255,0.08);}
   --ink:#181818;
   --soft:#F4F0E8;
   --smoke:rgba(244,240,232,0.68);
-  --dark-border:2px solid rgba(244,240,232,0.1);
-  --border:2px solid rgba(244,240,232,0.1);
+  --dark-border:2px solid #F4F0E8;
+  --border:2px solid #F4F0E8;
   --container-pad: clamp(1.25rem, 4vw, 3.5rem);
   --card-pad: clamp(1.25rem, 4vw, 2.25rem);
 }
@@ -707,7 +705,7 @@ nav{
   background:var(--acid);
   border:0;
   transform:rotate(-.6deg) scaleX(1.01);
-  outline: 1px solid transparent;
+  outline: 2px solid transparent;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
@@ -754,7 +752,7 @@ section{isolation:isolate;}
   min-height: 50vh;
   position: relative;
   z-index: 2;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 2px solid var(--white);
   box-sizing: border-box;
 }
 .about-left{
@@ -855,7 +853,7 @@ section{isolation:isolate;}
   padding: 0.88rem 1.6rem;
   background: transparent;
   color: var(--black) !important;
-  border: 1px solid rgba(26, 26, 26, 0.2);
+  border: 2px solid var(--black);
   border-radius: 999px;
   text-decoration: none;
   transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
@@ -874,7 +872,7 @@ section{isolation:isolate;}
   background: rgba(255, 255, 255, 0.75) !important;
   backdrop-filter: blur(12px) saturate(180%);
   -webkit-backdrop-filter: blur(12px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+  border: 2px solid var(--white) !important;
   border-radius:1.25rem;
 }
 .stats-row .stat-div {
@@ -971,12 +969,12 @@ section{isolation:isolate;}
 .video-ui-brackets::before {
   top: 0;
   left: 0;
-  border-width: 1px 0 0 1px;
+  border-width: 2px 0 0 2px;
 }
 .video-ui-brackets::after {
   bottom: 0;
   right: 0;
-  border-width: 0 1px 1px 0;
+  border-width: 0 2px 2px 0;
 }
 
 /* INTERACTIVE VIDEO HOVER STATS CARD */
@@ -1039,9 +1037,9 @@ section{isolation:isolate;}
   letter-spacing: 0.08em;
 }
 .video-stats-hover .stat-div {
-  width: 1px;
+  width: 2px;
   height: 40px;
-  background: rgba(255, 255, 255, 0.18);
+  background: var(--white);
   transform: scaleY(0);
   transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
   transition-delay: 0.08s;
@@ -1073,7 +1071,7 @@ section{isolation:isolate;}
   align-items: start;
   gap: 2rem;
   padding: 2.2rem clamp(2rem, 5vw, 4rem);
-  border-bottom: 1px solid rgba(26, 26, 26, 0.1);
+  border-bottom: 2px solid var(--black);
   background: transparent !important;
   color: var(--black) !important;
   transition: background 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -1203,7 +1201,7 @@ section{isolation:isolate;}
 .p-item[data-project="website"] .p-placeholder-box {
   width: 100%;
   height: 100%;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 2px solid var(--white);
   background: #1e1e20;
   border-radius: 0.75rem;
   transform: rotate(-1.5deg);
@@ -1222,7 +1220,7 @@ section{isolation:isolate;}
   content: '';
   height: 20px;
   background: #27272a;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 2px solid var(--white);
   display: block;
 }
 .p-item[data-project="website"] .p-placeholder-label {
@@ -1255,7 +1253,7 @@ section{isolation:isolate;}
   -webkit-backdrop-filter: blur(10px);
   padding: 0.6rem 1rem;
   border-radius: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 2px solid var(--white);
   width: max-content;
   max-width: 90%;
   transition: transform 0.3s, background 0.3s, border-color 0.3s;
@@ -1307,13 +1305,13 @@ section{isolation:isolate;}
 /* CLEAN EDITORIAL PROCESS STEPS */
 #process .process-steps {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 0;
   border-top: none;
 }
 #process .process-step {
   padding: clamp(2.5rem, 5vw, 3.5rem) 2rem;
-  border-right: 1px solid rgba(26, 26, 26, 0.1) !important;
+  border-right: 2px solid var(--black) !important;
   border-radius: 0 !important;
   background: transparent !important;
   color: var(--black) !important;
@@ -1376,7 +1374,7 @@ section{isolation:isolate;}
     gap: 0.75rem;
     padding: 1.75rem 1.5rem;
     border-bottom: none;
-    border-right: 1px solid rgba(26, 26, 26, 0.1);
+    border-right: 2px solid var(--black);
     box-sizing: border-box;
   }
   #services .service-row:last-child {
@@ -1432,7 +1430,7 @@ section{isolation:isolate;}
   #process .process-step {
     flex: 0 0 75vw;
     scroll-snap-align: start;
-    border-right: 1px solid rgba(26, 26, 26, 0.1) !important;
+    border-right: 2px solid var(--black) !important;
     border-bottom: none !important;
     padding: 2rem 1.5rem;
     box-sizing: border-box;
@@ -1476,13 +1474,7 @@ section{isolation:isolate;}
     border-radius: 1.25rem;
     min-height: auto !important;
   }
-  #about .ast-2 {
-    top: auto !important;
-    bottom: 1.5rem !important;
-    left: auto !important;
-    right: 1.25rem !important;
-    transform: rotate(15deg) scale(0.65) !important;
-  }
+
   #brands .ast-2 {
     display: none !important;
   }
@@ -1509,7 +1501,29 @@ section{isolation:isolate;}
   }
   /* About left internal */
   .about-left {
-    padding: 2rem 1.25rem !important;
+    padding: 2rem 3.5rem 2.5rem 2.5rem !important;
+    gap: 0.5rem !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+  }
+  .about-left > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .about-left .section-tag {
+    margin-bottom: 0.25rem !important;
+  }
+  .about-left .hero-cta-wrap {
+    margin-top: 0 !important;
+    justify-content: flex-start;
+  }
+  .about-heading {
+    font-size: clamp(1.9rem, 7.5vw, 2.5rem) !important;
+    margin-bottom: 0 !important;
+  }
+  .mobile-break {
+    display: inline !important;
   }
 
   /* NAVBAR REDESIGN ON MOBILE */
@@ -1588,19 +1602,23 @@ section{isolation:isolate;}
 }
 #brands .positioning-stats {
   display: grid;
-  grid-template-columns: 1fr auto 1fr auto 1fr;
-  align-items: center;
+  grid-template-columns: repeat(3, 1fr);
   margin: 0 clamp(2.5rem, 5vw, 4.5rem) clamp(2rem, 3.5vw, 3rem);
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  padding: 1.5rem 0;
-  gap: 1rem;
+  border: 2px solid var(--white);
+  border-radius: 1.25rem;
+  overflow: hidden;
 }
 #brands .pstat {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
+  padding: 1.25rem 1rem;
+  border-right: 2px solid var(--white);
+}
+#brands .pstat:last-child {
+  border-right: none;
 }
 #brands .pstat-num {
   font-family: var(--hv);
@@ -1617,11 +1635,6 @@ section{isolation:isolate;}
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.65);
-}
-#brands .pstat-div {
-  width: 1px;
-  height: 48px;
-  background: rgba(255, 255, 255, 0.15);
 }
 
 /* CONTACT SECTION */
@@ -1647,7 +1660,7 @@ section{isolation:isolate;}
 #contact .editorial-card {
   background: var(--magenta);
   color: var(--white);
-  border: 1px solid rgba(255, 43, 138, 0.4);
+  border: 2px solid var(--magenta);
   box-shadow: none;
 }
 #contact .contact-left {
@@ -1659,7 +1672,7 @@ section{isolation:isolate;}
 #contact .contact-heading {
   font-family: var(--outfit);
   font-weight: 600;
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-size: clamp(2.1rem, 4vw, 3.8rem);
   letter-spacing: -0.03em;
   line-height: 0.95;
   text-transform: uppercase;
@@ -1675,7 +1688,8 @@ section{isolation:isolate;}
   color: var(--acid);
   display: flex;
   align-items: center;
-  gap: 0.2em;
+  gap: 0.1em;
+  white-space: nowrap;
 }
 #contact .title-star {
   display: inline-flex;
@@ -1833,7 +1847,7 @@ section{isolation:isolate;}
 
 footer {
   background: var(--black);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 2px solid var(--white);
   padding: 2.5rem var(--container-pad);
 }
 .footer-bottom {
@@ -1870,11 +1884,15 @@ footer {
     display: none !important;
   }
   #brands .positioning-stats {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
     gap: 0;
   }
-  #brands .pstat-div {
-    display: none;
+  #brands .pstat {
+    border-right: none;
+    border-bottom: 2px solid var(--white);
+  }
+  #brands .pstat:last-child {
+    border-bottom: none;
   }
 }
 
@@ -2005,7 +2023,7 @@ footer {
   padding: 0.4rem 0.9rem;
   border-radius: 999px;
   background: rgba(26, 26, 26, 0.05);
-  border: 1px solid rgba(26, 26, 26, 0.15);
+  border: 2px solid var(--black);
   color: var(--black);
   transition: all 0.2s ease;
 }
@@ -2091,7 +2109,7 @@ footer {
   font-family: var(--ui); font-weight: 800; font-size: 0.75rem;
   letter-spacing: 0.04em; text-transform: uppercase;
   padding: 0.55rem 1.1rem; border-radius: 999px; background: transparent;
-  color: rgba(255, 255, 255, 0.7); border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.7); border: 2px solid var(--white);
   cursor: pointer; transition: all .2s ease;
   display: inline-flex; align-items: center; gap: 0.35rem;
 }
@@ -2155,7 +2173,7 @@ footer {
   top: 50%;
   transform: translateY(-50%);
   background: rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 2px solid var(--white);
   color: var(--white);
   width: 56px;
   height: 56px;
@@ -2278,7 +2296,7 @@ footer {
 }
 .group-media-item {
   flex: 1;
-  border: 2px solid rgba(255,255,255,0.15);
+  border: 2px solid var(--white);
   background: #000;
   overflow: hidden;
 }
@@ -2448,7 +2466,7 @@ footer {
 .img-lightbox-inner img{
   max-width:100%;max-height:85vh;
   object-fit:contain;
-  border:2px solid rgba(244,240,232,0.15);
+  border:2px solid #F4F0E8;
   box-shadow:0 24px 60px rgba(0,0,0,0.6);
   transform:scale(0.95);
   transition:transform .35s cubic-bezier(0.25,1,0.5,1);
@@ -2525,7 +2543,7 @@ footer {
   border-radius:999px;
   overflow:hidden;
   display:flex;align-items:center;justify-content:center;
-  background:rgba(255,255,255,0.08);
+  background:var(--white);
   opacity:0.65;
   transition:opacity .2s, background .2s;
   flex-shrink:0;
@@ -2591,32 +2609,76 @@ footer {
   </div>
 </div>
 
-<!-- TICKER -->
-<div class="ticker">
-  <div class="ticker-track">
-    <span data-i18n="ticker.strategy">Social Media Strategy</span><span class="dot">★</span>
-    <span data-i18n="ticker.web">Web Experiences</span><span class="dot">★</span>
-    <span data-i18n="ticker.art">Digital Art</span><span class="dot">★</span>
-    <span data-i18n="ticker.creation">Content Creation</span><span class="dot">★</span>
-    <span data-i18n="ticker.copy">Copywriting</span><span class="dot">★</span>
-    <span data-i18n="ticker.video">Video Editing</span><span class="dot">★</span>
-    <span data-i18n="ticker.strategy">Social Media Strategy</span><span class="dot">★</span>
-    <span data-i18n="ticker.web">Web Experiences</span><span class="dot">★</span>
-    <span data-i18n="ticker.art">Digital Art</span><span class="dot">★</span>
-    <span data-i18n="ticker.creation">Content Creation</span><span class="dot">★</span>
-    <span data-i18n="ticker.copy">Copywriting</span><span class="dot">★</span>
-  </div>
-</div>
+
 
 <!-- ABOUT -->
 <section id="about">
   <div class="ast ast-1"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><path d="M12 2.5l2.7 5.8 6.3.6-4.7 4.3 1.3 6.2L12 16.2l-5.6 3.2 1.3-6.2-4.7-4.3 6.3-.6L12 2.5z"/></svg></div>
-  <div class="ast ast-2"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><path d="M12 2.5l2.7 5.8 6.3.6-4.7 4.3 1.3 6.2L12 16.2l-5.6 3.2 1.3-6.2-4.7-4.3 6.3-.6L12 2.5z"/></svg></div>
   <div class="about-hero-unified">
+    <div class="hero-star-border" style="position:absolute; inset:0; z-index:1; pointer-events:none;">
+      <svg id="hero-stars-svg" width="100%" height="100%" style="display:block;">
+        <defs>
+          <path id="hero-star-shape" d="M12 2.5l2.7 5.8 6.3.6-4.7 4.3 1.3 6.2L12 16.2l-5.6 3.2 1.3-6.2-4.7-4.3 6.3-.6L12 2.5z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+        </defs>
+        <path id="hero-stars-path" fill="none" stroke="none" />
+        <g id="hero-stars-group"></g>
+      </svg>
+    </div>
+    <script>
+      (function(){
+        function drawHeroStars() {
+          const hero = document.querySelector('.about-hero-unified');
+          const svg = document.querySelector('#hero-stars-svg');
+          const path = document.querySelector('#hero-stars-path');
+          const group = document.querySelector('#hero-stars-group');
+          if(!hero || !svg || !path || !group) return;
+          
+          const w = hero.clientWidth;
+          const h = hero.clientHeight;
+          if(w === 0 || h === 0) return;
+          
+          const inset = window.innerWidth <= 900 ? 12 : 20; 
+          const r = Math.max(8, (window.innerWidth <= 900 ? 20 : 36) - inset); 
+          
+          const d = `M ${inset+r},${inset} 
+                     H ${w-inset-r} 
+                     A ${r},${r} 0 0 1 ${w-inset},${inset+r} 
+                     V ${h-inset-r} 
+                     A ${r},${r} 0 0 1 ${w-inset-r},${h-inset} 
+                     H ${inset+r} 
+                     A ${r},${r} 0 0 1 ${inset},${h-inset-r} 
+                     V ${inset+r} 
+                     A ${r},${r} 0 0 1 ${inset+r},${inset} Z`;
+          path.setAttribute('d', d);
+          
+          const perimeter = path.getTotalLength();
+          const spacing = window.innerWidth <= 900 ? 28 : 45;
+          const starCount = Math.floor(perimeter / spacing);
+          const step = perimeter / starCount;
+          
+          const colors = ['#FF2B8A', '#94FF1F', '#FFE600', '#38D9F8', '#F0A0B8'];
+          let html = '';
+          const scale = window.innerWidth <= 900 ? 0.45 : 0.65;
+          
+          for(let i = 0; i < starCount; i++) {
+            const pt = path.getPointAtLength(i * step);
+            const color = colors[i % colors.length];
+            const rotation = (i * 37) % 360; 
+            html += `<use href="#hero-star-shape" transform="translate(${pt.x}, ${pt.y}) scale(${scale}) rotate(${rotation}) translate(-12, -12)" fill="${color}" color="${color}" />`;
+          }
+          group.innerHTML = html;
+        }
+        
+        window.addEventListener('resize', drawHeroStars);
+        document.addEventListener('DOMContentLoaded', drawHeroStars);
+        setTimeout(drawHeroStars, 100);
+        setTimeout(drawHeroStars, 500);
+      })();
+    </script>
     <div class="about-left">
       <div>
         <div class="section-tag reveal" data-i18n="about.tag">// CREATIVE STRATEGY</div>
-        <h2 class="about-heading reveal" data-i18n="about.heading">Connecting ideas into<br><em>something people <span class="word-highlight">remember.</span></em></h2>
+        <h2 class="about-heading reveal" data-i18n="about.heading">Connecting ideas into<br>something people <br class="mobile-break"><em>remember.</em></h2>
       </div>
 
       <div class="hero-cta-wrap reveal">
@@ -2639,53 +2701,57 @@ footer {
       <div class="service-row reveal">
         <div class="service-num">01</div>
         <div>
-          <div class="service-title" data-i18n="services.s1.title">Estratégia</div>
-          <div class="service-problem" data-i18n="services.s1.problem">pra quem precisa de direção</div>
+          <div class="service-title" data-i18n="services.s1.title">THINK</div>
+          <div class="service-problem" data-i18n="services.s1.problem">Find the idea.</div>
         </div>
-        <div class="service-desc" data-i18n="services.s1.desc">Narrativa, direção criativa e planejamento de conteúdo.</div>
+        <div class="service-desc" data-i18n="services.s1.desc">Strategy, positioning and content planning.</div>
         <div class="service-tags">
-          <span class="service-tag" data-i18n="services.tags.strategy">STRATEGY</span>
-          <span class="service-tag" data-i18n="services.tags.narrative">NARRATIVE</span>
-          <span class="service-tag" data-i18n="services.tags.creativedir">CREATIVE DIRECTION</span>
+          <span class="service-tag" data-i18n="services.s1.tag1">Strategy</span>
+          <span class="service-tag" data-i18n="services.s1.tag2">Positioning</span>
+          <span class="service-tag" data-i18n="services.s1.tag3">Research</span>
+          <span class="service-tag" data-i18n="services.s1.tag4">Content Strategy</span>
         </div>
       </div>
       <div class="service-row reveal">
         <div class="service-num">02</div>
         <div>
-          <div class="service-title" data-i18n="services.s2.title">Copywriting</div>
-          <div class="service-problem" data-i18n="services.s2.problem">pra quem já sabe o conceito e precisa das palavras certas</div>
+          <div class="service-title" data-i18n="services.s2.title">TELL</div>
+          <div class="service-problem" data-i18n="services.s2.problem">Give it a voice.</div>
         </div>
-        <div class="service-desc" data-i18n="services.s2.desc">Textos e comunicação desenvolvidos pra tornar ideias mais claras e memoráveis.</div>
+        <div class="service-desc" data-i18n="services.s2.desc">Messaging, storytelling, copy and scripts.</div>
         <div class="service-tags">
-          <span class="service-tag" data-i18n="services.tags.copywriting">COPYWRITING</span>
-          <span class="service-tag" data-i18n="services.tags.language">LANGUAGE</span>
-          <span class="service-tag" data-i18n="services.tags.clarity">CLARITY</span>
+          <span class="service-tag" data-i18n="services.s2.tag1">Messaging</span>
+          <span class="service-tag" data-i18n="services.s2.tag2">Copywriting</span>
+          <span class="service-tag" data-i18n="services.s2.tag3">Storytelling</span>
+          <span class="service-tag" data-i18n="services.s2.tag4">Scripts</span>
         </div>
       </div>
       <div class="service-row reveal">
         <div class="service-num">03</div>
         <div>
-          <div class="service-title" data-i18n="services.s3.title">Produção Visual</div>
-          <div class="service-problem" data-i18n="services.s3.problem">pra quem precisa da peça pronta</div>
+          <div class="service-title" data-i18n="services.s3.title">MAKE</div>
+          <div class="service-problem" data-i18n="services.s3.problem">Bring it to life.</div>
         </div>
-        <div class="service-desc" data-i18n="services.s3.desc">Artes digitais e landing pages, do design ao desenvolvimento.</div>
+        <div class="service-desc" data-i18n="services.s3.desc">Creative direction, video, design and digital experiences.</div>
         <div class="service-tags">
-          <span class="service-tag" data-i18n="services.tags.design">DESIGN</span>
-          <span class="service-tag" data-i18n="services.tags.landingpages">LANDING PAGES</span>
-          <span class="service-tag" data-i18n="services.tags.digitalart">DIGITAL ART</span>
+          <span class="service-tag" data-i18n="services.s3.tag1">Creative Direction</span>
+          <span class="service-tag" data-i18n="services.s3.tag2">Video</span>
+          <span class="service-tag" data-i18n="services.s3.tag3">Design</span>
+          <span class="service-tag" data-i18n="services.s3.tag4">Landing Pages</span>
         </div>
       </div>
       <div class="service-row reveal">
         <div class="service-num">04</div>
         <div>
-          <div class="service-title" data-i18n="services.s4.title">Execução</div>
-          <div class="service-problem" data-i18n="services.s4.problem">pra quem precisa colocar no ar</div>
+          <div class="service-title" data-i18n="services.s4.title">LEAD</div>
+          <div class="service-problem" data-i18n="services.s4.problem">Keep it moving.</div>
         </div>
-        <div class="service-desc" data-i18n="services.s4.desc">Edição de vídeo e social media.</div>
+        <div class="service-desc" data-i18n="services.s4.desc">Production, coordination and creative leadership from concept to delivery.</div>
         <div class="service-tags">
-          <span class="service-tag" data-i18n="services.tags.video">VIDEO</span>
-          <span class="service-tag" data-i18n="services.tags.socialmedia">SOCIAL MEDIA</span>
-          <span class="service-tag" data-i18n="services.tags.delivery">DELIVERY</span>
+          <span class="service-tag" data-i18n="services.s4.tag1">Production</span>
+          <span class="service-tag" data-i18n="services.s4.tag2">Leadership</span>
+          <span class="service-tag" data-i18n="services.s4.tag3">Project Management</span>
+          <span class="service-tag" data-i18n="services.s4.tag4">Campaigns</span>
         </div>
       </div>
     </div>
@@ -2771,11 +2837,7 @@ footer {
         <div class="process-step-title" data-i18n="process.p4.title">Adjustments</div>
         <div class="process-step-desc" data-i18n="process.p4.desc">Refinement of communication, aesthetics, and usability.</div>
       </div>
-      <div class="process-step reveal">
-        <div class="process-num">05</div>
-        <div class="process-step-title" data-i18n="process.p5.title">Delivery</div>
-        <div class="process-step-desc" data-i18n="process.p5.desc">Delivery, implementation, and follow-up of the digital presence.</div>
-      </div>
+
     </div>
   </div>
 </section>
@@ -2794,12 +2856,10 @@ footer {
         <div class="pstat-num">13M+</div>
         <div class="pstat-label" data-i18n="brands.s1">Views</div>
       </div>
-      <div class="pstat-div"></div>
       <div class="pstat">
         <div class="pstat-num">10+</div>
         <div class="pstat-label" data-i18n="brands.s2">Brands</div>
       </div>
-      <div class="pstat-div"></div>
       <div class="pstat">
         <div class="pstat-num">6</div>
         <div class="pstat-label" data-i18n="brands.s3">Years in the field</div>
@@ -2814,7 +2874,7 @@ footer {
   <div class="editorial-card">
     <div class="contact-inner">
       <div class="contact-left reveal">
-        <h2 class="contact-heading" data-i18n="contact.heading"><span>GOT A</span><span>PROJECT?</span><em>LET'S GO. <span class="title-star"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><path d="M12 2.5l2.7 5.8 6.3.6-4.7 4.3 1.3 6.2L12 16.2l-5.6 3.2 1.3-6.2-4.7-4.3 6.3-.6L12 2.5z"/></svg></span></em></h2>
+        <h2 class="contact-heading" data-i18n="contact.heading"><span>GOT A</span><span>PROJECT?</span><em>LET'S GO.<span class="title-star"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><path d="M12 2.5l2.7 5.8 6.3.6-4.7 4.3 1.3 6.2L12 16.2l-5.6 3.2 1.3-6.2-4.7-4.3 6.3-.6L12 2.5z"/></svg></span></em></h2>
       </div>
 
       <!-- MOBILE-ONLY: Direct CTA buttons (hidden on desktop) -->
@@ -3192,7 +3252,7 @@ window.translations = {
     "ticker.video": "Video Editing",
     
     "about.tag": "// CREATIVE STRATEGY",
-    "about.heading": "Connecting ideas into<br><em>something people <span class=\"word-highlight\">remember.</span></em>",
+    "about.heading": "Connecting ideas into<br>something people <br class=\"mobile-break\"><em>remember.</em>",
     "skills.strategy": "Social Media Strategy",
     "skills.design": "Social Media Design",
     "skills.web": "Web Experiences",
@@ -3212,34 +3272,38 @@ window.translations = {
     "services.tag": "// WHAT I DO",
     "services.heading": "Start wherever you need",
     
-    "services.s1.title": "Strategy",
-    "services.s1.problem": "for those who need direction",
-    "services.s1.desc": "Narrative, creative direction, and content planning.",
+    "services.s1.title": "THINK",
+    "services.s1.problem": "Find the idea.",
+    "services.s1.desc": "Strategy, positioning and content planning.",
     
-    "services.s2.title": "Copywriting",
-    "services.s2.problem": "for those who know the concept and need the right words",
-    "services.s2.desc": "Copy and communication crafted to make ideas clearer and more memorable.",
+    "services.s2.title": "TELL",
+    "services.s2.problem": "Give it a voice.",
+    "services.s2.desc": "Messaging, storytelling, copy and scripts.",
     
-    "services.s3.title": "Visual Production",
-    "services.s3.problem": "for those who need the final piece ready",
-    "services.s3.desc": "Digital art and landing pages, from design to development.",
+    "services.s3.title": "MAKE",
+    "services.s3.problem": "Bring it to life.",
+    "services.s3.desc": "Creative direction, video, design and digital experiences.",
     
-    "services.s4.title": "Execution",
-    "services.s4.problem": "for those who need to get it live",
-    "services.s4.desc": "Video editing and social media.",
+    "services.s4.title": "LEAD",
+    "services.s4.problem": "Keep it moving.",
+    "services.s4.desc": "Production, coordination and creative leadership from concept to delivery.",
     
-    "services.tags.strategy": "STRATEGY",
-    "services.tags.narrative": "NARRATIVE",
-    "services.tags.creativedir": "CREATIVE DIRECTION",
-    "services.tags.copywriting": "COPYWRITING",
-    "services.tags.language": "LANGUAGE",
-    "services.tags.clarity": "CLARITY",
-    "services.tags.design": "DESIGN",
-    "services.tags.landingpages": "LANDING PAGES",
-    "services.tags.digitalart": "DIGITAL ART",
-    "services.tags.video": "VIDEO",
-    "services.tags.socialmedia": "SOCIAL MEDIA",
-    "services.tags.delivery": "DELIVERY",
+    "services.s1.tag1": "Strategy",
+    "services.s1.tag2": "Positioning",
+    "services.s1.tag3": "Research",
+    "services.s1.tag4": "Content Strategy",
+    "services.s2.tag1": "Messaging",
+    "services.s2.tag2": "Copywriting",
+    "services.s2.tag3": "Storytelling",
+    "services.s2.tag4": "Scripts",
+    "services.s3.tag1": "Creative Direction",
+    "services.s3.tag2": "Video",
+    "services.s3.tag3": "Design",
+    "services.s3.tag4": "Landing Pages",
+    "services.s4.tag1": "Production",
+    "services.s4.tag2": "Leadership",
+    "services.s4.tag3": "Project Management",
+    "services.s4.tag4": "Campaigns",
     
     "work.tag": "// Work",
     "work.heading": "What I've <em>built</em>",
@@ -3257,16 +3321,14 @@ window.translations = {
     
     "process.tag": "// Process",
     "process.heading": "How I <em>work</em>",
-    "process.p1.title": "Discovery",
-    "process.p1.desc": "Analysis of context, positioning, language, and brand perception.",
-    "process.p2.title": "Structure",
-    "process.p2.desc": "Defining strategy, narrative, and digital experience.",
-    "process.p3.title": "Build",
-    "process.p3.desc": "Building content, pages, and visual language, all connected to one system.",
-    "process.p4.title": "Adjustments",
-    "process.p4.desc": "Refinement of communication, aesthetics, and usability.",
-    "process.p5.title": "Delivery",
-    "process.p5.desc": "Delivery, implementation, and follow-up of the digital presence.",
+    "process.p1.title": "THINK",
+    "process.p1.desc": "Understanding the challenge, defining the strategy and finding the right direction.",
+    "process.p2.title": "TELL",
+    "process.p2.desc": "Developing the narrative, the message and the creative concept.",
+    "process.p3.title": "MAKE",
+    "process.p3.desc": "Creating the content, visuals and experiences.",
+    "process.p4.title": "LEAD",
+    "process.p4.desc": "Managing production, aligning people and delivering the project.",
     
     "tools.tag": "// Tools",
     "tools.heading": "Tools",
@@ -3286,7 +3348,7 @@ window.translations = {
     "brands.s2": "Brands",
     "brands.s3": "Years in the field",
     
-    "contact.heading": "<span>GOT A</span><span>PROJECT?</span><em>LET'S GO. <span class=\"title-star\"><svg viewBox=\"0 0 24 24\" width=\"1em\" height=\"1em\" fill=\"currentColor\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linejoin=\"round\" stroke-linecap=\"round\"><path d=\"M12 2.5l2.7 5.8 6.3.6-4.7 4.3 1.3 6.2L12 16.2l-5.6 3.2 1.3-6.2-4.7-4.3 6.3-.6L12 2.5z\"/></svg></span></em>",
+    "contact.heading": "<span>GOT A</span><span>PROJECT?</span><em>LET'S GO.<span class=\"title-star\"><svg viewBox=\"0 0 24 24\" width=\"1em\" height=\"1em\" fill=\"currentColor\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linejoin=\"round\" stroke-linecap=\"round\"><path d=\"M12 2.5l2.7 5.8 6.3.6-4.7 4.3 1.3 6.2L12 16.2l-5.6 3.2 1.3-6.2-4.7-4.3 6.3-.6L12 2.5z\"/></svg></span></em>",
     "contact.email": "Email",
     "contact.whatsapp": "WhatsApp",
     "contact.linkedin": "LinkedIn",
@@ -3328,7 +3390,7 @@ window.translations = {
     "ticker.video": "Edição de Vídeo",
     
     "about.tag": "// ESTRATÉGIA CRIATIVA",
-    "about.heading": "Conectando ideias em<br><em>algo que as pessoas <span class=\"word-highlight\">lembram.</span></em>",
+    "about.heading": "Conectando ideias em<br>algo que as pessoas <br class=\"mobile-break\"><em>lembram.</em>",
     "skills.strategy": "Estratégia de Redes Sociais",
     "skills.design": "Design de Redes Sociais",
     "skills.web": "Experiências Web",
@@ -3348,37 +3410,38 @@ window.translations = {
     "services.tag": "// O QUE EU FAÇO",
     "services.heading": "Comece por onde precisar",
     
-    "services.s1.title": "Estratégia",
-    "services.s1.problem": "pra quem precisa de direção",
-    "services.s1.desc": "Narrativa, direção criativa e planejamento de conteúdo.",
+    "services.s1.title": "THINK",
+    "services.s1.problem": "Find the idea.",
+    "services.s1.desc": "Strategy, positioning and content planning.",
     
-    "services.s2.title": "Copywriting",
-    "services.s2.problem": "pra quem já sabe o conceito e precisa das palavras certas",
-    "services.s2.desc": "Textos e comunicação desenvolvidos pra tornar ideias mais claras e memoráveis.",
+    "services.s2.title": "TELL",
+    "services.s2.problem": "Give it a voice.",
+    "services.s2.desc": "Messaging, storytelling, copy and scripts.",
     
-    "services.s3.title": "Produção Visual",
-    "services.s3.problem": "pra quem precisa da peça pronta",
-    "services.s3.desc": "Artes digitais e landing pages, do design ao desenvolvimento.",
+    "services.s3.title": "MAKE",
+    "services.s3.problem": "Bring it to life.",
+    "services.s3.desc": "Creative direction, video, design and digital experiences.",
     
-    "services.s4.title": "Execução",
-    "services.s4.problem": "pra quem precisa colocar no ar",
-    "services.s4.desc": "Edição de vídeo e social media.",
+    "services.s4.title": "LEAD",
+    "services.s4.problem": "Keep it moving.",
+    "services.s4.desc": "Production, coordination and creative leadership from concept to delivery.",
     
-    "services.tags.strategy": "STRATEGY",
-    "services.tags.narrative": "NARRATIVE",
-    "services.tags.creativedir": "CREATIVE DIRECTION",
-    "services.tags.copywriting": "COPYWRITING",
-    "services.tags.language": "LINGUAGEM",
-    "services.tags.clarity": "CLAREZA",
-    "services.tags.design": "DESIGN",
-    "services.tags.landingpages": "LANDING PAGES",
-    "services.tags.digitalart": "DIGITAL ART",
-    "services.tags.video": "VIDEO",
-    "services.tags.socialmedia": "SOCIAL MEDIA",
-    "services.tags.delivery": "DELIVERY",
-    "services.tags.identity": "IDENTIDADE",
-    "services.tags.direction": "DIREÇÃO",
-    "services.tags.social": "SOCIAL",
+    "services.s1.tag1": "Strategy",
+    "services.s1.tag2": "Positioning",
+    "services.s1.tag3": "Research",
+    "services.s1.tag4": "Content Strategy",
+    "services.s2.tag1": "Messaging",
+    "services.s2.tag2": "Copywriting",
+    "services.s2.tag3": "Storytelling",
+    "services.s2.tag4": "Scripts",
+    "services.s3.tag1": "Creative Direction",
+    "services.s3.tag2": "Video",
+    "services.s3.tag3": "Design",
+    "services.s3.tag4": "Landing Pages",
+    "services.s4.tag1": "Production",
+    "services.s4.tag2": "Leadership",
+    "services.s4.tag3": "Project Management",
+    "services.s4.tag4": "Campaigns",
     
     "work.tag": "// Portfólio",
     "work.heading": "O que eu <em>construí</em>",
@@ -3396,16 +3459,14 @@ window.translations = {
     
     "process.tag": "// Processo",
     "process.heading": "Como eu <em>trabalho</em>",
-    "process.p1.title": "Discovery",
-    "process.p1.desc": "Analysis of context, positioning, language, and brand perception.",
-    "process.p2.title": "Structure",
-    "process.p2.desc": "Defining strategy, narrative, and digital experience.",
-    "process.p3.title": "Build",
-    "process.p3.desc": "Building content, pages, and visual language, all connected to one system.",
-    "process.p4.title": "Adjustments",
-    "process.p4.desc": "Refinement of communication, aesthetics, and usability.",
-    "process.p5.title": "Delivery",
-    "process.p5.desc": "Delivery, implementation, and follow-up of the digital presence.",
+    "process.p1.title": "DIREÇÃO",
+    "process.p1.desc": "Entender o contexto, definir a estratégia e encontrar o caminho mais claro.",
+    "process.p2.title": "NARRATIVA",
+    "process.p2.desc": "Transformar ideias em conceitos, mensagens, histórias e linguagem.",
+    "process.p3.title": "EXPRESSÃO",
+    "process.p3.desc": "Dar forma à estratégia por meio de conteúdo, vídeo, design e experiências digitais.",
+    "process.p4.title": "REALIZAÇÃO",
+    "process.p4.desc": "Conduzir a produção, alinhar equipes e acompanhar a execução até a entrega.",
     
     "tools.tag": "// Ferramentas",
     "tools.heading": "Ferramentas",
@@ -3425,7 +3486,7 @@ window.translations = {
     "brands.s2": "Marcas",
     "brands.s3": "Anos de experiência",
     
-    "contact.heading": "<span>TEM UM</span><span>PROJETO?</span><em>VAMOS NESSA. <span class=\"title-star\"><svg viewBox=\"0 0 24 24\" width=\"1em\" height=\"1em\" fill=\"currentColor\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linejoin=\"round\" stroke-linecap=\"round\"><path d=\"M12 2.5l2.7 5.8 6.3.6-4.7 4.3 1.3 6.2L12 16.2l-5.6 3.2 1.3-6.2-4.7-4.3 6.3-.6L12 2.5z\"/></svg></span></em>",
+    "contact.heading": "<span>TEM UM</span><span>PROJETO?</span><em>VAMOS NESSA.<span class=\"title-star\"><svg viewBox=\"0 0 24 24\" width=\"1em\" height=\"1em\" fill=\"currentColor\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linejoin=\"round\" stroke-linecap=\"round\"><path d=\"M12 2.5l2.7 5.8 6.3.6-4.7 4.3 1.3 6.2L12 16.2l-5.6 3.2 1.3-6.2-4.7-4.3 6.3-.6L12 2.5z\"/></svg></span></em>",
     "contact.email": "E-mail",
     "contact.whatsapp": "WhatsApp",
     "contact.linkedin": "LinkedIn",
