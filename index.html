@@ -333,11 +333,12 @@ nav:hover {
 
 /* ABOUT */
 #about{position:relative;overflow:hidden;margin-top:4.5rem;}
-.mobile-break{display:none;}
+.mobile-break, .m-break { display: none !important; }
+.desktop-break, .d-break { display: block !important; }
 .about-left{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;text-align:left;gap:2rem;position:relative;z-index:2;}
 .section-tag{font-family:var(--ui);font-weight:800;font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--magenta);margin-bottom:1rem;line-height:1.4;}
 .about-heading, #contact .contact-heading {
-  font-family:var(--outfit);font-weight:600;font-size:clamp(2.4rem,4.2vw,3.6rem);letter-spacing:-0.02em;line-height:1.08;text-transform:none;margin-bottom:1.25rem;max-width:1000px;
+  font-family:var(--outfit);font-weight:600;font-size:clamp(2.8rem,5vw,4.2rem);letter-spacing:-0.02em;line-height:1.08;text-transform:none;margin-bottom:1.25rem;max-width:1000px;
 }
 .about-heading em{font-family:var(--outfit);font-style:italic;font-weight:400;color:var(--magenta);display:inline;margin-left:0 !important;}
 .word-highlight{color:var(--cyan);font-weight:400;}
@@ -429,7 +430,7 @@ nav:hover {
 #brands .positioning-statement {
   font-family: var(--outfit);
   font-weight: 600;
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2.1rem, 3.2vw, 2.7rem);
   letter-spacing: -0.03em;
   color: var(--black);
   line-height: 1.05;
@@ -1458,8 +1459,9 @@ section{isolation:isolate;}
     align-items: center;
   }
   .about-heading {
-    font-size: clamp(2.1rem, 9vw, 3rem) !important;
+    font-size: clamp(1.8rem, 7.5vw, 2.4rem) !important;
     line-height: 1.05 !important;
+    margin-bottom: 0 !important;
     text-align: left;
   }
   #contact .contact-heading {
@@ -1476,8 +1478,11 @@ section{isolation:isolate;}
   }
 
   /* UNIFIED MOBILE CONTAINER SIZING */
-  #about, #services, #portfolio, #process, #brands {
+  #about, #services, #portfolio, #process {
     padding: 1.25rem 1rem !important;
+  }
+  #brands {
+    padding: 0.25rem 1rem !important;
   }
   #contact {
     padding: 1.25rem 1rem 3rem 1rem !important;
@@ -1509,11 +1514,11 @@ section{isolation:isolate;}
     padding: 1.5rem 1.25rem 1rem !important;
   }
   #brands .brands-header {
-    padding: 1.5rem 1.25rem 0.25rem !important;
+    padding: 0.5rem 1.25rem 0.25rem !important;
   }
   /* Unify brands stats margin */
   #brands .positioning-stats {
-    margin: 0 1.25rem 1.5rem !important;
+    margin: 0 1.25rem 0.5rem !important;
   }
   /* Unify portfolio grid internal padding */
   #portfolio .portfolio-grid {
@@ -1521,8 +1526,8 @@ section{isolation:isolate;}
   }
   /* About left internal */
   .about-left {
-    padding: 3rem 2.5rem !important;
-    gap: 0.75rem !important;
+    padding: 2.75rem 2rem !important;
+    gap: 1.25rem !important;
     align-items: flex-start !important;
     text-align: left !important;
   }
@@ -1539,11 +1544,14 @@ section{isolation:isolate;}
     margin-bottom: 0.75rem !important;
   }
   .about-left .hero-cta-wrap {
-    margin-top: 0.25rem !important;
+    margin-top: 0 !important;
     justify-content: flex-start;
   }
   /* removed old about-heading rule as it's unified above */
-  .mobile-break {
+  .mobile-break, .m-break {
+    display: block !important;
+  }
+  .desktop-break, .d-break {
     display: none !important;
   }
 
@@ -1591,7 +1599,7 @@ section{isolation:isolate;}
 
 /* BRANDS / POSITIONING CARD */
 #brands {
-  padding: clamp(2rem, 3.5vw, 3.25rem) clamp(2.5rem, 8vw, 7rem);
+  padding: clamp(1rem, 2vw, 1.5rem) clamp(2.5rem, 8vw, 7rem);
   background: var(--black);
   position: relative;
   border-bottom: none;
@@ -2716,7 +2724,7 @@ footer {
     <div class="about-left">
       <div>
         <div class="section-tag reveal" data-i18n="about.tag">// CREATIVE STRATEGY</div>
-        <h2 class="about-heading reveal" data-i18n="about.heading">Connecting ideas<br>into something<br>people <em>remember.</em></h2>
+        <h2 class="about-heading reveal" data-i18n="about.heading">Connecting ideas<br class="m-break"> into<br class="d-break"> something<br class="m-break"> <span style="white-space:nowrap">people <em>remember.</em></span></h2>
       </div>
 
       <div class="hero-cta-wrap reveal">
@@ -3295,7 +3303,7 @@ window.translations = {
     "ticker.video": "Video Editing",
     
     "about.tag": "// CREATIVE STRATEGY",
-    "about.heading": "Connecting ideas<br>into something<br>people <em>remember.</em>",
+    "about.heading": "Connecting ideas<br class=\"m-break\"> into<br class=\"d-break\"> something<br class=\"m-break\"> <span style=\"white-space:nowrap\">people <em>remember.</em></span>",
     "skills.strategy": "Social Media Strategy",
     "skills.design": "Social Media Design",
     "skills.web": "Web Experiences",
