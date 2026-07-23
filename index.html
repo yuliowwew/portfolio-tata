@@ -595,7 +595,7 @@ nav:hover {
   letter-spacing: -0.02em;
   line-height: 1.18;
   color: var(--white);
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.5rem;
 }
 /* Legacy brands stats — neutralized, see editorial card rules below */
 .brand-name{font-family:var(--ui);font-weight:700;font-size:0.7rem;letter-spacing:0.06em;color:rgba(26,26,26,0.3);text-align:center;transition:color .15s;}
@@ -1463,7 +1463,7 @@ section{isolation:isolate;}
     text-align: left;
   }
   #contact .contact-heading {
-    font-size: clamp(1.55rem, 6vw, 2.2rem) !important;
+    font-size: clamp(2rem, 8vw, 2.6rem) !important;
     text-align: center;
   }
   #services .services-heading,
@@ -1472,7 +1472,7 @@ section{isolation:isolate;}
   #brands .brands-heading,
   #testimonials .testi-heading,
   #brands .positioning-statement {
-    font-size: clamp(1.4rem, 5vw, 1.8rem) !important;
+    font-size: clamp(1.75rem, 6.5vw, 2.2rem) !important;
   }
 
   /* UNIFIED MOBILE CONTAINER SIZING */
@@ -1505,9 +1505,11 @@ section{isolation:isolate;}
   /* Unify inner card header padding */
   #services .services-header,
   #portfolio .portfolio-header,
-  #process .process-header,
-  #brands .brands-header {
+  #process .process-header {
     padding: 1.5rem 1.25rem 1rem !important;
+  }
+  #brands .brands-header {
+    padding: 1.5rem 1.25rem 0.25rem !important;
   }
   /* Unify brands stats margin */
   #brands .positioning-stats {
@@ -1608,7 +1610,7 @@ section{isolation:isolate;}
   border: none;
 }
 #brands .brands-header {
-  padding: clamp(2rem, 3.5vw, 3rem) clamp(2.5rem, 5vw, 4.5rem) 1.25rem;
+  padding: clamp(2rem, 3.5vw, 3rem) clamp(2.5rem, 5vw, 4.5rem) 0.25rem;
 }
 #brands .positioning-statement {
   font-family: var(--outfit);
@@ -1617,7 +1619,7 @@ section{isolation:isolate;}
   letter-spacing: -0.02em;
   line-height: 1.18;
   color: var(--white);
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 #brands .positioning-stats {
   display: grid;
@@ -2714,7 +2716,7 @@ footer {
     <div class="about-left">
       <div>
         <div class="section-tag reveal" data-i18n="about.tag">// CREATIVE STRATEGY</div>
-        <h2 class="about-heading reveal" data-i18n="about.heading">Connecting ideas into <br>something people <br class="mobile-break"><em>remember.</em></h2>
+        <h2 class="about-heading reveal" data-i18n="about.heading">Connecting ideas<br>into something<br>people <em>remember.</em></h2>
       </div>
 
       <div class="hero-cta-wrap reveal">
@@ -3293,7 +3295,7 @@ window.translations = {
     "ticker.video": "Video Editing",
     
     "about.tag": "// CREATIVE STRATEGY",
-    "about.heading": "Connecting ideas into <br>something people <br class=\"mobile-break\"><em>remember.</em>",
+    "about.heading": "Connecting ideas<br>into something<br>people <em>remember.</em>",
     "skills.strategy": "Social Media Strategy",
     "skills.design": "Social Media Design",
     "skills.web": "Web Experiences",
