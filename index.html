@@ -337,8 +337,11 @@ nav:hover {
 .desktop-break, .d-break { display: block !important; }
 .about-left{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;text-align:left;gap:2rem;position:relative;z-index:2;}
 .section-tag{font-family:var(--ui);font-weight:800;font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--magenta);margin-bottom:1rem;line-height:1.4;}
-.about-heading, #contact .contact-heading {
+.about-heading {
   font-family:var(--outfit);font-weight:600;font-size:clamp(2.8rem,5vw,4.2rem);letter-spacing:-0.02em;line-height:1.08;text-transform:none;margin-bottom:1.25rem;max-width:1000px;
+}
+#contact .contact-heading {
+  font-family:var(--outfit);font-weight:600;font-size:clamp(2.2rem,3.8vw,3.4rem);letter-spacing:-0.02em;line-height:1.08;text-transform:none;margin-bottom:1.25rem;max-width:1000px;
 }
 .about-heading em{font-family:var(--outfit);font-style:italic;font-weight:400;color:var(--magenta);display:inline;margin-left:0 !important;}
 .word-highlight{color:var(--cyan);font-weight:400;}
@@ -2724,7 +2727,7 @@ footer {
     <div class="about-left">
       <div>
         <div class="section-tag reveal" data-i18n="about.tag">// CREATIVE STRATEGY</div>
-        <h2 class="about-heading reveal" data-i18n="about.heading">Connecting ideas<br class="m-break"> into<br class="d-break"> something<br class="m-break"> <span style="white-space:nowrap">people <em>remember.</em></span></h2>
+        <h2 class="about-heading reveal" data-i18n="about.heading"><span style="white-space:nowrap">Connecting ideas</span><br class="m-break"> into<br class="d-break"> <span style="white-space:nowrap">something</span><br class="m-break"> <span style="white-space:nowrap">people <em>remember.</em></span></h2>
       </div>
 
       <div class="hero-cta-wrap reveal">
@@ -2920,7 +2923,7 @@ footer {
   <div class="editorial-card">
     <div class="contact-inner">
       <div class="contact-left reveal">
-        <h2 class="contact-heading" data-i18n="contact.heading"><span>Got a project?</span><em><span class="title-star"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><path d="M12 2.5l2.7 5.8 6.3.6-4.7 4.3 1.3 6.2L12 16.2l-5.6 3.2 1.3-6.2-4.7-4.3 6.3-.6L12 2.5z"/></svg><svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><path d="M12 2.5l2.7 5.8 6.3.6-4.7 4.3 1.3 6.2L12 16.2l-5.6 3.2 1.3-6.2-4.7-4.3 6.3-.6L12 2.5z"/></svg><svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><path d="M12 2.5l2.7 5.8 6.3.6-4.7 4.3 1.3 6.2L12 16.2l-5.6 3.2 1.3-6.2-4.7-4.3 6.3-.6L12 2.5z"/></svg></span> Let's go.</em></h2>
+        <h2 class="contact-heading" data-i18n="contact.heading"><span style="white-space:nowrap">Got a project?</span><em><span class="title-star"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><path d="M12 2.5l2.7 5.8 6.3.6-4.7 4.3 1.3 6.2L12 16.2l-5.6 3.2 1.3-6.2-4.7-4.3 6.3-.6L12 2.5z"/></svg><svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><path d="M12 2.5l2.7 5.8 6.3.6-4.7 4.3 1.3 6.2L12 16.2l-5.6 3.2 1.3-6.2-4.7-4.3 6.3-.6L12 2.5z"/></svg><svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><path d="M12 2.5l2.7 5.8 6.3.6-4.7 4.3 1.3 6.2L12 16.2l-5.6 3.2 1.3-6.2-4.7-4.3 6.3-.6L12 2.5z"/></svg></span> Let's go.</em></h2>
       </div>
 
       <!-- MOBILE-ONLY: Direct CTA buttons (hidden on desktop) -->
@@ -3303,7 +3306,7 @@ window.translations = {
     "ticker.video": "Video Editing",
     
     "about.tag": "// CREATIVE STRATEGY",
-    "about.heading": "Connecting ideas<br class=\"m-break\"> into<br class=\"d-break\"> something<br class=\"m-break\"> <span style=\"white-space:nowrap\">people <em>remember.</em></span>",
+    "about.heading": "<span style=\"white-space:nowrap\">Connecting ideas</span><br class=\"m-break\"> into<br class=\"d-break\"> <span style=\"white-space:nowrap\">something</span><br class=\"m-break\"> <span style=\"white-space:nowrap\">people <em>remember.</em></span>",
     "skills.strategy": "Social Media Strategy",
     "skills.design": "Social Media Design",
     "skills.web": "Web Experiences",
@@ -3399,7 +3402,7 @@ window.translations = {
     "brands.s2": "Brands",
     "brands.s3": "Years in the field",
     
-    "contact.heading": "<span>Got a project?</span><em><span class=\"title-star\"><svg viewBox=\"0 0 24 24\" width=\"1em\" height=\"1em\" fill=\"currentColor\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linejoin=\"round\" stroke-linecap=\"round\"><path d=\"M12 2.5l2.7 5.8 6.3.6-4.7 4.3 1.3 6.2L12 16.2l-5.6 3.2 1.3-6.2-4.7-4.3 6.3-.6L12 2.5z\"/></svg><svg viewBox=\"0 0 24 24\" width=\"1em\" height=\"1em\" fill=\"currentColor\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linejoin=\"round\" stroke-linecap=\"round\"><path d=\"M12 2.5l2.7 5.8 6.3.6-4.7 4.3 1.3 6.2L12 16.2l-5.6 3.2 1.3-6.2-4.7-4.3 6.3-.6L12 2.5z\"/></svg><svg viewBox=\"0 0 24 24\" width=\"1em\" height=\"1em\" fill=\"currentColor\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linejoin=\"round\" stroke-linecap=\"round\"><path d=\"M12 2.5l2.7 5.8 6.3.6-4.7 4.3 1.3 6.2L12 16.2l-5.6 3.2 1.3-6.2-4.7-4.3 6.3-.6L12 2.5z\"/></svg></span> Let's go.</em>",
+    "contact.heading": "<span style=\"white-space:nowrap\">Got a project?</span><em><span class=\"title-star\"><svg viewBox=\"0 0 24 24\" width=\"1em\" height=\"1em\" fill=\"currentColor\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linejoin=\"round\" stroke-linecap=\"round\"><path d=\"M12 2.5l2.7 5.8 6.3.6-4.7 4.3 1.3 6.2L12 16.2l-5.6 3.2 1.3-6.2-4.7-4.3 6.3-.6L12 2.5z\"/></svg><svg viewBox=\"0 0 24 24\" width=\"1em\" height=\"1em\" fill=\"currentColor\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linejoin=\"round\" stroke-linecap=\"round\"><path d=\"M12 2.5l2.7 5.8 6.3.6-4.7 4.3 1.3 6.2L12 16.2l-5.6 3.2 1.3-6.2-4.7-4.3 6.3-.6L12 2.5z\"/></svg><svg viewBox=\"0 0 24 24\" width=\"1em\" height=\"1em\" fill=\"currentColor\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linejoin=\"round\" stroke-linecap=\"round\"><path d=\"M12 2.5l2.7 5.8 6.3.6-4.7 4.3 1.3 6.2L12 16.2l-5.6 3.2 1.3-6.2-4.7-4.3 6.3-.6L12 2.5z\"/></svg></span> Let's go.</em>",
     "contact.email": "Email",
     "contact.whatsapp": "WhatsApp",
     "contact.linkedin": "LinkedIn",
@@ -3442,7 +3445,7 @@ window.translations = {
     "ticker.video": "Edição de Vídeo",
     
     "about.tag": "// ESTRATÉGIA CRIATIVA",
-    "about.heading": "Conectando ideias<br class=\"m-break\"> em<br class=\"d-break\"> algo que as<br class=\"m-break\"> <span style=\"white-space:nowrap\">pessoas <em>lembram.</em></span>",
+    "about.heading": "<span style=\"white-space:nowrap\">Conectando ideias</span><br class=\"m-break\"> <span style=\"white-space:nowrap\">em</span><br class=\"d-break\"> <span style=\"white-space:nowrap\">algo que as</span><br class=\"m-break\"> <span style=\"white-space:nowrap\">pessoas <em>lembram.</em></span>",
     "skills.strategy": "Estratégia de Redes Sociais",
     "skills.design": "Design de Redes Sociais",
     "skills.web": "Experiências Web",
@@ -3538,7 +3541,7 @@ window.translations = {
     "brands.s2": "Marcas",
     "brands.s3": "Anos de experiência",
     
-    "contact.heading": "<span>Tem um projeto?</span><em>Vamos nessa.<span class=\"title-star\"><svg viewBox=\"0 0 24 24\" width=\"1em\" height=\"1em\" fill=\"currentColor\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linejoin=\"round\" stroke-linecap=\"round\"><path d=\"M12 2.5l2.7 5.8 6.3.6-4.7 4.3 1.3 6.2L12 16.2l-5.6 3.2 1.3-6.2-4.7-4.3 6.3-.6L12 2.5z\"/></svg></span></em>",
+    "contact.heading": "<span style=\"white-space:nowrap\">Tem um projeto?</span><em>Vamos nessa.<span class=\"title-star\"><svg viewBox=\"0 0 24 24\" width=\"1em\" height=\"1em\" fill=\"currentColor\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linejoin=\"round\" stroke-linecap=\"round\"><path d=\"M12 2.5l2.7 5.8 6.3.6-4.7 4.3 1.3 6.2L12 16.2l-5.6 3.2 1.3-6.2-4.7-4.3 6.3-.6L12 2.5z\"/></svg></span></em>",
     "contact.email": "E-mail",
     "contact.whatsapp": "WhatsApp",
     "contact.linkedin": "LinkedIn",
