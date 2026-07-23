@@ -1424,7 +1424,6 @@ section{isolation:isolate;}
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     gap: 0;
-    padding-bottom: 1rem;
     scrollbar-width: none;
   }
   #process .process-steps::-webkit-scrollbar {
@@ -1435,7 +1434,7 @@ section{isolation:isolate;}
     scroll-snap-align: start;
     border-right: 2px solid var(--black) !important;
     border-bottom: none !important;
-    padding: 2rem 1.5rem;
+    padding: 2rem 1.5rem 3rem 1.5rem;
     box-sizing: border-box;
   }
   #process .process-step:last-child {
@@ -1459,7 +1458,8 @@ section{isolation:isolate;}
     align-items: center;
   }
   .about-heading {
-    font-size: clamp(1.55rem, 6vw, 2.2rem) !important;
+    font-size: clamp(2.1rem, 9vw, 3rem) !important;
+    line-height: 1.05 !important;
     text-align: left;
   }
   #contact .contact-heading {
@@ -1528,6 +1528,10 @@ section{isolation:isolate;}
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+  }
+  .section-tag {
+    font-size: 0.62rem !important;
+    padding: 0.25rem 0.6rem !important;
   }
   .about-left .section-tag {
     margin-bottom: 0.75rem !important;
