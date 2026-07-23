@@ -336,7 +336,7 @@ nav:hover {
 .mobile-break{display:none;}
 .about-left{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;text-align:left;gap:2rem;position:relative;z-index:2;}
 .section-tag{font-family:var(--ui);font-weight:800;font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--magenta);margin-bottom:1rem;line-height:1.4;}
-.about-heading{font-family:var(--outfit);font-weight:600;font-size:clamp(2.4rem,4.2vw,3.6rem);letter-spacing:-0.03em;line-height:0.95;text-transform:uppercase;margin-bottom:1.25rem;max-width:1000px;}
+.about-heading{font-family:var(--outfit);font-weight:600;font-size:clamp(2.4rem,4.2vw,3.6rem);letter-spacing:-0.02em;line-height:1.08;text-transform:none;margin-bottom:1.25rem;max-width:1000px;}
 .about-heading em{font-family:var(--outfit);font-style:italic;font-weight:400;color:var(--magenta);display:inline;margin-left:0 !important;}
 .word-highlight{color:var(--cyan);font-weight:400;}
 .about-bio{font-family:var(--hv);font-size:clamp(1.05rem,1.35vw,1.2rem);line-height:1.6;color:rgba(26,26,26,0.75);max-width:580px;margin-bottom:0;}
@@ -1882,15 +1882,22 @@ footer {
     display: none !important;
   }
   #brands .positioning-stats {
-    grid-template-columns: 1fr;
-    gap: 0;
+    grid-template-columns: repeat(3, 1fr);
   }
   #brands .pstat {
-    border-right: none;
-    border-bottom: 2px solid var(--white);
+    border-right: 2px solid var(--white);
+    border-bottom: none;
+    padding: 1rem 0.25rem;
   }
   #brands .pstat:last-child {
+    border-right: none;
     border-bottom: none;
+  }
+  #brands .pstat-num {
+    font-size: clamp(1.4rem, 6vw, 2.5rem);
+  }
+  #brands .pstat-label {
+    font-size: 0.55rem;
   }
 }
 
@@ -2847,7 +2854,7 @@ footer {
   <div class="ast ast-2"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><path d="M12 2.5l2.7 5.8 6.3.6-4.7 4.3 1.3 6.2L12 16.2l-5.6 3.2 1.3-6.2-4.7-4.3 6.3-.6L12 2.5z"/></svg></div>
   <div class="editorial-card">
     <div class="brands-header">
-      <h2 class="positioning-statement reveal" data-i18n="brands.heading">Perception drives attention.<br>Attention drives results.</h2>
+      <h2 class="positioning-statement reveal" data-i18n="brands.heading">Perception drives attention. Attention drives results.</h2>
     </div>
     <div class="positioning-stats reveal">
       <div class="pstat">
@@ -3341,7 +3348,7 @@ window.translations = {
     "tools.g3": "Strategy & Social",
     "tools.g4": "Management",
     
-    "brands.heading": "Perception drives attention.<br>Attention drives results.",
+    "brands.heading": "Perception drives attention. Attention drives results.",
     "brands.s1": "Views",
     "brands.s2": "Brands",
     "brands.s3": "Years in the field",
@@ -3479,7 +3486,7 @@ window.translations = {
     "tools.g3": "Estratégia & Social",
     "tools.g4": "Gestão",
     
-    "brands.heading": "Percepção gera atenção.<br>Atenção gera resultados.",
+    "brands.heading": "Percepção gera atenção. Atenção gera resultados.",
     "brands.s1": "Views",
     "brands.s2": "Marcas",
     "brands.s3": "Anos de experiência",
