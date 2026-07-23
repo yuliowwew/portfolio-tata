@@ -169,8 +169,6 @@ nav:hover {
   inset: 0;
   z-index: 99999;
   background: #121212;
-  background-image: radial-gradient(rgba(255, 43, 138, 0.15) 1px, transparent 0);
-  background-size: 24px 24px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -338,7 +336,7 @@ nav:hover {
 .mobile-break{display:none;}
 .about-left{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;text-align:left;gap:2rem;position:relative;z-index:2;}
 .section-tag{font-family:var(--ui);font-weight:800;font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--magenta);margin-bottom:1rem;line-height:1.4;}
-.about-heading{font-family:var(--outfit);font-weight:600;font-size:clamp(2.4rem,4.2vw,3.6rem);letter-spacing:-0.02em;line-height:1.08;text-transform:none;margin-bottom:1.25rem;max-width:1000px;}
+.about-heading{font-family:var(--outfit);font-weight:600;font-size:clamp(2.4rem,4.2vw,3.6rem);letter-spacing:-0.03em;line-height:0.95;text-transform:uppercase;margin-bottom:1.25rem;max-width:1000px;}
 .about-heading em{font-family:var(--outfit);font-style:italic;font-weight:400;color:var(--magenta);display:inline;margin-left:0 !important;}
 .word-highlight{color:var(--cyan);font-weight:400;}
 .about-bio{font-family:var(--hv);font-size:clamp(1.05rem,1.35vw,1.2rem);line-height:1.6;color:rgba(26,26,26,0.75);max-width:580px;margin-bottom:0;}
@@ -1501,8 +1499,8 @@ section{isolation:isolate;}
   }
   /* About left internal */
   .about-left {
-    padding: 2rem 3.5rem 2.5rem 2.5rem !important;
-    gap: 0.5rem !important;
+    padding: 3rem 2rem !important;
+    gap: 0.75rem !important;
     align-items: flex-start !important;
     text-align: left !important;
   }
@@ -1512,18 +1510,18 @@ section{isolation:isolate;}
     align-items: flex-start;
   }
   .about-left .section-tag {
-    margin-bottom: 0.25rem !important;
+    margin-bottom: 0.75rem !important;
   }
   .about-left .hero-cta-wrap {
-    margin-top: 0 !important;
+    margin-top: 0.25rem !important;
     justify-content: flex-start;
   }
   .about-heading {
-    font-size: clamp(1.9rem, 7.5vw, 2.5rem) !important;
+    font-size: clamp(1.65rem, 6.5vw, 2.1rem) !important;
     margin-bottom: 0 !important;
   }
   .mobile-break {
-    display: inline !important;
+    display: none !important;
   }
 
   /* NAVBAR REDESIGN ON MOBILE */
@@ -2678,7 +2676,7 @@ footer {
     <div class="about-left">
       <div>
         <div class="section-tag reveal" data-i18n="about.tag">// CREATIVE STRATEGY</div>
-        <h2 class="about-heading reveal" data-i18n="about.heading">Connecting ideas into<br>something people <br class="mobile-break"><em>remember.</em></h2>
+        <h2 class="about-heading reveal" data-i18n="about.heading">Connecting ideas into <br>something people <br class="mobile-break"><em>remember.</em></h2>
       </div>
 
       <div class="hero-cta-wrap reveal">
@@ -3252,7 +3250,7 @@ window.translations = {
     "ticker.video": "Video Editing",
     
     "about.tag": "// CREATIVE STRATEGY",
-    "about.heading": "Connecting ideas into<br>something people <br class=\"mobile-break\"><em>remember.</em>",
+    "about.heading": "Connecting ideas into <br>something people <br class=\"mobile-break\"><em>remember.</em>",
     "skills.strategy": "Social Media Strategy",
     "skills.design": "Social Media Design",
     "skills.web": "Web Experiences",
@@ -3390,7 +3388,7 @@ window.translations = {
     "ticker.video": "Edição de Vídeo",
     
     "about.tag": "// ESTRATÉGIA CRIATIVA",
-    "about.heading": "Conectando ideias em<br>algo que as pessoas <br class=\"mobile-break\"><em>lembram.</em>",
+    "about.heading": "Conectando ideias em <br>algo que as pessoas <br class=\"mobile-break\"><em>lembram.</em>",
     "skills.strategy": "Estratégia de Redes Sociais",
     "skills.design": "Design de Redes Sociais",
     "skills.web": "Experiências Web",
@@ -3410,21 +3408,21 @@ window.translations = {
     "services.tag": "// O QUE EU FAÇO",
     "services.heading": "Comece por onde precisar",
     
-    "services.s1.title": "THINK",
-    "services.s1.problem": "Find the idea.",
-    "services.s1.desc": "Strategy, positioning and content planning.",
+    "services.s1.title": "PENSAR",
+    "services.s1.problem": "Encontrar a ideia.",
+    "services.s1.desc": "Estratégia, posicionamento e planejamento de conteúdo.",
     
-    "services.s2.title": "TELL",
-    "services.s2.problem": "Give it a voice.",
-    "services.s2.desc": "Messaging, storytelling, copy and scripts.",
+    "services.s2.title": "DIZER",
+    "services.s2.problem": "Colocar em palavras.",
+    "services.s2.desc": "Mensagem, narrativa, copy e roteiro.",
     
-    "services.s3.title": "MAKE",
-    "services.s3.problem": "Bring it to life.",
-    "services.s3.desc": "Creative direction, video, design and digital experiences.",
+    "services.s3.title": "CRIAR",
+    "services.s3.problem": "Tirar do papel.",
+    "services.s3.desc": "Direção criativa, vídeo, design e experiências digitais.",
     
-    "services.s4.title": "LEAD",
-    "services.s4.problem": "Keep it moving.",
-    "services.s4.desc": "Production, coordination and creative leadership from concept to delivery.",
+    "services.s4.title": "CONDUZIR",
+    "services.s4.problem": "Manter em movimento.",
+    "services.s4.desc": "Produção, coordenação e liderança criativa do conceito à entrega.",
     
     "services.s1.tag1": "Strategy",
     "services.s1.tag2": "Positioning",
