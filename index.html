@@ -336,7 +336,9 @@ nav:hover {
 .mobile-break{display:none;}
 .about-left{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;text-align:left;gap:2rem;position:relative;z-index:2;}
 .section-tag{font-family:var(--ui);font-weight:800;font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--magenta);margin-bottom:1rem;line-height:1.4;}
-.about-heading{font-family:var(--outfit);font-weight:600;font-size:clamp(2.4rem,4.2vw,3.6rem);letter-spacing:-0.02em;line-height:1.08;text-transform:none;margin-bottom:1.25rem;max-width:1000px;}
+.about-heading, #contact .contact-heading {
+  font-family:var(--outfit);font-weight:600;font-size:clamp(2.4rem,4.2vw,3.6rem);letter-spacing:-0.02em;line-height:1.08;text-transform:none;margin-bottom:1.25rem;max-width:1000px;
+}
 .about-heading em{font-family:var(--outfit);font-style:italic;font-weight:400;color:var(--magenta);display:inline;margin-left:0 !important;}
 .word-highlight{color:var(--cyan);font-weight:400;}
 .about-bio{font-family:var(--hv);font-size:clamp(1.05rem,1.35vw,1.2rem);line-height:1.6;color:rgba(26,26,26,0.75);max-width:580px;margin-bottom:0;}
@@ -421,7 +423,10 @@ nav:hover {
 }
 #services .services-heading,
 #portfolio .portfolio-heading,
-#process .process-heading {
+#process .process-heading,
+#brands .brands-heading,
+#testimonials .testi-heading,
+#brands .positioning-statement {
   font-family: var(--outfit);
   font-weight: 600;
   font-size: clamp(2rem, 4vw, 3rem);
@@ -1453,9 +1458,21 @@ section{isolation:isolate;}
   #contact .contact-left {
     align-items: center;
   }
+  .about-heading {
+    font-size: clamp(1.55rem, 6vw, 2.2rem) !important;
+    text-align: left;
+  }
   #contact .contact-heading {
     font-size: clamp(1.55rem, 6vw, 2.2rem) !important;
     text-align: center;
+  }
+  #services .services-heading,
+  #portfolio .portfolio-heading,
+  #process .process-heading,
+  #brands .brands-heading,
+  #testimonials .testi-heading,
+  #brands .positioning-statement {
+    font-size: clamp(1.4rem, 5vw, 1.8rem) !important;
   }
 
   /* UNIFIED MOBILE CONTAINER SIZING */
@@ -1502,7 +1519,7 @@ section{isolation:isolate;}
   }
   /* About left internal */
   .about-left {
-    padding: 3rem 2rem !important;
+    padding: 3rem 2.5rem !important;
     gap: 0.75rem !important;
     align-items: flex-start !important;
     text-align: left !important;
@@ -1519,10 +1536,7 @@ section{isolation:isolate;}
     margin-top: 0.25rem !important;
     justify-content: flex-start;
   }
-  .about-heading {
-    font-size: clamp(1.65rem, 6.5vw, 2.1rem) !important;
-    margin-bottom: 0 !important;
-  }
+  /* removed old about-heading rule as it's unified above */
   .mobile-break {
     display: none !important;
   }
@@ -1671,13 +1685,6 @@ section{isolation:isolate;}
   padding: 0;
 }
 #contact .contact-heading {
-  font-family: var(--outfit);
-  font-weight: 600;
-  font-size: clamp(2.1rem, 4vw, 3.8rem);
-  letter-spacing: -0.02em;
-  line-height: 1.08;
-  text-transform: none;
-  color: var(--white);
   margin-bottom: 0;
 }
 #contact .contact-heading span, #contact .contact-heading em {
